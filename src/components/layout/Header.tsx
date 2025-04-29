@@ -32,7 +32,7 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'AI Marketplace', href: '/agents' },
+    { name: 'AI Marketplace', href: '/marketplace' },
   ];
 
   const getDashboardLink = () => {
