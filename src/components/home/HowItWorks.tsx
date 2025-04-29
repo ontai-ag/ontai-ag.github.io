@@ -1,47 +1,50 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { Play, MousePointerClick, Sparkles, CreditCard, CheckCheck } from 'lucide-react';
 import { CustomButton } from '@/components/ui-custom/Button';
 
-const steps = [
+// Define keys for translation
+const stepKeys = [
   {
     id: 1,
-    title: 'Browse & Select',
-    description: 'Find the perfect AI agent for your task from our marketplace of specialized tools.',
+    titleKey: 'howItWorks.steps.browse.title',
+    descriptionKey: 'howItWorks.steps.browse.description',
     icon: <MousePointerClick className="h-6 w-6" />,
     color: 'bg-blue-100 text-blue-600',
   },
   {
     id: 2,
-    title: 'Submit Your Task',
-    description: 'Provide details, requirements, and any relevant files or references.',
+    titleKey: 'howItWorks.steps.submit.title',
+    descriptionKey: 'howItWorks.steps.submit.description',
     icon: <Play className="h-6 w-6" />,
     color: 'bg-purple-100 text-purple-600',
   },
   {
     id: 3,
-    title: 'AI Processing',
-    description: 'Our specialized AI agent works on your task with precision and expertise.',
+    titleKey: 'howItWorks.steps.process.title',
+    descriptionKey: 'howItWorks.steps.process.description',
     icon: <Sparkles className="h-6 w-6" />,
     color: 'bg-amber-100 text-amber-600',
   },
   {
     id: 4,
-    title: 'Review & Pay',
-    description: 'Get results in real-time, provide feedback, and only pay for what you approve.',
+    titleKey: 'howItWorks.steps.review.title',
+    descriptionKey: 'howItWorks.steps.review.description',
     icon: <CreditCard className="h-6 w-6" />,
     color: 'bg-emerald-100 text-emerald-600',
   },
   {
     id: 5,
-    title: 'Done',
-    description: 'Download your completed work and enjoy the efficiency of specialized AI.',
+    titleKey: 'howItWorks.steps.done.title',
+    descriptionKey: 'howItWorks.steps.done.description',
     icon: <CheckCheck className="h-6 w-6" />,
     color: 'bg-green-100 text-green-600',
   },
 ];
 
 const HowItWorks = () => {
+  const { t } = useTranslation(); // Initialize useTranslation
   const [activeStep, setActiveStep] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
   
@@ -65,7 +68,7 @@ const HowItWorks = () => {
     if (!isVisible) return;
     
     const interval = setInterval(() => {
-      setActiveStep((prev) => (prev === steps.length ? 1 : prev + 1));
+      setActiveStep((prev) => (prev === stepKeys.length ? 1 : prev + 1));
     }, 3000);
     
     return () => clearInterval(interval);
@@ -78,12 +81,12 @@ const HowItWorks = () => {
           <h2 
             className={`text-3xl font-bold tracking-tight text-gray-900 md:text-4xl mb-4 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            How It Works
+            {t('howItWorks.title')} {/* Translate title */}
           </h2>
           <p 
             className={`text-lg text-gray-600 md:max-w-2xl mx-auto transition-all duration-500 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            Get from task to completion in minutes with our streamlined process
+            {t('howItWorks.description')} {/* Translate description */}
           </p>
         </div>
 
@@ -97,13 +100,13 @@ const HowItWorks = () => {
             <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -z-10"></div>
             <div 
               className="absolute top-1/2 left-0 h-1 bg-primary transition-all duration-1000 -z-10"
-              style={{ width: `${(activeStep - 1) * 25}%` }}
+              style={{ width: `${(activeStep - 1) * (100 / (stepKeys.length - 1))}%` }} // Adjusted width calculation
             ></div>
             
-            {steps.map((step) => (
+            {stepKeys.map((step) => (
               <button
                 key={step.id}
-                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${ 
                   step.id === activeStep
                     ? step.color + ' ring-4 ring-white shadow-md'
                     : step.id < activeStep
@@ -111,6 +114,7 @@ const HowItWorks = () => {
                     : 'bg-gray-100 text-gray-400'
                 }`}
                 onClick={() => setActiveStep(step.id)}
+                aria-label={t(step.titleKey)} // Add aria-label for accessibility
               >
                 {step.id < activeStep ? (
                   <CheckCheck className="h-5 w-5" />
@@ -124,12 +128,12 @@ const HowItWorks = () => {
           {/* Active step details */}
           <div className="bg-white rounded-2xl shadow-soft p-8 transition-all duration-300 transform">
             <div className="flex flex-col md:flex-row gap-6 items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center ${steps[activeStep - 1].color}`}>
-                {steps[activeStep - 1].icon}
+              <div className={`w-16 h-16 rounded-full flex items-center justify-center ${stepKeys[activeStep - 1].color}`}>
+                {stepKeys[activeStep - 1].icon}
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-xl font-semibold mb-2">{steps[activeStep - 1].title}</h3>
-                <p className="text-gray-600">{steps[activeStep - 1].description}</p>
+                <h3 className="text-xl font-semibold mb-2">{t(stepKeys[activeStep - 1].titleKey)}</h3> {/* Translate step title */}
+                <p className="text-gray-600">{t(stepKeys[activeStep - 1].descriptionKey)}</p> {/* Translate step description */}
               </div>
             </div>
           </div>
@@ -140,7 +144,7 @@ const HowItWorks = () => {
           className={`text-center transition-all duration-500 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           <CustomButton size="lg" className="rounded-full">
-            Get Started Now
+            {t('howItWorks.ctaButton')} {/* Translate button text */}
           </CustomButton>
         </div>
       </div>

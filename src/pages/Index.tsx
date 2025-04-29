@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // Add this import
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
@@ -12,6 +13,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 
 const Index = () => {
+  const { t } = useTranslation(); // Initialize t function
   const { isAuthenticated, signOut } = useAppAuth();
   const { toast } = useToast();
   
@@ -35,8 +37,8 @@ const Index = () => {
       await signOut();
       
       toast({
-        title: "Emergency Sign Out",
-        description: "All session data has been cleared.",
+        title: t('emergencySignOut.title'), // Replace string
+        description: t('emergencySignOut.successDescription'), // Replace string
       });
       
       // Force reload to clear all state
@@ -44,8 +46,8 @@ const Index = () => {
     } catch (error) {
       console.error("Emergency sign out error:", error);
       toast({
-        title: "Emergency sign out failed",
-        description: "Please try again or clear your browser cookies manually.",
+        title: t('emergencySignOut.failTitle'), // Replace string
+        description: t('emergencySignOut.failDescription'), // Replace string
         variant: "destructive",
       });
       
@@ -74,7 +76,7 @@ const Index = () => {
             onClick={handleEmergencySignOut}
             className="text-sm"
           >
-            Emergency Sign Out (Debug)
+            {t('emergencySignOut.buttonLabel')} {/* Replace string */}
           </Button>
         </div>
       )}

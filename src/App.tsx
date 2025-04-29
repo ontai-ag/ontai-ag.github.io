@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAppAuth } from "./contexts/AuthContext";
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next'; // Импортируем хук
+// import LanguageSwitcher from "@/components/ui-custom/LanguageSwitcher";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -50,103 +52,61 @@ const AuthChecker = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-const routes = [
-  {
-    path: "/",
-    element: <Index />,
-  },
-  {
-    path: "/marketplace",
-    element: <Marketplace />,
-  },
-  {
-    path: "/agents",
-    element: <AgentMarketplace />,
-  },
-  {
-    path: "/sign-in",
-    element: <SignIn />,
-  },
-  {
-    path: "/sign-up",
-    element: <SignUp />,
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <ProtectedRoute>
-        <Dashboard />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/developer",
-    element: (
-      <ProtectedRoute allowedRoles={['developer', 'admin']}>
-        <DeveloperDashboard />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/developer/create-agent",
-    element: (
-      <ProtectedRoute allowedRoles={['developer', 'admin']}>
-        <CreateAgent />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/developer/manage-agents",
-    element: (
-      <ProtectedRoute allowedRoles={['developer', 'admin']}>
-        <ManageAgents />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/admin/*",
-    element: (
-      <ProtectedRoute allowedRoles={['admin']}>
-        <AdminDashboard />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/task-submission",
-    element: <TaskSubmission />,
-  },
-  {
-    path: "/tasks/:id",
-    element: (
-      <ProtectedRoute>
-        <TaskDetails />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-];
+function App() {
+  const { t } = useTranslation(); // Используем хук для получения функции перевода
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
+  return (
+    <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <BrowserRouter>
-          <AuthChecker>
-            <Routes>
-              {routes.map((route) => (
-                <Route key={route.path} {...route} />
-              ))}
-            </Routes>
-          </AuthChecker>
-        </BrowserRouter>
+        <AuthChecker>
+          <TooltipProvider>
+            <BrowserRouter>
+              
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/marketplace" element={<Marketplace />} />
+                <Route path="/agent-marketplace" element={<AgentMarketplace />} />
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/dashboard" element={<DashboardRedirect />} />
+                <Route
+                  path="/dashboard/user"
+                  element={<ProtectedRoute allowedRoles={['user']}><Dashboard /></ProtectedRoute>}
+                />
+                <Route
+                  path="/dashboard/developer"
+                  element={<ProtectedRoute allowedRoles={['developer']}><DeveloperDashboard /></ProtectedRoute>}
+                />
+                <Route
+                  path="/dashboard/admin"
+                  element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>}
+                />
+                <Route
+                  path="/developer/create-agent"
+                  element={<ProtectedRoute allowedRoles={['developer']}><CreateAgent /></ProtectedRoute>}
+                />
+                <Route
+                  path="/developer/manage-agents"
+                  element={<ProtectedRoute allowedRoles={['developer']}><ManageAgents /></ProtectedRoute>}
+                />
+                <Route 
+                  path="/task-submission" 
+                  element={<ProtectedRoute allowedRoles={['user']}><TaskSubmission /></ProtectedRoute>} 
+                />
+                <Route 
+                  path="/task/:taskId" 
+                  element={<ProtectedRoute allowedRoles={['user']}><TaskDetails /></ProtectedRoute>} 
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+            <Toaster />
+            <Sonner />
+          </TooltipProvider>
+        </AuthChecker>
       </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </QueryClientProvider>
+  );
+}
 
 export default App;

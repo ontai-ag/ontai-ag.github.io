@@ -1,146 +1,181 @@
 
-import React from 'react';
-import { useAppAuth } from '../../contexts/AuthContext';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { Card } from '@/components/ui-custom/Card';
-import { CustomButton } from '@/components/ui-custom/Button';
-import { Link } from 'react-router-dom';
-import { Plus, List, BarChart, DollarSign } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useAppAuth } from "@/contexts/AuthContext";
+import { Link } from "react-router-dom";
+import { PlusCircle, MoreHorizontal, ArrowUpRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { useTranslation } from 'react-i18next'; // Импортируем хук
 
 const DeveloperDashboard = () => {
-  const { userRole, userMetadata, signOut } = useAppAuth();
+  const { user } = useAppAuth();
+  const { t } = useTranslation(); // Используем хук
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow pt-24 pb-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold">Developer Dashboard</h1>
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-gray-600">
-                Role: <span className="font-medium capitalize">{userRole}</span>
-              </span>
-              <div className="flex items-center gap-2">
-                <Avatar>
-                  <AvatarImage src={userMetadata?.avatar_url || ''} />
-                  <AvatarFallback>{userMetadata?.full_name?.charAt(0) || 'U'}</AvatarFallback>
-                </Avatar>
-                <CustomButton 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={signOut}
-                >
-                  Sign Out
-                </CustomButton>
-              </div>
+    <div className="flex min-h-screen w-full flex-col bg-muted/40">
+      {/* Sidebar can be added here */}
+      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+        {/* Header can be added here */}
+        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3">
+          <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+              <Card className="sm:col-span-2">
+                <CardHeader className="pb-3">
+                  <CardTitle>{t('developerDashboard.welcome.title', { name: user?.user_metadata?.full_name || 'Developer' })}</CardTitle>
+                  <CardDescription className="max-w-lg text-balance leading-relaxed">
+                    {t('developerDashboard.welcome.description')}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild>
+                    <Link to="/developer/create-agent">{t('developerDashboard.welcome.createAgentButton')}</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardDescription>{t('developerDashboard.stats.agents')}</CardDescription>
+                  <CardTitle className="text-4xl">12</CardTitle> {/* Replace with dynamic data */}
+                </CardHeader>
+                <CardContent>
+                  <div className="text-xs text-muted-foreground">
+                    +2 {t('developerDashboard.stats.fromLastMonth')}
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardDescription>{t('developerDashboard.stats.revenue')}</CardDescription>
+                  <CardTitle className="text-4xl">$1,234</CardTitle> {/* Replace with dynamic data */}
+                </CardHeader>
+                <CardContent>
+                  <div className="text-xs text-muted-foreground">
+                    +15% {t('developerDashboard.stats.fromLastMonth')}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">My AI Agents</h2>
-              <p className="text-gray-600 mb-4">
-                Manage, edit, and monitor your AI agents.
-              </p>
-              <div className="flex flex-col space-y-2">
-                <CustomButton 
-                  variant="primary" 
-                  size="sm"
-                  as={Link}
-                  to="/developer/manage-agents"
-                  leftIcon={<List className="h-4 w-4" />}
-                >
-                  View All Agents
-                </CustomButton>
-                <CustomButton 
-                  variant="outline" 
-                  size="sm"
-                  as={Link}
-                  to="/developer/create-agent"
-                  leftIcon={<Plus className="h-4 w-4" />}
-                >
-                  Create New Agent
-                </CustomButton>
-              </div>
+            <Card>
+              <CardHeader className="px-7">
+                <CardTitle>{t('developerDashboard.agents.title')}</CardTitle>
+                <CardDescription>{t('developerDashboard.agents.description')}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>{t('developerDashboard.agents.table.name')}</TableHead>
+                      <TableHead className="hidden sm:table-cell">{t('developerDashboard.agents.table.status')}</TableHead>
+                      <TableHead className="hidden sm:table-cell">{t('developerDashboard.agents.table.revenue')}</TableHead>
+                      <TableHead className="hidden md:table-cell">{t('developerDashboard.agents.table.created')}</TableHead>
+                      <TableHead className="text-right">{t('developerDashboard.agents.table.actions')}</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {/* Replace with dynamic agent data */} 
+                    <TableRow className="bg-accent">
+                      <TableCell>
+                        <div className="font-medium">Agent Alpha</div>
+                        <div className="hidden text-sm text-muted-foreground md:inline">
+                          Data Analysis
+                        </div>
+                      </TableCell>
+                      <TableCell className="hidden sm:table-cell">
+                        <Badge className="text-xs" variant="secondary">
+                          Active
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="hidden sm:table-cell">$150.00</TableCell>
+                      <TableCell className="hidden md:table-cell">2023-06-23</TableCell>
+                      <TableCell className="text-right">
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
+                              <MoreHorizontal className="h-4 w-4" />
+                              <span className="sr-only">{t('developerDashboard.agents.table.toggleMenu')}</span>
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>{t('developerDashboard.agents.table.actions')}</DropdownMenuLabel>
+                            <DropdownMenuItem>{t('developerDashboard.agents.table.edit')}</DropdownMenuItem>
+                            <DropdownMenuItem>{t('developerDashboard.agents.table.viewAnalytics')}</DropdownMenuItem>
+                            <DropdownMenuItem className="text-red-600">{t('developerDashboard.agents.table.delete')}</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </TableCell>
+                    </TableRow>
+                    {/* Add more rows for other agents */}
+                  </TableBody>
+                </Table>
+                <div className="flex justify-end mt-4">
+                  <Button asChild size="sm" variant="outline">
+                    <Link to="/developer/manage-agents">{t('developerDashboard.agents.manageAllButton')}</Link>
+                  </Button>
+                </div>
+              </CardContent>
             </Card>
-
-            <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Analytics</h2>
-              <p className="text-gray-600 mb-4">
-                View usage statistics, earnings, and performance metrics.
-              </p>
-              <CustomButton 
-                variant="primary" 
-                size="sm"
-                leftIcon={<BarChart className="h-4 w-4" />}
-              >
-                View Analytics
-              </CustomButton>
+          </div>
+          <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-1">
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('developerDashboard.analytics.title')}</CardTitle>
+                <CardDescription>{t('developerDashboard.analytics.description')}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {/* Add analytics chart or summary here */}
+                <p className="text-sm text-muted-foreground">{t('developerDashboard.analytics.placeholder')}</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('developerDashboard.earnings.title')}</CardTitle>
+                <CardDescription>{t('developerDashboard.earnings.description')}</CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">{t('developerDashboard.earnings.total')}</span>
+                  <span>$1,234.56</span> {/* Replace with dynamic data */}
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">{t('developerDashboard.earnings.thisMonth')}</span>
+                  <span>$250.00</span> {/* Replace with dynamic data */}
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">{t('developerDashboard.earnings.pending')}</span>
+                  <span>$50.00</span> {/* Replace with dynamic data */}
+                </div>
+                <Button size="sm" variant="outline" className="mt-2">
+                  {t('developerDashboard.earnings.viewDetailsButton')}
+                </Button>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('developerDashboard.activity.title')}</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {/* Replace with dynamic activity feed */}
+                <div className="flex items-center gap-4">
+                  <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">Agent Beta approved</p>
+                    <p className="text-sm text-muted-foreground">2 hours ago</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="grid gap-1">
+                    <p className="text-sm font-medium leading-none">New review on Agent Alpha</p>
+                    <p className="text-sm text-muted-foreground">Yesterday</p>
+                  </div>
+                </div>
+                {/* Add placeholder if no activity */}
+                {/* <p className="text-sm text-muted-foreground">{t('developerDashboard.activity.noActivity')}</p> */}
+              </CardContent>
             </Card>
           </div>
-
-          <Card className="p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-4">Earnings Overview</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-green-50 rounded-lg p-4 border border-green-100">
-                <p className="text-sm text-gray-500">Total Earnings</p>
-                <p className="text-2xl font-bold text-gray-900">$0.00</p>
-              </div>
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                <p className="text-sm text-gray-500">This Month</p>
-                <p className="text-2xl font-bold text-gray-900">$0.00</p>
-              </div>
-              <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
-                <p className="text-sm text-gray-500">Pending</p>
-                <p className="text-2xl font-bold text-gray-900">$0.00</p>
-              </div>
-            </div>
-            <CustomButton 
-              variant="outline" 
-              size="sm"
-              leftIcon={<DollarSign className="h-4 w-4" />}
-            >
-              View Earnings Details
-            </CustomButton>
-          </Card>
-
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Recent Activity</h2>
-            <CustomButton variant="ghost" size="sm">
-              View All
-            </CustomButton>
-          </div>
-
-          <div className="bg-gray-50 rounded-lg p-8 text-center">
-            <p className="text-gray-500 mb-4">No recent activity</p>
-            <CustomButton 
-              variant="outline" 
-              size="sm"
-              as={Link}
-              to="/developer/create-agent"
-              leftIcon={<Plus className="h-4 w-4" />}
-            >
-              Create Your First AI Agent
-            </CustomButton>
-          </div>
-
-          <div className="mt-8">
-            <CustomButton 
-              variant="link" 
-              size="sm" 
-              as={Link} 
-              to="/dashboard"
-              leftIcon={<span>←</span>}
-            >
-              Back to User Dashboard
-            </CustomButton>
-          </div>
-        </div>
-      </main>
-      <Footer />
+        </main>
+      </div>
     </div>
   );
 };

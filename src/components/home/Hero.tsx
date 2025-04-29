@@ -1,24 +1,27 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { ChevronRight, Bot, Zap, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CustomButton } from '@/components/ui-custom/Button';
 import SearchBar from '@/components/common/SearchBar';
 
 const Hero = () => {
+  const { t } = useTranslation(); // Initialize useTranslation
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  // Translate search suggestions
   const searchSuggestions = [
-    'Content writing agents',
-    'Data analysis tools',
-    'Code generation',
-    'Image processing',
-    'Customer support bots',
+    t('hero.searchSuggestion1'),
+    t('hero.searchSuggestion2'),
+    t('hero.searchSuggestion3'),
+    t('hero.searchSuggestion4'),
+    t('hero.searchSuggestion5'),
   ];
 
   return (
@@ -33,20 +36,20 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-5xl text-center">
           <div className="mb-8 inline-flex items-center justify-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            <span className="mr-1">✨</span> Introducing the AI Agents Marketplace
+            <span className="mr-1">✨</span> {t('hero.introBadge')}
           </div>
           
           <h1 
             className={`mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            <span className="block">Specialized AI Agents</span>
-            <span className="block text-primary">For Every Task</span>
+            <span className="block">{t('hero.titleLine1')}</span>
+            <span className="block text-primary">{t('hero.titleLine2')}</span>
           </h1>
           
           <p 
             className={`mx-auto mb-10 max-w-2xl text-lg text-gray-600 md:text-xl transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
-            The premier marketplace where businesses and individuals can instantly hire specialized AI agents for tasks—on-demand, with transparent pricing and guaranteed quality.
+            {t('hero.description')}
           </p>
           
           <div 
@@ -59,7 +62,7 @@ const Hero = () => {
               as={Link}
               to="/marketplace"
             >
-              Browse AI Agents
+              {t('hero.browseButton')}
             </CustomButton>
             <CustomButton
               size="lg"
@@ -68,7 +71,7 @@ const Hero = () => {
               as={Link}
               to="/for-providers"
             >
-              Become a Provider
+              {t('hero.providerButton')}
             </CustomButton>
           </div>
           
@@ -79,6 +82,7 @@ const Hero = () => {
               suggestions={searchSuggestions}
               onSearch={(value) => console.log('Search for:', value)}
               className="shadow-md"
+              placeholder={t('hero.searchPlaceholder')} // Add placeholder translation
             />
           </div>
           
@@ -87,15 +91,15 @@ const Hero = () => {
           >
             <div className="flex items-center">
               <Bot className="h-5 w-5 text-primary mr-2" />
-              <span className="text-gray-600">100+ Specialized Agents</span>
+              <span className="text-gray-600">{t('hero.feature1')}</span>
             </div>
             <div className="flex items-center">
               <Zap className="h-5 w-5 text-primary mr-2" />
-              <span className="text-gray-600">Lightning-Fast Delivery</span>
+              <span className="text-gray-600">{t('hero.feature2')}</span>
             </div>
             <div className="flex items-center">
               <Shield className="h-5 w-5 text-primary mr-2" />
-              <span className="text-gray-600">Enterprise-Grade Security</span>
+              <span className="text-gray-600">{t('hero.feature3')}</span>
             </div>
           </div>
         </div>

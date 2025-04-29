@@ -5,8 +5,9 @@ import { ChevronRight, Star, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui-custom/Card';
 import { CustomButton } from '@/components/ui-custom/Button';
 import AgentCard from '@/components/agents/AgentCard';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
-// Mock data for featured agents
+// Mock data for featured agents - Keep this as is for now, or internationalize if needed later
 const featuredAgents = [
   {
     id: '1',
@@ -70,18 +71,22 @@ const featuredAgents = [
   }
 ];
 
-const categories = [
-  'All Categories',
-  'Content Writing',
-  'Development',
-  'Data Analysis',
-  'Design',
-  'Customer Support',
-  'Research',
-  'Translation'
-];
+// Define category keys for translation
+const categoryKeys = {
+  'All Categories': 'featuredAgents.categories.all',
+  'Content Writing': 'featuredAgents.categories.contentWriting',
+  'Development': 'featuredAgents.categories.development',
+  'Data Analysis': 'featuredAgents.categories.dataAnalysis',
+  'Design': 'featuredAgents.categories.design',
+  'Customer Support': 'featuredAgents.categories.customerSupport',
+  'Research': 'featuredAgents.categories.research',
+  'Translation': 'featuredAgents.categories.translation'
+};
+
+const categories = Object.keys(categoryKeys);
 
 const FeaturedAgents = () => {
+  const { t } = useTranslation(); // Initialize useTranslation
   const [activeCategory, setActiveCategory] = useState('All Categories');
   const [isVisible, setIsVisible] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -110,12 +115,12 @@ const FeaturedAgents = () => {
             <h2 
               className={`text-3xl font-bold tracking-tight text-gray-900 md:text-4xl mb-4 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
-              Featured AI Agents
+              {t('featuredAgents.title')} {/* Translate title */}
             </h2>
             <p 
               className={`text-lg text-gray-600 md:max-w-2xl transition-all duration-500 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
-              Discover our most popular AI agents across various specialties. Each one is optimized for specific tasks and ready to assist you.
+              {t('featuredAgents.description')} {/* Translate description */}
             </p>
           </div>
           <CustomButton
@@ -125,7 +130,7 @@ const FeaturedAgents = () => {
             as={Link}
             to="/marketplace"
           >
-            View All Agents
+            {t('featuredAgents.viewAllButton')} {/* Translate button text */}
           </CustomButton>
         </div>
 
@@ -142,6 +147,7 @@ const FeaturedAgents = () => {
               <button 
                 className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md z-10 hidden md:flex"
                 onClick={handleScrollLeft}
+                aria-label={t('featuredAgents.scrollLeft')} // Add aria-label for accessibility
               >
                 <ArrowLeft className="h-4 w-4" />
               </button>
@@ -149,20 +155,21 @@ const FeaturedAgents = () => {
               {categories.map((category) => (
                 <button
                   key={category}
-                  className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${ 
                     activeCategory === category
                       ? 'bg-primary text-white shadow-sm'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                   onClick={() => setActiveCategory(category)}
                 >
-                  {category}
+                  {t(categoryKeys[category as keyof typeof categoryKeys])} {/* Translate category */}
                 </button>
               ))}
               
               <button 
                 className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md z-10 hidden md:flex"
                 onClick={handleScrollRight}
+                aria-label={t('featuredAgents.scrollRight')} // Add aria-label for accessibility
               >
                 <ArrowRight className="h-4 w-4" />
               </button>
@@ -177,6 +184,7 @@ const FeaturedAgents = () => {
           {featuredAgents
             .filter(agent => activeCategory === 'All Categories' || agent.category === activeCategory)
             .map((agent) => (
+              // Assuming AgentCard handles its own translations or receives translated props
               <AgentCard key={agent.id} agent={agent} />
             ))}
         </div>
@@ -190,7 +198,7 @@ const FeaturedAgents = () => {
             as={Link}
             to="/marketplace"
           >
-            View All Agents
+            {t('featuredAgents.viewAllButton')} {/* Translate button text */}
           </CustomButton>
         </div>
       </div>

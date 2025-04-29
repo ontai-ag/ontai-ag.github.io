@@ -1,0 +1,227 @@
+{
+  "greeting": "Hello!",
+  "welcome": "Welcome to our application.",
+  "change_language": "Change Language",
+  "auth": {
+    "signIn": {
+      "successTitle": "Login successful!",
+      "successDescription": "Welcome back to Ontai",
+      "genericError": "An error occurred during sign in",
+      "failedTitle": "Sign in failed",
+      "failedDescription": "Please check your credentials and try again",
+      "providerError": "An error occurred during {{provider}} sign in",
+      "providerFailedTitle": "{{provider}} sign in failed",
+      "providerFailedDescription": "Please try again later",
+      "title": "Sign in to your account",
+      "or": "Or",
+      "createAccountLink": "create a new account",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "forgotPasswordLink": "Forgot password?",
+      "signInWithEmailButton": "Sign in with Email",
+      "orContinueWith": "Or continue with",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "Registration successful!",
+      "successDescription": "Welcome to Ontai. Please check your email to verify your account.",
+      "genericError": "An error occurred during sign up",
+      "failedTitle": "Sign up failed",
+      "providerGenericError": "An error occurred during {{provider}} sign up",
+      "providerFailedTitle": "{{provider}} sign up failed",
+      "title": "Create your account",
+      "or": "Or",
+      "signInLink": "sign in to an existing account",
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordHint": "Password must be at least 6 characters long",
+      "accountTypeLabel": "Account Type",
+      "userTypeUser": "User",
+      "userTypeDeveloper": "Developer",
+      "createAccountButton": "Create Account",
+      "orContinueWith": "Or continue with",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    }
+  },
+  "emergencySignOut": {
+    "title": "Emergency Sign Out",
+    "successDescription": "All session data has been cleared.",
+    "failTitle": "Emergency sign out failed",
+    "failDescription": "Please try again or clear your browser cookies manually.",
+    "buttonLabel": "Emergency Sign Out (Debug)"
+  },
+  "header": {
+    "home": "Home",
+    "marketplace": "AI Marketplace",
+    "dashboard": "Dashboard",
+    "adminPanel": "Admin Panel",
+    "signOut": "Sign Out",
+    "becomeAdminTooltip": "Click to become admin (development only)",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "becomeAdmin": "Become Admin"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "Admin Access",
+      "attempting": "Attempting to gain admin access...",
+      "grantedTitle": "Admin Access Granted",
+      "grantedDescription": "You now have admin privileges. Redirecting to admin panel.",
+      "failedTitle": "Admin Access Failed",
+      "failedDescription": "Could not update your role. Please try again."
+    }
+  },
+  "hero": {
+    "introBadge": "Introducing the AI Agents Marketplace",
+    "titleLine1": "Specialized AI Agents",
+    "titleLine2": "For Every Task",
+    "description": "The premier marketplace where businesses and individuals can instantly hire specialized AI agents for tasks—on-demand, with transparent pricing and guaranteed quality.",
+    "browseButton": "Browse AI Agents",
+    "providerButton": "Become a Provider",
+    "searchPlaceholder": "Search for agents (e.g., content writing)",
+    "searchSuggestion1": "Content writing agents",
+    "searchSuggestion2": "Data analysis tools",
+    "searchSuggestion3": "Code generation",
+    "searchSuggestion4": "Image processing",
+    "searchSuggestion5": "Customer support bots",
+    "feature1": "100+ Specialized Agents",
+    "feature2": "Lightning-Fast Delivery",
+    "feature3": "Enterprise-Grade Security"
+  },
+  "featuredAgents": {
+    "title": "Featured AI Agents",
+    "description": "Discover our most popular AI agents across various specialties. Each one is optimized for specific tasks and ready to assist you.",
+    "viewAllButton": "View All Agents",
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right",
+    "categories": {
+      "all": "All Categories",
+      "contentWriting": "Content Writing",
+      "development": "Development",
+      "dataAnalysis": "Data Analysis",
+      "design": "Design",
+      "customerSupport": "Customer Support",
+      "research": "Research",
+      "translation": "Translation"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "description": "Get from task to completion in minutes with our streamlined process",
+    "steps": {
+      "browse": {
+        "title": "Browse & Select",
+        "description": "Find the perfect AI agent for your task from our marketplace of specialized tools."
+      },
+      "submit": {
+        "title": "Submit Your Task",
+        "description": "Provide details, requirements, and any relevant files or references."
+      },
+      "process": {
+        "title": "AI Processing",
+        "description": "Our specialized AI agent works on your task with precision and expertise."
+      },
+      "review": {
+        "title": "Review & Pay",
+        "description": "Get results in real-time, provide feedback, and only pay for what you approve."
+      },
+      "done": {
+        "title": "Done",
+        "description": "Download your completed work and enjoy the efficiency of specialized AI."
+      }
+    },
+    "ctaButton": "Get Started Now"
+  },
+  "footer": {
+    "product": {
+      "title": "Product",
+      "marketplace": "Marketplace",
+      "aiAgents": "AI Agents",
+      "pricing": "Pricing",
+      "useCases": "Use Cases"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About",
+      "careers": "Careers",
+      "blog": "Blog",
+      "press": "Press"
+    },
+    "resources": {
+      "title": "Resources",
+      "documentation": "Documentation",
+      "helpCenter": "Help Center",
+      "community": "Community",
+      "status": "Status"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "security": "Security",
+      "compliance": "Compliance"
+    },
+    "description": "The premier marketplace for AI agents, bringing specialized AI capabilities to your projects.",
+    "linkedIn": "LinkedIn",
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy"
+  },
+  "marketplace": {
+    "title": "AI Agents Marketplace",
+    "description": "Find the perfect AI agent for your specific task",
+    "searchPlaceholder": "Search for agents by name, description, or category...",
+    "mobileFiltersButton": "Filters",
+    "filters": {
+      "title": "Filters",
+      "clearAll": "Clear All",
+      "categories": {
+        "title": "Categories",
+        "all": "All Categories",
+        "contentWriting": "Content Writing",
+        "development": "Development",
+        "dataAnalysis": "Data Analysis",
+        "design": "Design",
+        "customerSupport": "Customer Support",
+        "research": "Research",
+        "translation": "Translation"
+      },
+      "priceRange": {
+        "title": "Price Range"
+      },
+      "rating": {
+        "title": "Minimum Rating",
+        "any": "Any rating",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "Showing",
+      "results_one": "result",
+      "results_other": "results"
+    },
+    "sortBy": {
+      "label": "Sort by:",
+      "relevance": "Relevance",
+      "rating": "Highest Rating",
+      "reviews": "Most Reviews",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low"
+    },
+    "noResults": {
+      "title": "No agents found",
+      "description": "Try adjusting your filters or search terms",
+      "clearFiltersButton": "Clear Filters"
+    }
+  }
+}

@@ -3,11 +3,16 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = "https://uhzmwjgfyydfqrwlihjk.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoem13amdmeXlkZnFyd2xpaGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE4OTcyODUsImV4cCI6MjA1NzQ3MzI4NX0.VgRwu1cfE_U88876oFQ5o1Z6qW3T9LDRzXcaWFQVs2M";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
+
+// Validate environment variables
+if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+  throw new Error("Supabase URL or Anon Key is missing from environment variables.");
+}
 
 // Create the client with our extended type
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);

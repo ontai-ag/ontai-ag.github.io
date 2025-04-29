@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Добавить импорт
 import { supabase } from '@/integrations/supabase/client';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,6 +13,7 @@ import { Github, Mail, AlertCircle } from 'lucide-react';
 import { useAppAuth } from '@/contexts/AuthContext';
 
 const SignIn = () => {
+  const { t } = useTranslation(); // Добавить хук
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
@@ -51,17 +53,17 @@ const SignIn = () => {
       if (error) throw error;
       
       toast({
-        title: "Login successful!",
-        description: "Welcome back to Ontai",
+        title: t('auth.signIn.successTitle'),
+        description: t('auth.signIn.successDescription'),
       });
       
       // Let the effect hook handle redirection
     } catch (error: any) {
       console.error('Error signing in:', error);
-      setError(error.message || 'An error occurred during sign in');
+      setError(error.message || t('auth.signIn.genericError'));
       toast({
-        title: "Sign in failed",
-        description: error.message || 'Please check your credentials and try again',
+        title: t('auth.signIn.failedTitle'),
+        description: error.message || t('auth.signIn.failedDescription'),
         variant: "destructive",
       });
     } finally {
@@ -85,10 +87,10 @@ const SignIn = () => {
       
     } catch (error: any) {
       console.error(`Error signing in with ${provider}:`, error);
-      setError(error.message || `An error occurred during ${provider} sign in`);
+      setError(error.message || t('auth.signIn.providerError', { provider }));
       toast({
-        title: `${provider} sign in failed`,
-        description: error.message || 'Please try again later',
+        title: t('auth.signIn.providerFailedTitle', { provider }),
+        description: error.message || t('auth.signIn.providerFailedDescription'),
         variant: "destructive",
       });
       setLoading(false);
@@ -100,15 +102,15 @@ const SignIn = () => {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900">
-            Sign in to your account
+            {t('auth.signIn.title')}
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Or{' '}
+            {t('auth.signIn.or')}{' '}
             <Link
               to="/sign-up"
               className="font-medium text-primary hover:text-primary/80"
             >
-              create a new account
+              {t('auth.signIn.createAccountLink')}
             </Link>
           </p>
         </div>
@@ -123,7 +125,7 @@ const SignIn = () => {
           
           <form onSubmit={handleSignInWithEmail} className="space-y-4">
             <div>
-              <Label htmlFor="email">Email address</Label>
+              <Label htmlFor="email">{t('auth.signIn.emailLabel')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -131,18 +133,18 @@ const SignIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="mt-1"
-                placeholder="you@example.com"
+                placeholder={t('auth.signIn.emailPlaceholder')}
               />
             </div>
             
             <div>
               <div className="flex justify-between items-center">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{t('auth.signIn.passwordLabel')}</Label>
                 <Link
                   to="/forgot-password"
                   className="text-sm text-primary hover:underline"
                 >
-                  Forgot password?
+                  {t('auth.signIn.forgotPasswordLink')}
                 </Link>
               </div>
               <Input
@@ -161,7 +163,7 @@ const SignIn = () => {
               loading={loading}
               leftIcon={<Mail className="h-4 w-4" />}
             >
-              Sign in with Email
+              {t('auth.signIn.signInWithEmailButton')}
             </CustomButton>
           </form>
           
@@ -171,7 +173,7 @@ const SignIn = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                <span className="px-2 bg-white text-gray-500">{t('auth.signIn.orContinueWith')}</span>
               </div>
             </div>
             
@@ -213,7 +215,7 @@ const SignIn = () => {
                 className="w-full"
               >
                 <Github className="w-5 h-5 mr-2" />
-                GitHub
+                {t('auth.signIn.githubButton')}
               </Button>
             </div>
           </div>

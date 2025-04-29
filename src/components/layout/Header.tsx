@@ -2,13 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, Settings, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useAppAuth } from '@/contexts/AuthContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useToast } from '@/hooks/use-toast';
+import LanguageSwitcher from '@/components/ui-custom/LanguageSwitcher';
 
 const Header = () => {
+  const { t } = useTranslation(); // Initialize t function
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAuthenticated, signOut, userRole, updateRole } = useAppAuth();
@@ -31,8 +34,8 @@ const Header = () => {
   }, [location.pathname]);
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'AI Marketplace', href: '/marketplace' },
+    { name: t('header.home'), href: '/' },
+    { name: t('header.marketplace'), href: '/marketplace' },
   ];
 
   const getDashboardLink = () => {
@@ -47,16 +50,16 @@ const Header = () => {
     console.log('Admin access attempted');
     
     toast({
-      title: "Admin Access",
-      description: "Attempting to gain admin access...",
+      title: t('toast.adminAccess.title'),
+      description: t('toast.adminAccess.attempting'),
     });
 
     updateRole('admin')
       .then(() => {
         console.log('Role updated to admin successfully');
         toast({
-          title: "Admin Access Granted",
-          description: "You now have admin privileges. Redirecting to admin panel.",
+          title: t('toast.adminAccess.grantedTitle'),
+          description: t('toast.adminAccess.grantedDescription'),
         });
         
         // Short delay before redirecting to ensure state updates
@@ -67,8 +70,8 @@ const Header = () => {
       .catch((error) => {
         console.error('Error updating role:', error);
         toast({
-          title: "Admin Access Failed",
-          description: "Could not update your role. Please try again.",
+          title: t('toast.adminAccess.failedTitle'),
+          description: t('toast.adminAccess.failedDescription'),
           variant: "destructive",
         });
       });
@@ -96,7 +99,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.name} // Use translated name as key might not be ideal if names change
                 to={item.href}
                 className={cn(
                   'text-sm font-medium transition-colors',
@@ -121,7 +124,7 @@ const Header = () => {
                     : 'text-gray-700 hover:text-primary'
                 )}
               >
-                Dashboard
+                {t('header.dashboard')}
               </Link>
             )}
           </nav>
@@ -137,11 +140,11 @@ const Header = () => {
                     onClick={goToAdminPanel}
                   >
                     <Shield className="h-4 w-4 mr-1" />
-                    Admin Panel
+                    {t('header.adminPanel')}
                   </Button>
                 )}
                 <Button variant="outline" onClick={signOut}>
-                  Sign Out
+                  {t('header.signOut')}
                 </Button>
                 {userRole !== 'admin' && (
                   <Button 
@@ -149,7 +152,7 @@ const Header = () => {
                     size="icon"
                     className="opacity-70 hover:opacity-100 text-purple-800"
                     onClick={becomeAdmin}
-                    title="Click to become admin (development only)"
+                    title={t('header.becomeAdminTooltip')}
                   >
                     <Settings className="h-5 w-5" />
                   </Button>
@@ -157,11 +160,12 @@ const Header = () => {
               </>
             ) : (
               <>
+                <LanguageSwitcher />
                 <Button variant="ghost" asChild>
-                  <Link to="/sign-in">Sign In</Link>
+                  <Link to="/sign-in">{t('header.signIn')}</Link>
                 </Button>
                 <Button asChild>
-                  <Link to="/sign-up">Sign Up</Link>
+                  <Link to="/sign-up">{t('header.signUp')}</Link>
                 </Button>
               </>
             )}
@@ -185,7 +189,7 @@ const Header = () => {
           <nav className="flex flex-col space-y-4">
             {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.name} // Use translated name as key might not be ideal if names change
                 to={item.href}
                 className={cn(
                   'text-base py-2 border-b border-gray-100',
@@ -210,7 +214,7 @@ const Header = () => {
                     : 'text-gray-700'
                 )}
               >
-                Dashboard
+                {t('header.dashboard')}
               </Link>
             )}
 
@@ -225,11 +229,11 @@ const Header = () => {
                       onClick={goToAdminPanel}
                     >
                       <Shield className="h-4 w-4 mr-1" />
-                      Admin Panel
+                      {t('header.adminPanel')}
                     </Button>
                   )}
                   <Button className="w-full" variant="outline" onClick={signOut}>
-                    Sign Out
+                    {t('header.signOut')}
                   </Button>
                   {userRole !== 'admin' && (
                     <Button 
@@ -238,17 +242,20 @@ const Header = () => {
                       className="w-full opacity-70 hover:opacity-100 text-purple-800"
                       onClick={becomeAdmin}
                     >
-                      <Settings className="h-4 w-4 mr-1" /> Become Admin
+                      <Settings className="h-4 w-4 mr-1" /> {t('header.becomeAdmin')}
                     </Button>
                   )}
                 </>
               ) : (
                 <>
+                  <div className="flex justify-center pb-2">
+                    <LanguageSwitcher />
+                  </div>
                   <Button className="w-full" variant="outline" asChild>
-                    <Link to="/sign-in">Sign In</Link>
+                    <Link to="/sign-in">{t('header.signIn')}</Link>
                   </Button>
                   <Button className="w-full" asChild>
-                    <Link to="/sign-up">Sign Up</Link>
+                    <Link to="/sign-up">{t('header.signUp')}</Link>
                   </Button>
                 </>
               )}

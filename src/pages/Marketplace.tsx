@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'; // Add this import
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SearchBar from '@/components/common/SearchBar';
@@ -124,19 +125,42 @@ const allAgents = [
   }
 ];
 
-// Mock categories
-const categories = [
-  'All Categories',
-  'Content Writing',
-  'Development',
-  'Data Analysis',
-  'Design',
-  'Customer Support',
-  'Research',
-  'Translation'
+
+
+// Define category keys for translation
+const categoryKeys = {
+  'All Categories': 'marketplace.filters.categories.all',
+  'Content Writing': 'marketplace.filters.categories.contentWriting',
+  'Development': 'marketplace.filters.categories.development',
+  'Data Analysis': 'marketplace.filters.categories.dataAnalysis',
+  'Design': 'marketplace.filters.categories.design',
+  'Customer Support': 'marketplace.filters.categories.customerSupport',
+  'Research': 'marketplace.filters.categories.research',
+  'Translation': 'marketplace.filters.categories.translation'
+};
+
+const categories = Object.keys(categoryKeys);
+
+// Define rating filter options with keys
+const ratingOptions = [
+  { value: 0, key: 'marketplace.filters.rating.any' },
+  { value: 3, key: 'marketplace.filters.rating.3plus' },
+  { value: 3.5, key: 'marketplace.filters.rating.3_5plus' },
+  { value: 4, key: 'marketplace.filters.rating.4plus' },
+  { value: 4.5, key: 'marketplace.filters.rating.4_5plus' },
+];
+
+// Define sort options with keys
+const sortOptions = [
+  { value: 'relevance', key: 'marketplace.sortBy.relevance' },
+  { value: 'rating', key: 'marketplace.sortBy.rating' },
+  { value: 'reviews', key: 'marketplace.sortBy.reviews' },
+  { value: 'price-low', key: 'marketplace.sortBy.priceLow' },
+  { value: 'price-high', key: 'marketplace.sortBy.priceHigh' },
 ];
 
 const Marketplace = () => {
+  const { t } = useTranslation(); // Initialize useTranslation
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [priceRange, setPriceRange] = useState([0, 50]);
@@ -201,7 +225,7 @@ const Marketplace = () => {
   // Clear all filters
   const clearFilters = () => {
     setSearchTerm('');
-    setSelectedCategory('All Categories');
+    setSelectedCategory('All Categories'); // Keep internal state as English key
     setPriceRange([0, 50]);
     setMinRating(0);
     setSortOption('relevance');
@@ -213,13 +237,13 @@ const Marketplace = () => {
       <main className="flex-grow pt-24 pb-16 page-transition">
         <div className="container mx-auto px-4 md:px-6">
           <div className={`mb-8 transition-all duration-500 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h1 className="text-3xl font-bold tracking-tight mb-2">AI Agents Marketplace</h1>
-            <p className="text-gray-600 text-lg">Find the perfect AI agent for your specific task</p>
+            <h1 className="text-3xl font-bold tracking-tight mb-2">{t('marketplace.title')}</h1>
+            <p className="text-gray-600 text-lg">{t('marketplace.description')}</p>
           </div>
           
           <div className={`mb-8 transition-all duration-500 delay-100 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <SearchBar 
-              placeholder="Search for agents by name, description, or category..." 
+              placeholder={t('marketplace.searchPlaceholder')} 
               onSearch={setSearchTerm}
             />
           </div>
@@ -234,7 +258,7 @@ const Marketplace = () => {
               >
                 <span className="flex items-center">
                   <Filter className="mr-2 h-4 w-4" />
-                  Filters
+                  {t('marketplace.mobileFiltersButton')}
                 </span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
               </Button>
@@ -248,7 +272,7 @@ const Marketplace = () => {
             >
               <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-5 sticky top-24">
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="text-lg font-semibold">Filters</h3>
+                  <h3 className="text-lg font-semibold">{t('marketplace.filters.title')}</h3>
                   <Button 
                     variant="ghost" 
                     size="sm" 
@@ -256,26 +280,26 @@ const Marketplace = () => {
                     onClick={clearFilters}
                   >
                     <XCircle className="mr-1 h-4 w-4" />
-                    Clear All
+                    {t('marketplace.filters.clearAll')}
                   </Button>
                 </div>
                 
                 {/* Categories */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-medium mb-3">Categories</h4>
+                  <h4 className="text-sm font-medium mb-3">{t('marketplace.filters.categories.title')}</h4>
                   <div className="space-y-2">
-                    {categories.map((category) => (
-                      <div key={category} className="flex items-center">
+                    {categories.map((categoryKey) => (
+                      <div key={categoryKey} className="flex items-center">
                         <Checkbox 
-                          id={`category-${category}`}
-                          checked={selectedCategory === category}
-                          onCheckedChange={() => setSelectedCategory(category)}
+                          id={`category-${categoryKey}`}
+                          checked={selectedCategory === categoryKey} // Compare with English key
+                          onCheckedChange={() => setSelectedCategory(categoryKey)} // Set English key
                         />
                         <Label 
-                          htmlFor={`category-${category}`}
+                          htmlFor={`category-${categoryKey}`}
                           className="ml-2 text-sm cursor-pointer"
                         >
-                          {category}
+                          {t(categoryKeys[categoryKey as keyof typeof categoryKeys])} {/* Translate label */}
                         </Label>
                       </div>
                     ))}
@@ -284,7 +308,7 @@ const Marketplace = () => {
                 
                 {/* Price Range */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-medium mb-3">Price Range</h4>
+                  <h4 className="text-sm font-medium mb-3">{t('marketplace.filters.priceRange.title')}</h4>
                   <Slider
                     defaultValue={[0, 50]}
                     max={50}
@@ -301,26 +325,26 @@ const Marketplace = () => {
                 
                 {/* Rating */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-medium mb-3">Minimum Rating</h4>
+                  <h4 className="text-sm font-medium mb-3">{t('marketplace.filters.rating.title')}</h4>
                   <div className="space-y-2">
-                    {[0, 3, 3.5, 4, 4.5].map((rating) => (
-                      <div key={rating} className="flex items-center">
+                    {ratingOptions.map(({ value, key }) => (
+                      <div key={value} className="flex items-center">
                         <Checkbox 
-                          id={`rating-${rating}`}
-                          checked={minRating === rating}
-                          onCheckedChange={() => setMinRating(rating)}
+                          id={`rating-${value}`}
+                          checked={minRating === value}
+                          onCheckedChange={() => setMinRating(value)}
                         />
                         <Label 
-                          htmlFor={`rating-${rating}`}
+                          htmlFor={`rating-${value}`}
                           className="ml-2 text-sm cursor-pointer flex items-center"
                         >
-                          {rating > 0 ? (
+                          {value > 0 ? (
                             <>
                               <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 mr-1" />
-                              {rating}+
+                              {t(key, { rating: value })} {/* Translate rating label */}
                             </>
                           ) : (
-                            'Any rating'
+                            t(key) // Translate 'Any rating'
                           )}
                         </Label>
                       </div>
@@ -335,40 +359,39 @@ const Marketplace = () => {
               {/* Sort options */}
               <div className={`mb-6 flex items-center justify-between transition-all duration-500 delay-200 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <div className="text-sm">
-                  <span className="text-gray-500">Showing</span>{' '}
+                  <span className="text-gray-500">{t('marketplace.results.showing')}</span>{' '}
                   <span className="font-medium">{filteredAgents.length}</span>{' '}
-                  <span className="text-gray-500">results</span>
+                  <span className="text-gray-500">{t('marketplace.results.results', { count: filteredAgents.length })}</span>
                 </div>
                 
                 <div className="flex items-center">
-                  <span className="mr-2 text-sm text-gray-500">Sort by:</span>
+                  <span className="mr-2 text-sm text-gray-500">{t('marketplace.sortBy.label')}</span>
                   <select
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
                     className="border-none bg-transparent text-sm font-medium focus:outline-none focus:ring-0"
                   >
-                    <option value="relevance">Relevance</option>
-                    <option value="rating">Highest Rating</option>
-                    <option value="reviews">Most Reviews</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
+                    {sortOptions.map(({ value, key }) => (
+                      <option key={value} value={value}>{t(key)}</option>
+                    ))}
                   </select>
                 </div>
               </div>
               
               {/* Agents grid */}
               <div 
-                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 delay-300 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} stagger-animation`}
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 delay-300 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               >
                 {filteredAgents.length > 0 ? (
                   filteredAgents.map((agent) => (
+                    // Assuming AgentCard handles its own translations or receives translated props
                     <AgentCard key={agent.id} agent={agent} />
                   ))
                 ) : (
                   <div className="col-span-full py-16 text-center">
-                    <h3 className="text-xl font-medium mb-2">No agents found</h3>
-                    <p className="text-gray-500 mb-4">Try adjusting your filters or search terms</p>
-                    <Button onClick={clearFilters}>Clear Filters</Button>
+                    <h3 className="text-xl font-medium mb-2">{t('marketplace.noResults.title')}</h3>
+                    <p className="text-gray-500 mb-4">{t('marketplace.noResults.description')}</p>
+                    <Button onClick={clearFilters}>{t('marketplace.noResults.clearFiltersButton')}</Button>
                   </div>
                 )}
               </div>
