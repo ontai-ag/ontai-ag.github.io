@@ -1,0 +1,384 @@
+
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import SearchBar from '@/components/common/SearchBar';
+import AgentCard from '@/components/agents/AgentCard';
+import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
+import { Filter, SlidersHorizontal, Star, ChevronDown, XCircle } from 'lucide-react';
+
+// Mock data for marketplace agents (using the same structure as featured agents)
+const allAgents = [
+  {
+    id: '1',
+    name: 'ContentMaster AI',
+    description: 'Generate blog posts, articles, and marketing copy tailored to your brand voice.',
+    category: 'Content Writing',
+    rating: 4.9,
+    reviews: 487,
+    price: 0.05,
+    priceModel: 'Per 1K tokens',
+    image: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'NexusAI'
+  },
+  {
+    id: '2',
+    name: 'CodeGenius',
+    description: 'Professional-grade code generation with documentation and testing.',
+    category: 'Development',
+    rating: 4.8,
+    reviews: 356,
+    price: 0.12,
+    priceModel: 'Per request',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'DevTech Solutions'
+  },
+  {
+    id: '3',
+    name: 'DataWizard',
+    description: 'Analyze and visualize data with customizable dashboards and insights.',
+    category: 'Data Analysis',
+    rating: 4.7,
+    reviews: 291,
+    price: 0.25,
+    priceModel: 'Per analysis',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'Analytix'
+  },
+  {
+    id: '4',
+    name: 'DesignCraft',
+    description: 'Generate logos, UI elements, and graphics with stunning quality.',
+    category: 'Design',
+    rating: 4.6,
+    reviews: 178,
+    price: 0.18,
+    priceModel: 'Per image',
+    image: 'https://images.unsplash.com/photo-1545670723-196ed0954986?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'CreativeMinds'
+  },
+  {
+    id: '5',
+    name: 'SupportBot Pro',
+    description: 'Customer service automation with human-like responses and issue resolution.',
+    category: 'Customer Support',
+    rating: 4.9,
+    reviews: 412,
+    price: 49.99,
+    priceModel: 'Monthly',
+    image: 'https://images.unsplash.com/photo-1596920566403-2072ed71e190?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'ServiceTech'
+  },
+  {
+    id: '6',
+    name: 'ResearchCompanion',
+    description: 'Academic and business research with sources, citations, and comprehensive analysis.',
+    category: 'Research',
+    rating: 4.7,
+    reviews: 203,
+    price: 0.15,
+    priceModel: 'Per page',
+    image: 'https://images.unsplash.com/photo-1532619187608-e5375cab36aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'AcademicAI'
+  },
+  {
+    id: '7',
+    name: 'TranslateGenius',
+    description: 'Professional-grade translations for 50+ languages with cultural nuances preserved.',
+    category: 'Translation',
+    rating: 4.8,
+    reviews: 319,
+    price: 0.08,
+    priceModel: 'Per 100 words',
+    image: 'https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'LingualTech'
+  },
+  {
+    id: '8',
+    name: 'VideoScript Pro',
+    description: 'Create compelling video scripts with scene directions, dialogue, and narration.',
+    category: 'Content Writing',
+    rating: 4.6,
+    reviews: 142,
+    price: 0.14,
+    priceModel: 'Per minute',
+    image: 'https://images.unsplash.com/photo-1595659493255-9f9a7af4a809?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'VisualStory'
+  },
+  {
+    id: '9',
+    name: 'MarketAnalyst',
+    description: 'Real-time market analysis, trends, and forecasts for businesses and investors.',
+    category: 'Data Analysis',
+    rating: 4.9,
+    reviews: 267,
+    price: 39.99,
+    priceModel: 'Monthly',
+    image: 'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'MarketMinds'
+  }
+];
+
+// Mock categories
+const categories = [
+  'All Categories',
+  'Content Writing',
+  'Development',
+  'Data Analysis',
+  'Design',
+  'Customer Support',
+  'Research',
+  'Translation'
+];
+
+const Marketplace = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [priceRange, setPriceRange] = useState([0, 50]);
+  const [minRating, setMinRating] = useState(0);
+  const [sortOption, setSortOption] = useState('relevance');
+  const [filteredAgents, setFilteredAgents] = useState(allAgents);
+  const [showFilters, setShowFilters] = useState(false);
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
+    // Simulate page load
+    setTimeout(() => {
+      setIsPageLoaded(true);
+    }, 100);
+  }, []);
+
+  // Apply filters
+  useEffect(() => {
+    let result = [...allAgents];
+    
+    // Filter by search term
+    if (searchTerm) {
+      result = result.filter((agent) => 
+        agent.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        agent.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        agent.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    // Filter by category
+    if (selectedCategory !== 'All Categories') {
+      result = result.filter((agent) => agent.category === selectedCategory);
+    }
+    
+    // Filter by price range
+    result = result.filter((agent) => 
+      agent.price >= priceRange[0] && agent.price <= priceRange[1]
+    );
+    
+    // Filter by rating
+    result = result.filter((agent) => agent.rating >= minRating);
+    
+    // Sort results
+    if (sortOption === 'price-low') {
+      result.sort((a, b) => a.price - b.price);
+    } else if (sortOption === 'price-high') {
+      result.sort((a, b) => b.price - a.price);
+    } else if (sortOption === 'rating') {
+      result.sort((a, b) => b.rating - a.rating);
+    } else if (sortOption === 'reviews') {
+      result.sort((a, b) => b.reviews - a.reviews);
+    }
+    
+    setFilteredAgents(result);
+  }, [searchTerm, selectedCategory, priceRange, minRating, sortOption]);
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedCategory('All Categories');
+    setPriceRange([0, 50]);
+    setMinRating(0);
+    setSortOption('relevance');
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow pt-24 pb-16 page-transition">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className={`mb-8 transition-all duration-500 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <h1 className="text-3xl font-bold tracking-tight mb-2">AI Agents Marketplace</h1>
+            <p className="text-gray-600 text-lg">Find the perfect AI agent for your specific task</p>
+          </div>
+          
+          <div className={`mb-8 transition-all duration-500 delay-100 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <SearchBar 
+              placeholder="Search for agents by name, description, or category..." 
+              onSearch={setSearchTerm}
+            />
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Filters panel - Mobile toggle */}
+            <div className="md:hidden mb-4">
+              <Button 
+                variant="outline" 
+                className="w-full flex items-center justify-between"
+                onClick={() => setShowFilters(!showFilters)}
+              >
+                <span className="flex items-center">
+                  <Filter className="mr-2 h-4 w-4" />
+                  Filters
+                </span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+              </Button>
+            </div>
+            
+            {/* Filters panel */}
+            <div 
+              className={`md:w-72 transition-all duration-300 ${isPageLoaded ? 'opacity-100' : 'opacity-0'} ${
+                showFilters ? 'max-h-[1000px] opacity-100' : 'max-h-0 md:max-h-[1000px] overflow-hidden opacity-0 md:opacity-100'
+              }`}
+            >
+              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-5 sticky top-24">
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="text-lg font-semibold">Filters</h3>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="h-8 text-sm text-gray-500 hover:text-gray-900"
+                    onClick={clearFilters}
+                  >
+                    <XCircle className="mr-1 h-4 w-4" />
+                    Clear All
+                  </Button>
+                </div>
+                
+                {/* Categories */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium mb-3">Categories</h4>
+                  <div className="space-y-2">
+                    {categories.map((category) => (
+                      <div key={category} className="flex items-center">
+                        <Checkbox 
+                          id={`category-${category}`}
+                          checked={selectedCategory === category}
+                          onCheckedChange={() => setSelectedCategory(category)}
+                        />
+                        <Label 
+                          htmlFor={`category-${category}`}
+                          className="ml-2 text-sm cursor-pointer"
+                        >
+                          {category}
+                        </Label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Price Range */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium mb-3">Price Range</h4>
+                  <Slider
+                    defaultValue={[0, 50]}
+                    max={50}
+                    step={1}
+                    value={priceRange}
+                    onValueChange={setPriceRange}
+                    className="my-6"
+                  />
+                  <div className="flex items-center justify-between text-sm">
+                    <span>${priceRange[0]}</span>
+                    <span>${priceRange[1]}</span>
+                  </div>
+                </div>
+                
+                {/* Rating */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium mb-3">Minimum Rating</h4>
+                  <div className="space-y-2">
+                    {[0, 3, 3.5, 4, 4.5].map((rating) => (
+                      <div key={rating} className="flex items-center">
+                        <Checkbox 
+                          id={`rating-${rating}`}
+                          checked={minRating === rating}
+                          onCheckedChange={() => setMinRating(rating)}
+                        />
+                        <Label 
+                          htmlFor={`rating-${rating}`}
+                          className="ml-2 text-sm cursor-pointer flex items-center"
+                        >
+                          {rating > 0 ? (
+                            <>
+                              <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400 mr-1" />
+                              {rating}+
+                            </>
+                          ) : (
+                            'Any rating'
+                          )}
+                        </Label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Main content */}
+            <div className="flex-1">
+              {/* Sort options */}
+              <div className={`mb-6 flex items-center justify-between transition-all duration-500 delay-200 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <div className="text-sm">
+                  <span className="text-gray-500">Showing</span>{' '}
+                  <span className="font-medium">{filteredAgents.length}</span>{' '}
+                  <span className="text-gray-500">results</span>
+                </div>
+                
+                <div className="flex items-center">
+                  <span className="mr-2 text-sm text-gray-500">Sort by:</span>
+                  <select
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className="border-none bg-transparent text-sm font-medium focus:outline-none focus:ring-0"
+                  >
+                    <option value="relevance">Relevance</option>
+                    <option value="rating">Highest Rating</option>
+                    <option value="reviews">Most Reviews</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                  </select>
+                </div>
+              </div>
+              
+              {/* Agents grid */}
+              <div 
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500 delay-300 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} stagger-animation`}
+              >
+                {filteredAgents.length > 0 ? (
+                  filteredAgents.map((agent) => (
+                    <AgentCard key={agent.id} agent={agent} />
+                  ))
+                ) : (
+                  <div className="col-span-full py-16 text-center">
+                    <h3 className="text-xl font-medium mb-2">No agents found</h3>
+                    <p className="text-gray-500 mb-4">Try adjusting your filters or search terms</p>
+                    <Button onClick={clearFilters}>Clear Filters</Button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Marketplace;
