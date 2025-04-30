@@ -11,14 +11,14 @@ import { useTranslation } from 'react-i18next'; // Import useTranslation
 const featuredAgents = [
   {
     id: '1',
-    name: 'ContentMaster AI',
-    description: 'Generate blog posts, articles, and marketing copy tailored to your brand voice.',
-    category: 'Content Writing',
-    rating: 4.9,
-    reviews: 487,
-    price: 0.05,
+    name: 'Цифровой менеджер по продажам Ai Pradavan',
+    description: 'AI-powered sales assistant for startups and small businesses.',
+    category: 'Customer Support',
+    rating: 4,
+    reviews: 0,
+    price: 95,
     priceModel: 'Per 1K tokens',
-    image: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    image: '../../public/2aiprod.png',
     provider: 'NexusAI'
   },
   {
@@ -59,6 +59,18 @@ const featuredAgents = [
   },
   {
     id: '5',
+    name: 'ContentMaster AI',
+    description: 'Generate blog posts, articles, and marketing copy tailored to your brand voice.',
+    category: 'Content Writing',
+    rating: 4.9,
+    reviews: 487,
+    price: 0.05,
+    priceModel: 'Per 1K tokens',
+    image: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'NexusAI'
+  },
+  {
+    id: '6',
     name: 'SupportBot Pro',
     description: 'Customer service automation with human-like responses and issue resolution.',
     category: 'Customer Support',

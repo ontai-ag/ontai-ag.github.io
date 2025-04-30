@@ -17,15 +17,15 @@ import { Filter, SlidersHorizontal, Star, ChevronDown, XCircle } from 'lucide-re
 const allAgents = [
   {
     id: '1',
-    name: 'ContentMaster AI',
-    description: 'Generate blog posts, articles, and marketing copy tailored to your brand voice.',
-    category: 'Content Writing',
-    rating: 4.9,
-    reviews: 487,
-    price: 0.05,
+    name: 'CodeGenius',
+    description: 'AI-powered sales assistant for startups and small businesses.',
+    category: 'Development',
+    rating: 4.8,
+    reviews: 300,
+    price: 95,
     priceModel: 'Per 1K tokens',
-    image: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'NexusAI'
+    image: '../../public/2aiprod.png',
+    provider: 'DevTech Solutions'
   },
   {
     id: '2',
@@ -123,6 +123,19 @@ const allAgents = [
     image: 'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
     provider: 'MarketMinds'
   }
+  // ,
+  // {
+  //   id: '10',
+  //   name: 'ContentMaster AI',
+  //   description: 'Generate blog posts, articles, and marketing copy tailored to your brand voice.',
+  //   category: 'Content Writing',
+  //   rating: 4.9,
+  //   reviews: 487,
+  //   price: 0.05,
+  //   priceModel: 'Per 1K tokens',
+  //   image: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+  //   provider: 'NexusAI'
+  // }
 ];
 
 
