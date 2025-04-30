@@ -22,7 +22,7 @@ const allAgents = [
     category: 'Customer Support',
     rating: 4,
     reviews: 11,
-    price: 95,
+    price: 0.12,
     priceModel: 'Per request',
     image: '/2aiprod.png',
     provider: 'AiPradavan'
