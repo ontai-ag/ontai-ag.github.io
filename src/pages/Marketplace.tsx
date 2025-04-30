@@ -17,15 +17,15 @@ import { Filter, SlidersHorizontal, Star, ChevronDown, XCircle } from 'lucide-re
 const allAgents = [
   {
     id: '1',
-    name: 'CodeGenius',
-    description: 'AI-powered sales assistant for startups and small businesses.',
-    category: 'Development',
-    rating: 4.8,
-    reviews: 300,
+    name: 'Ai Pradavan',
+    description: 'Цифровой менеджер по продажам',
+    category: 'Customer Support',
+    rating: 4,
+    reviews: 11,
     price: 95,
-    priceModel: 'Per 1K tokens',
-    image: '../../public/2aiprod.png',
-    provider: 'DevTech Solutions'
+    priceModel: 'Per request',
+    image: '/2aiprod.png',
+    provider: 'AiPradavan'
   },
   {
     id: '2',
@@ -39,103 +39,7 @@ const allAgents = [
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
     provider: 'DevTech Solutions'
   },
-  {
-    id: '3',
-    name: 'DataWizard',
-    description: 'Analyze and visualize data with customizable dashboards and insights.',
-    category: 'Data Analysis',
-    rating: 4.7,
-    reviews: 291,
-    price: 0.25,
-    priceModel: 'Per analysis',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'Analytix'
-  },
-  {
-    id: '4',
-    name: 'DesignCraft',
-    description: 'Generate logos, UI elements, and graphics with stunning quality.',
-    category: 'Design',
-    rating: 4.6,
-    reviews: 178,
-    price: 0.18,
-    priceModel: 'Per image',
-    image: 'https://images.unsplash.com/photo-1545670723-196ed0954986?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'CreativeMinds'
-  },
-  {
-    id: '5',
-    name: 'SupportBot Pro',
-    description: 'Customer service automation with human-like responses and issue resolution.',
-    category: 'Customer Support',
-    rating: 4.9,
-    reviews: 412,
-    price: 49.99,
-    priceModel: 'Monthly',
-    image: 'https://images.unsplash.com/photo-1596920566403-2072ed71e190?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'ServiceTech'
-  },
-  {
-    id: '6',
-    name: 'ResearchCompanion',
-    description: 'Academic and business research with sources, citations, and comprehensive analysis.',
-    category: 'Research',
-    rating: 4.7,
-    reviews: 203,
-    price: 0.15,
-    priceModel: 'Per page',
-    image: 'https://images.unsplash.com/photo-1532619187608-e5375cab36aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'AcademicAI'
-  },
-  {
-    id: '7',
-    name: 'TranslateGenius',
-    description: 'Professional-grade translations for 50+ languages with cultural nuances preserved.',
-    category: 'Translation',
-    rating: 4.8,
-    reviews: 319,
-    price: 0.08,
-    priceModel: 'Per 100 words',
-    image: 'https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'LingualTech'
-  },
-  {
-    id: '8',
-    name: 'VideoScript Pro',
-    description: 'Create compelling video scripts with scene directions, dialogue, and narration.',
-    category: 'Content Writing',
-    rating: 4.6,
-    reviews: 142,
-    price: 0.14,
-    priceModel: 'Per minute',
-    image: 'https://images.unsplash.com/photo-1595659493255-9f9a7af4a809?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'VisualStory'
-  },
-  {
-    id: '9',
-    name: 'MarketAnalyst',
-    description: 'Real-time market analysis, trends, and forecasts for businesses and investors.',
-    category: 'Data Analysis',
-    rating: 4.9,
-    reviews: 267,
-    price: 39.99,
-    priceModel: 'Monthly',
-    image: 'https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'MarketMinds'
-  }
-  // ,
-  // {
-  //   id: '10',
-  //   name: 'ContentMaster AI',
-  //   description: 'Generate blog posts, articles, and marketing copy tailored to your brand voice.',
-  //   category: 'Content Writing',
-  //   rating: 4.9,
-  //   reviews: 487,
-  //   price: 0.05,
-  //   priceModel: 'Per 1K tokens',
-  //   image: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-  //   provider: 'NexusAI'
-  // }
+  
 ];
 
 

@@ -11,15 +11,15 @@ import { useTranslation } from 'react-i18next'; // Import useTranslation
 const featuredAgents = [
   {
     id: '1',
-    name: 'Цифровой менеджер по продажам Ai Pradavan',
+    name: 'Цифровой менеджер по продажам',
     description: 'AI-powered sales assistant for startups and small businesses.',
     category: 'Customer Support',
     rating: 4,
-    reviews: 0,
+    reviews: 11,
     price: 95,
     priceModel: 'Per 1K tokens',
-    image: '../../public/2aiprod.png',
-    provider: 'NexusAI'
+    image: '/2aiprod.png',
+    provider: 'AIPradavan'
   },
   {
     id: '2',
