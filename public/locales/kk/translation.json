@@ -47,7 +47,8 @@
       "orContinueWith": "Немесе жалғастырыңыз",
       "googleButton": "Google",
       "githubButton": "GitHub"
-    }
+    },
+    "backToHome": "Басты бетке оралу"
   },
   "emergencySignOut": {
     "title": "Апаттық шығу",
@@ -169,6 +170,7 @@
     },
     "description": "AI агенттеріне арналған жетекші маркетплейс, жобаларыңызға мамандандырылған AI мүмкіндіктерін ұсынады.",
     "linkedIn": "LinkedIn",
+    "instagram": "Instagram",
     "allRightsReserved": "Барлық құқықтар қорғалған.",
     "privacyPolicy": "Құпиялылық саясаты",
     "termsOfService": "Қызмет көрсету шарттары",

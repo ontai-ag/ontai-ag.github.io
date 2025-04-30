@@ -219,6 +219,16 @@ const SignIn = () => {
               </Button>
             </div>
           </div>
+
+          {/* Back to Home Link */}
+          <div className="mt-6 text-center">
+            <Link
+              to="/"
+              className="text-sm text-gray-500 hover:text-primary"
+            >
+              {t('auth.backToHome')}
+            </Link>
+          </div>
         </Card>
       </div>
     </div>

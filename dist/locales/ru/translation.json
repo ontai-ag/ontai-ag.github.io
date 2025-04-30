@@ -47,7 +47,8 @@
       "orContinueWith": "Или продолжить с",
       "googleButton": "Google",
       "githubButton": "GitHub"
-    }
+    },
+    "backToHome": "Назад на главную"
   },
   "emergencySignOut": {
     "title": "Аварийный выход",

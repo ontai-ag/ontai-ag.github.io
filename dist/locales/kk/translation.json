@@ -47,7 +47,8 @@
       "orContinueWith": "Немесе жалғастырыңыз",
       "googleButton": "Google",
       "githubButton": "GitHub"
-    }
+    },
+    "backToHome": "Басты бетке оралу"
   },
   "emergencySignOut": {
     "title": "Апаттық шығу",

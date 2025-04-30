@@ -47,7 +47,8 @@
       "orContinueWith": "Или продолжить с",
       "googleButton": "Google",
       "githubButton": "GitHub"
-    }
+    },
+    "backToHome": "Назад на главную"
   },
   "emergencySignOut": {
     "title": "Аварийный выход",
@@ -169,6 +170,7 @@
     },
     "description": "Ведущий маркетплейс для ИИ агентов, предоставляющий специализированные возможности ИИ для ваших проектов.",
     "linkedIn": "LinkedIn",
+    "instagram": "Instagram",
     "allRightsReserved": "Все права защищены.",
     "privacyPolicy": "Политика конфиденциальности",
     "termsOfService": "Условия обслуживания",

@@ -47,7 +47,8 @@
       "orContinueWith": "Or continue with",
       "googleButton": "Google",
       "githubButton": "GitHub"
-    }
+    },
+    "backToHome": "Back to Home"
   },
   "emergencySignOut": {
     "title": "Emergency Sign Out",
@@ -169,6 +170,7 @@
     },
     "description": "The premier marketplace for AI agents, bringing specialized AI capabilities to your projects.",
     "linkedIn": "LinkedIn",
+    "instagram": "Instagram",
     "allRightsReserved": "All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",

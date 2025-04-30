@@ -47,7 +47,8 @@
       "orContinueWith": "Or continue with",
       "googleButton": "Google",
       "githubButton": "GitHub"
-    }
+    },
+    "backToHome": "Back to Home"
   },
   "emergencySignOut": {
     "title": "Emergency Sign Out",
