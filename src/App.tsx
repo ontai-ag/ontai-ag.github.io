@@ -47,7 +47,7 @@ const AuthChecker = ({ children }: { children: React.ReactNode }) => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+        <img src="/ezgif-1de2b2f378170e.gif" alt="Loading..." className="h-24 w-auto" />
       </div>
     );
   }
@@ -57,7 +57,7 @@ const AuthChecker = ({ children }: { children: React.ReactNode }) => {
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center h-screen">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+    <img src="/ezgif-1de2b2f378170e.gif" alt="Loading..." className="h-24 w-auto" />
   </div>
 );
 
