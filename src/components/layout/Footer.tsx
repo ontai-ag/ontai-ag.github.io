@@ -53,10 +53,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-sm">O</span>
-              </div>
-              <span className="font-medium text-lg">Oñtai</span>
+              <img src="59e843a5-7fb2-4c2d-adac-cd2ce6413ee1.png" alt="Ontai Logo" className="h-10" />
             </Link>
             <p className="text-gray-500 text-sm mb-6 max-w-xs">
               {t('footer.description')}
