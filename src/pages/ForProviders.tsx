@@ -47,7 +47,7 @@ const ForProviders = () => {
   const onSubmit = async (data: ProviderFormData) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbx45y-5SzBNNACfYK8bwlvBq8ivq2SHilI9Wodu6JANXG3Mz6Xn3td8b_iRqnVd1fwW/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwDqrNLXDItAleFTYYS0gz2ndA5M6wijn_qSYzQWR7gQnJl40SdkzV6BjJHBE_e0kDI/exec', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
