@@ -12,7 +12,7 @@ i18n
   .use(initReactI18next)
   // Инициализация i18next
   .init({
-    supportedLngs: ['en', 'ru', 'kk'],
+    supportedLngs: ['en', 'ru', 'kk', 'zh', 'hi', 'es', 'fr', 'ar'],
     fallbackLng: 'en',
     debug: process.env.NODE_ENV === 'development', // Включаем логирование только в режиме разработки
     detection: {

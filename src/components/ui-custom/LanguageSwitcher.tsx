@@ -3,8 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 const languages = [
   { code: 'en', name: 'English' },
-  { code: 'ru', name: 'Русский' },
   { code: 'kk', name: 'Қазақша' },
+  { code: 'zh', name: '中文' },
+  { code: 'hi', name: 'हिन्दी' },
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+  { code: 'ar', name: 'العربية' },
+  { code: 'ru', name: 'Русский' },
 ];
 
 const LanguageSwitcher: React.FC = () => {
