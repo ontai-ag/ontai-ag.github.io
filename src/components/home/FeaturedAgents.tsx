@@ -120,7 +120,7 @@ const FeaturedAgents = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end">
           <div>

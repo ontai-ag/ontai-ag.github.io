@@ -25,12 +25,12 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-gray-50 pt-28 pb-20 md:pt-32 md:pb-28">
+    <div className="relative overflow-hidden bg-background pt-28 pb-20 md:pt-32 md:pb-28">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-gray-50 to-gray-50"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background dark:from-primary/20 dark:via-background dark:to-background"></div>
       
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-grid-black/[0.02] bg-[center_top_-1px] [mask-image:linear-gradient(0deg,transparent,black,transparent)]"></div>
+      <div className="absolute inset-0 bg-grid-foreground/[0.02] dark:bg-grid-foreground/[0.03] bg-[center_top_-1px] [mask-image:linear-gradient(0deg,transparent,black,transparent)]"></div>
       
       {/* Content container */}
       <div className="container relative z-10 mx-auto px-4 md:px-6">
@@ -40,14 +40,14 @@ const Hero = () => {
           </div>
           
           <h1 
-            className={`mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            className={`mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             <span className="block">{t('hero.titleLine1')}</span>
             <span className="block text-primary">{t('hero.titleLine2')}</span>
           </h1>
           
           <p 
-            className={`mx-auto mb-10 max-w-2xl text-lg text-gray-600 md:text-xl transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            className={`mx-auto mb-10 max-w-2xl text-lg text-muted-foreground md:text-xl transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             {t('hero.description')}
           </p>
@@ -91,23 +91,23 @@ const Hero = () => {
           >
             <div className="flex items-center">
               <Bot className="h-5 w-5 text-primary mr-2" />
-              <span className="text-gray-600">{t('hero.feature1')}</span>
+              <span className="text-muted-foreground">{t('hero.feature1')}</span>
             </div>
             <div className="flex items-center">
               <Zap className="h-5 w-5 text-primary mr-2" />
-              <span className="text-gray-600">{t('hero.feature2')}</span>
+              <span className="text-muted-foreground">{t('hero.feature2')}</span>
             </div>
             <div className="flex items-center">
               <Shield className="h-5 w-5 text-primary mr-2" />
-              <span className="text-gray-600">{t('hero.feature3')}</span>
+              <span className="text-muted-foreground">{t('hero.feature3')}</span>
             </div>
           </div>
         </div>
       </div>
       
       {/* Blurred circles for decoration */}
-      <div className="absolute top-1/4 -left-32 w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute top-1/4 -left-32 w-72 h-72 bg-primary/10 dark:bg-primary/20 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-blue-400/10 dark:bg-blue-400/20 rounded-full blur-3xl -z-10"></div>
     </div>
   );
 };

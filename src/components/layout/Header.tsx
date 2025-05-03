@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Settings, Shield } from 'lucide-react';
+import { Menu, X, ChevronDown, Settings, Shield, Sun, Moon } from 'lucide-react'; // Add Sun and Moon
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,21 @@ const Header = () => {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { toast } = useToast();
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return savedTheme || (prefersDark ? 'dark' : 'light');
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +58,10 @@ const Header = () => {
     if (userRole === 'admin') return '/admin';
     if (userRole === 'developer') return '/developer';
     return '/dashboard';
+  };
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   // Function to become admin for development purposes
@@ -87,7 +106,7 @@ const Header = () => {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
-        isScrolled || isMobileMenuOpen ? 'bg-white shadow-md' : 'bg-transparent'
+        isScrolled || isMobileMenuOpen ? 'bg-card shadow-md' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -105,7 +124,7 @@ const Header = () => {
                   'text-sm font-medium transition-colors',
                   location.pathname === item.href
                     ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    : 'text-foreground hover:text-primary'
                 )}
               >
                 {item.name}
@@ -121,7 +140,7 @@ const Header = () => {
                   location.pathname.includes('/admin') ||
                   location.pathname.includes('/developer')
                     ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    : 'text-foreground hover:text-primary'
                 )}
               >
                 {t('header.dashboard')}
@@ -130,6 +149,9 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
+            <Button variant="ghost" size="icon" onClick={toggleTheme} title={t('header.toggleTheme')}>
+              {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+            </Button>
             {isAuthenticated ? (
               <>
                 {userRole === 'admin' && (
@@ -185,17 +207,17 @@ const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white px-4 pt-2 pb-4 shadow-lg">
+        <div className="md:hidden bg-card px-4 pt-2 pb-4 shadow-lg">
           <nav className="flex flex-col space-y-4">
             {navigation.map((item) => (
               <Link
                 key={item.name} // Use translated name as key might not be ideal if names change
                 to={item.href}
                 className={cn(
-                  'text-base py-2 border-b border-gray-100',
+                  'text-base py-2 border-b border-border',
                   location.pathname === item.href
                     ? 'text-primary font-medium'
-                    : 'text-gray-700'
+                    : 'text-foreground'
                 )}
               >
                 {item.name}
@@ -206,12 +228,12 @@ const Header = () => {
               <Link
                 to={getDashboardLink()}
                 className={cn(
-                  'text-base py-2 border-b border-gray-100',
+                  'text-base py-2 border-b border-border',
                   location.pathname.includes('/dashboard') ||
                   location.pathname.includes('/admin') ||
                   location.pathname.includes('/developer')
                     ? 'text-primary font-medium'
-                    : 'text-gray-700'
+                    : 'text-foreground'
                 )}
               >
                 {t('header.dashboard')}
@@ -248,8 +270,11 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <div className="flex justify-center pb-2">
+                  <div className="flex justify-between items-center pb-2">
                     <LanguageSwitcher />
+                    <Button variant="ghost" size="icon" onClick={toggleTheme} title={t('header.toggleTheme')}>
+                      {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+                    </Button>
                   </div>
                   <Button className="w-full" variant="outline" asChild>
                     <Link to="/sign-in">{t('header.signIn')}</Link>

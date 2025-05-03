@@ -30,9 +30,9 @@ import { useToast } from '@/components/ui/use-toast';
 import { AlertCircle, CheckCircle, XCircle, MessageSquare, User } from 'lucide-react';
 
 const statusColors = {
-  pending: 'bg-yellow-100 text-yellow-800',
-  approved: 'bg-green-100 text-green-800',
-  rejected: 'bg-red-100 text-red-800',
+  pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
+  approved: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+  rejected: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
 };
 
 const categoryLabels = {
@@ -232,312 +232,180 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow pt-24 pb-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-gray-600">
-                Role: <span className="font-medium capitalize">{userRole}</span>
-              </span>
-              <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-700">
-                <User size={16} />
+        <div className="container mx-auto px-4">
+          <h1 className="text-3xl font-bold mb-8 text-foreground">Admin Dashboard</h1>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <Card className="bg-card">
+              <div className="flex items-center p-4">
+                <div className="p-3 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-200 mr-4">
+                  <User className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Total Users</p>
+                  <p className="text-2xl font-semibold text-foreground">{stats.totalUsers}</p>
+                </div>
               </div>
-            </div>
+            </Card>
+            <Card className="bg-card">
+              <div className="flex items-center p-4">
+                <div className="p-3 rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-200 mr-4">
+                  <User className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Developers</p>
+                  <p className="text-2xl font-semibold text-foreground">{stats.developers}</p>
+                </div>
+              </div>
+            </Card>
+            <Card className="bg-card">
+              <div className="flex items-center p-4">
+                <div className="p-3 rounded-full bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-200 mr-4">
+                  <CheckCircle className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Active Agents</p>
+                  <p className="text-2xl font-semibold text-foreground">{stats.activeAgents}</p>
+                </div>
+              </div>
+            </Card>
+            <Card className="bg-card">
+              <div className="flex items-center p-4">
+                <div className="p-3 rounded-full bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-200 mr-4">
+                  {/* Replace with appropriate icon if revenue is tracked */}
+                  <MessageSquare className="h-6 w-6" /> 
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground">Total Revenue</p>
+                  <p className="text-2xl font-semibold text-foreground">${stats.totalRevenue.toFixed(2)}</p>
+                </div>
+              </div>
+            </Card>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">User Management</h2>
-              <p className="text-gray-600 mb-4">
-                View and manage users and their roles.
-              </p>
-              <CustomButton variant="primary" size="sm">
-                Manage Users
-              </CustomButton>
-            </Card>
-
-            <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Agent Moderation</h2>
-              <p className="text-gray-600 mb-4">
-                Review and approve new AI agents submitted by developers.
-              </p>
-              <CustomButton 
-                variant="primary" 
-                size="sm"
-                as="button"
-                onClick={() => document.getElementById('pending-approvals')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                {pendingAgents.length > 0 
-                  ? `${pendingAgents.length} Pending Approval${pendingAgents.length !== 1 ? 's' : ''}`
-                  : 'No Pending Approvals'}
-              </CustomButton>
-            </Card>
-
-            <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Platform Settings</h2>
-              <p className="text-gray-600 mb-4">
-                Configure platform settings and features.
-              </p>
-              <CustomButton variant="primary" size="sm">
-                Edit Settings
-              </CustomButton>
-            </Card>
-          </div>
-
-          <Card className="p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-4">Platform Overview</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                <p className="text-sm text-gray-500">Total Users</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.totalUsers}</p>
-              </div>
-              <div className="bg-green-50 rounded-lg p-4 border border-green-100">
-                <p className="text-sm text-gray-500">Developers</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.developers}</p>
-              </div>
-              <div className="bg-amber-50 rounded-lg p-4 border border-amber-100">
-                <p className="text-sm text-gray-500">Active Agents</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.activeAgents}</p>
-              </div>
-              <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
-                <p className="text-sm text-gray-500">Total Revenue</p>
-                <p className="text-2xl font-bold text-gray-900">${stats.totalRevenue.toFixed(2)}</p>
-              </div>
-            </div>
-            <CustomButton variant="outline" size="sm">
-              View Detailed Analytics
-            </CustomButton>
-          </Card>
-
-          <div id="pending-approvals" className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold">Pending Approvals</h2>
-            <CustomButton variant="ghost" size="sm" as={Link} to="/admin/agents">
-              View All Agents
-            </CustomButton>
-          </div>
-
-          {isLoading ? (
-            <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-            </div>
-          ) : pendingAgents.length > 0 ? (
-            <Card className="overflow-hidden">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Category</TableHead>
-                    <TableHead>Developer</TableHead>
-                    <TableHead>Submitted</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {pendingAgents.map((agent) => (
-                    <TableRow key={agent.id}>
-                      <TableCell className="font-medium">{agent.name}</TableCell>
-                      <TableCell>{categoryLabels[agent.category as keyof typeof categoryLabels] || agent.category}</TableCell>
-                      <TableCell>{agent.user_id.slice(0, 8)}...</TableCell>
-                      <TableCell>{new Date(agent.created_at).toLocaleDateString()}</TableCell>
-                      <TableCell>
-                        <Badge className={statusColors[agent.status as keyof typeof statusColors]}>
-                          {agent.status.charAt(0).toUpperCase() + agent.status.slice(1)}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-2">
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => handleViewAgent(agent)}
-                          >
-                            View
-                          </Button>
-                          <Button 
-                            variant="default" 
-                            size="sm" 
-                            className="bg-green-500 hover:bg-green-600"
-                            onClick={() => handleApproveAgent(agent.id)}
-                          >
-                            <CheckCircle className="h-4 w-4 mr-1" />
-                            Approve
-                          </Button>
-                          <Button 
-                            variant="destructive" 
-                            size="sm"
-                            onClick={() => handleRejectAgent(agent.id)}
-                          >
-                            <XCircle className="h-4 w-4 mr-1" />
-                            Reject
-                          </Button>
-                          <Button 
-                            variant="secondary" 
-                            size="sm"
-                            onClick={() => handleOpenFeedback(agent)}
-                          >
-                            <MessageSquare className="h-4 w-4 mr-1" />
-                            Feedback
-                          </Button>
-                        </div>
-                      </TableCell>
+          {/* Pending Agents Table */}
+          <Card className="bg-card">
+            <div className="p-6">
+              <h2 className="text-xl font-semibold mb-4 text-foreground">Pending Agent Approvals</h2>
+              {isLoading ? (
+                <div className="flex justify-center items-center h-64">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                </div>
+              ) : pendingAgents.length > 0 ? (
+                <Table>
+                  <TableHeader>
+                    <TableRow className="border-border">
+                      <TableHead className="text-foreground">Agent Name</TableHead>
+                      <TableHead className="text-foreground">Category</TableHead>
+                      <TableHead className="text-foreground">Developer</TableHead>
+                      <TableHead className="text-foreground">Submitted</TableHead>
+                      <TableHead className="text-right text-foreground">Actions</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Card>
-          ) : (
-            <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <p className="text-gray-500 mb-4">No pending approvals</p>
-              <CustomButton variant="outline" size="sm">
-                View All Agents
-              </CustomButton>
-            </div>
-          )}
-
-          <div className="mt-8">
-            <CustomButton 
-              variant="link" 
-              size="sm" 
-              as={Link} 
-              to="/dashboard"
-              leftIcon={<span>←</span>}
-            >
-              Back to User Dashboard
-            </CustomButton>
-          </div>
-        </div>
-      </main>
-
-      {/* View Agent Dialog */}
-      <Dialog open={viewAgentDialog} onOpenChange={setViewAgentDialog}>
-        <DialogContent className="max-w-3xl">
-          <DialogHeader>
-            <DialogTitle>Agent Details</DialogTitle>
-          </DialogHeader>
-          
-          {selectedAgent && (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Name</h3>
-                  <p className="mt-1">{selectedAgent.name}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Category</h3>
-                  <p className="mt-1">{categoryLabels[selectedAgent.category as keyof typeof categoryLabels] || selectedAgent.category}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Pricing</h3>
-                  <p className="mt-1 capitalize">{selectedAgent.pricing_model} 
-                    {selectedAgent.hourly_rate ? ` - $${selectedAgent.hourly_rate}/hr` : ''}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Submitted</h3>
-                  <p className="mt-1">{new Date(selectedAgent.created_at).toLocaleString()}</p>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Description</h3>
-                <p className="mt-1">{selectedAgent.description}</p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Input Format</h3>
-                  <p className="mt-1">{selectedAgent.input_format}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Output Format</h3>
-                  <p className="mt-1">{selectedAgent.output_format}</p>
-                </div>
-              </div>
-              
-              {selectedAgent.api_endpoint && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">API Endpoint</h3>
-                  <p className="mt-1">{selectedAgent.api_endpoint}</p>
+                  </TableHeader>
+                  <TableBody>
+                    {pendingAgents.map((agent) => (
+                      <TableRow key={agent.id} className="border-border">
+                        <TableCell className="font-medium text-foreground">{agent.name}</TableCell>
+                        <TableCell className="text-muted-foreground">{categoryLabels[agent.category as keyof typeof categoryLabels] || agent.category}</TableCell>
+                        <TableCell className="text-muted-foreground">{agent.developer_name || 'N/A'}</TableCell>
+                        <TableCell className="text-muted-foreground">{new Date(agent.created_at).toLocaleDateString()}</TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex justify-end space-x-2">
+                            <Button variant="outline" size="sm" onClick={() => handleViewAgent(agent)}>View</Button>
+                            <Button variant="destructive" size="sm" onClick={() => handleOpenFeedback(agent)}>Reject</Button>
+                            <Button variant="default" size="sm" onClick={() => handleApproveAgent(agent.id)}>Approve</Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              ) : (
+                <div className="text-center py-12">
+                  <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold mb-2 text-foreground">No Pending Agents</h3>
+                  <p className="text-muted-foreground">There are currently no agents awaiting approval.</p>
                 </div>
               )}
             </div>
-          )}
-          
-          <DialogFooter className="flex justify-between items-center">
-            <Button variant="outline" onClick={() => setViewAgentDialog(false)}>
-              Close
-            </Button>
-            <div className="flex gap-2">
-              <Button 
-                variant="destructive" 
-                onClick={() => selectedAgent && handleRejectAgent(selectedAgent.id)}
-              >
-                <XCircle className="h-4 w-4 mr-1" />
-                Reject
-              </Button>
-              <Button 
-                variant="secondary"
-                onClick={() => {
-                  setViewAgentDialog(false);
-                  selectedAgent && handleOpenFeedback(selectedAgent);
-                }}
-              >
-                <MessageSquare className="h-4 w-4 mr-1" />
-                Send Feedback
-              </Button>
-              <Button 
-                className="bg-green-500 hover:bg-green-600"
-                onClick={() => selectedAgent && handleApproveAgent(selectedAgent.id)}
-              >
-                <CheckCircle className="h-4 w-4 mr-1" />
-                Approve
-              </Button>
+          </Card>
+        </div>
+      </main>
+      <Footer />
+
+      {/* View Agent Dialog */}
+      <Dialog open={viewAgentDialog} onOpenChange={setViewAgentDialog}>
+        <DialogContent className="sm:max-w-[600px] bg-card">
+          <DialogHeader>
+            <DialogTitle className="text-foreground">Agent Details: {selectedAgent?.name}</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Review the details of this agent before taking action.
+            </DialogDescription>
+          </DialogHeader>
+          {selectedAgent && (
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <span className="text-right font-medium text-muted-foreground">Name</span>
+                <span className="col-span-3 text-foreground">{selectedAgent.name}</span>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <span className="text-right font-medium text-muted-foreground">Category</span>
+                <span className="col-span-3 text-foreground">{categoryLabels[selectedAgent.category as keyof typeof categoryLabels] || selectedAgent.category}</span>
+              </div>
+              <div className="grid grid-cols-4 items-start gap-4">
+                <span className="text-right font-medium text-muted-foreground pt-1">Description</span>
+                <p className="col-span-3 text-foreground text-sm">{selectedAgent.description}</p>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <span className="text-right font-medium text-muted-foreground">Pricing</span>
+                <span className="col-span-3 text-foreground capitalize">{selectedAgent.pricing_model}</span>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <span className="text-right font-medium text-muted-foreground">Developer</span>
+                <span className="col-span-3 text-foreground">{selectedAgent.developer_name || 'N/A'}</span>
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <span className="text-right font-medium text-muted-foreground">Submitted</span>
+                <span className="col-span-3 text-foreground">{new Date(selectedAgent.created_at).toLocaleString()}</span>
+              </div>
+              {/* Add more fields as needed, e.g., API endpoint, documentation link */} 
             </div>
+          )}
+          <DialogFooter className="border-t border-border pt-4">
+            <Button variant="outline" onClick={() => setViewAgentDialog(false)}>Close</Button>
+            <Button variant="destructive" onClick={() => { setViewAgentDialog(false); handleOpenFeedback(selectedAgent!); }}>Reject</Button>
+            <Button variant="default" onClick={() => handleApproveAgent(selectedAgent!.id)}>Approve</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
       {/* Feedback Dialog */}
       <Dialog open={feedbackDialog} onOpenChange={setFeedbackDialog}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-[425px] bg-card">
           <DialogHeader>
-            <DialogTitle>Send Feedback</DialogTitle>
-            <DialogDescription>
-              {selectedAgent && (
-                <>Provide feedback to the developer about their agent "{selectedAgent.name}".</>
-              )}
+            <DialogTitle className="text-foreground">Reject Agent: {selectedAgent?.name}</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Provide feedback to the developer explaining why the agent was rejected.
             </DialogDescription>
           </DialogHeader>
-          
-          <div className="space-y-4 py-4">
-            <Textarea
-              placeholder="Enter your feedback here..."
-              className="min-h-[100px]"
+          <div className="grid gap-4 py-4">
+            <Textarea 
+              placeholder="Enter rejection feedback here..." 
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
+              className="min-h-[100px] bg-input text-foreground border-border"
             />
           </div>
-          
-          <DialogFooter className="flex justify-between items-center">
-            <Button variant="outline" onClick={() => setFeedbackDialog(false)}>
-              Cancel
-            </Button>
-            <Button 
-              variant="default"
-              onClick={handleSubmitFeedback}
-              disabled={!feedback.trim()}
-            >
-              Send Feedback & Reject
-            </Button>
+          <DialogFooter className="border-t border-border pt-4">
+            <Button variant="outline" onClick={() => setFeedbackDialog(false)}>Cancel</Button>
+            <Button variant="destructive" onClick={() => handleRejectAgent(selectedAgent!.id, feedback)}>Confirm Rejection</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
-
-      <Footer />
     </div>
   );
 };

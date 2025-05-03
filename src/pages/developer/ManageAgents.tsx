@@ -14,9 +14,9 @@ import Footer from '@/components/layout/Footer';
 import { Edit, Eye, Plus, Trash2, AlertCircle } from 'lucide-react';
 
 const statusColors = {
-  pending: 'bg-yellow-100 text-yellow-800',
-  approved: 'bg-green-100 text-green-800',
-  rejected: 'bg-red-100 text-red-800',
+  pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
+  approved: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+  rejected: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
 };
 
 const categoryLabels: Record<AgentCategory | string, string> = {
@@ -147,10 +147,10 @@ const ManageAgents = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="flex-grow">
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                       {agent.description}
                     </p>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-muted-foreground">
                       <div className="flex justify-between mb-1">
                         <span>Pricing:</span>
                         <span className="font-medium capitalize">{agent.pricing_model}</span>
@@ -194,13 +194,13 @@ const ManageAgents = () => {
               ))}
             </div>
           ) : (
-            <Card className="text-center py-12">
+            <Card className="text-center py-12 bg-card">
               <CardContent>
                 <div className="flex flex-col items-center">
-                  <AlertCircle className="h-12 w-12 text-gray-400 mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">No Agents Found</h3>
-                  <p className="text-gray-500 mb-6 max-w-md mx-auto">
-                    You haven't created any AI agents yet. Get started by creating your first agent.
+                  <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">No Agents Found</h3>
+                  <p className="text-muted-foreground mb-6">
+                    You haven't created any AI agents yet. Get started by creating your first one!
                   </p>
                   <CustomButton 
                     variant="primary" 
