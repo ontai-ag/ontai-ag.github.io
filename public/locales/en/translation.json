@@ -139,6 +139,27 @@
     },
     "ctaButton": "Get Started Now"
   },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "subtitle": "Simple, transparent pricing for every need.",
+    "monthly": "month",
+    "popular": "Most Popular",
+    "starter": {
+      "description": "Perfect for individuals getting started.",
+      "feature1": "Basic agent access",
+      "feature2": "Limited task runs",
+      "feature3": "Community support",
+      "cta": "Get Started"
+    },
+    "pro": {
+      "description": "Ideal for professionals and teams.",
+      "feature1": "Full agent access",
+      "feature2": "Unlimited task runs",
+      "feature3": "Priority support",
+      "feature4": "Advanced features",
+      "cta": "Choose Pro"
+    }
+  },
   "footer": {
     "product": {
       "title": "Product",

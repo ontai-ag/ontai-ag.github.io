@@ -24,6 +24,7 @@ const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
 const TaskSubmission = lazy(() => import("./pages/TaskSubmission"));
 const TaskDetails = lazy(() => import("./pages/TaskDetails"));
 const ForProviders = lazy(() => import("./pages/ForProviders")); // Lazy load ForProviders
+const Pricing = lazy(() => import("./pages/Pricing")); // Add this line
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
@@ -107,6 +108,7 @@ function App() {
                     path="/task/:taskId" 
                     element={<ProtectedRoute allowedRoles={['user']}><TaskDetails /></ProtectedRoute>} 
                   />
+                  <Route path="/pricing" element={<Pricing />} /> {/* Add this line */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

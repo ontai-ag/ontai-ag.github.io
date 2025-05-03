@@ -13,18 +13,18 @@ const Footer = () => {
       title: t('footer.product.title'),
       links: [
         { name: t('footer.product.marketplace'), href: '/marketplace' },
-        { name: t('footer.product.aiAgents'), href: '/agents' },
+        // { name: t('footer.product.aiAgents'), href: '/agents' },
         { name: t('footer.product.pricing'), href: '/pricing' },
-        { name: t('footer.product.useCases'), href: '/use-cases' },
+        // { name: t('footer.product.useCases'), href: '/use-cases' },
       ],
     },
     {
       title: t('footer.company.title'),
       links: [
         { name: t('footer.company.about'), href: '/about' },
-        { name: t('footer.company.careers'), href: '/careers' },
+        // { name: t('footer.company.careers'), href: '/careers' },
         { name: t('footer.company.blog'), href: '/blog' },
-        { name: t('footer.company.press'), href: '/press' },
+        // { name: t('footer.company.press'), href: '/press' },
       ],
     },
     {
@@ -32,8 +32,8 @@ const Footer = () => {
       links: [
         { name: t('footer.resources.documentation'), href: '/docs' },
         { name: t('footer.resources.helpCenter'), href: '/help' },
-        { name: t('footer.resources.community'), href: '/community' },
-        { name: t('footer.resources.status'), href: '/status' },
+        // { name: t('footer.resources.community'), href: '/community' },
+        // { name: t('footer.resources.status'), href: '/status' },
       ],
     },
     // {
@@ -53,7 +53,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6">
-              <img src="59e843a5-7fb2-4c2d-adac-cd2ce6413ee1.png" alt="Ontai Logo" className="h-10" />
+              <img src="79949da3-4f51-4906-b982-61fa265a04f6.png" alt="Ontai Logo" className="h-10" />
             </Link>
             <p className="text-gray-500 text-sm mb-6 max-w-xs">
               {t('footer.description')}
@@ -70,6 +70,12 @@ const Footer = () => {
                 <span className="sr-only">{t('footer.instagram')}</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a href="https://t.me/ontai_kz" className="text-gray-400 hover:text-gray-500 transition-colors">
+                <span className="sr-only">{t('footer.telegram')}</span>
+                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.3 1.4.14 1.2.87l-2.67 12.58c-.22.99-.87 1.23-1.73.74l-4.82-3.56-2.32 2.23c-.25.24-.47.45-.87.45z"/>
                 </svg>
               </a>
             </div>
