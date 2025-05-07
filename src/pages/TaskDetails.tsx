@@ -21,7 +21,66 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Separator } from '@/components/ui/separator';
-import { supabase, typeAdapters, Task, Agent, TaskRevision } from '@/integrations/supabase/client';
+// import { supabase, typeAdapters, Task, Agent, TaskRevision } from '@/integrations/supabase/client';
+
+// TODO: [SUPABASE_REMOVAL] Define these types locally or import from a non-Supabase source
+export type TaskStatus = 'pending' | 'in_progress' | 'completed' | 'failed' | 'revision_requested';
+export type NotificationChannel = 'email' | 'sms' | 'slack' | 'none';
+export type OutputFormat = 'text' | 'json' | 'markdown' | 'pdf' | 'docx';
+
+export interface Task {
+  id: string;
+  user_id: string;
+  agent_id: string;
+  prompt: string;
+  additional_info?: string | null;
+  attachment_url?: string | null;
+  status: TaskStatus;
+  result: string | null;
+  price: number;
+  payment_status: 'pending' | 'completed' | 'failed';
+  notification_channel: NotificationChannel;
+  output_format: OutputFormat;
+  revision_count: number;
+  max_revisions: number;
+  feedback?: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Agent {
+  id: string;
+  name: string;
+  description: string;
+  // Add other necessary fields for Agent if any are used in this component
+}
+
+export interface TaskRevision {
+  id: string;
+  created_at: string;
+  feedback: string | null;
+  result: string | null;
+  // Add other necessary fields for TaskRevision if any are used in this component
+}
+
+// TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.
+const supabase: any = { 
+  from: (tableName: string) => ({
+    select: (...args: any[]) => ({
+      eq: (column: string, value: any) => ({
+        single: () => Promise.resolve({ data: null, error: new Error(`Supabase removed, called select on ${tableName}`) }),
+        order: () => Promise.resolve({ data: [], error: new Error(`Supabase removed, called select on ${tableName}`) })
+      }),
+      order: () => Promise.resolve({ data: [], error: new Error(`Supabase removed, called select on ${tableName}`) })
+    }),
+  })
+};
+
+// TODO: [SUPABASE_REMOVAL] Placeholder for typeAdapters if needed by other logic, otherwise remove.
+const typeAdapters = {
+  convertToTask: (data: any): Task => data as Task, // This is a naive conversion, adjust as needed
+  convertToAgent: (data: any): Agent => data as Agent, // This is a naive conversion, adjust as needed
+};
 import { useAppAuth } from '@/contexts/AuthContext';
 import TaskStatusBadge from '@/components/tasks/TaskStatusBadge';
 import TaskProgressIndicator from '@/components/tasks/TaskProgressIndicator';
@@ -59,30 +118,43 @@ const TaskDetails = () => {
       try {
         setLoading(true);
         
-        const { data: taskData, error: taskError } = await supabase
-          .from('tasks')
-          .select('*')
-          .eq('id', id)
-          .eq('user_id', user.id)
-          .single();
+        // TODO: [SUPABASE_REMOVAL] Replace with new data fetching logic
+        // const { data: taskData, error: taskError } = await supabase
+        //   .from('tasks')
+        //   .select('*')
+        //   .eq('id', id)
+        //   .eq('user_id', user.id)
+        //   .single();
         
-        if (taskError) throw taskError;
-        if (!taskData) {
-          setError('Task not found');
-          return;
-        }
+        // if (taskError) throw taskError;
+        // if (!taskData) {
+        //   setError('Task not found');
+        //   return;
+        // }
         
-        setTask(typeAdapters.convertToTask(taskData));
+        // setTask(typeAdapters.convertToTask(taskData));
         
-        if (taskData.agent_id) {
-          const { data: agentData, error: agentError } = await supabase
-            .from('ai_agents')
-            .select('*')
-            .eq('id', taskData.agent_id)
-            .single();
+        // if (taskData.agent_id) {
+        //   const { data: agentData, error: agentError } = await supabase
+        //     .from('ai_agents')
+        //     .select('*')
+        //     .eq('id', taskData.agent_id)
+        //     .single();
           
-          if (agentError) throw agentError;
-          setAgent(typeAdapters.convertToAgent(agentData));
+        //   if (agentError) throw agentError;
+        //   setAgent(typeAdapters.convertToAgent(agentData));
+        // }
+        const fetchedTask = await taskService.getTaskById(id, user.id); // Assuming taskService is updated
+        if (fetchedTask) {
+          setTask(fetchedTask);
+          // TODO: [SUPABASE_REMOVAL] Fetch agent details if taskService doesn't provide them
+          // For now, we'll set a placeholder or leave it null
+          // if (fetchedTask.agent_id) { 
+          //   // const agentDetails = await agentService.getAgentById(fetchedTask.agent_id); 
+          //   // setAgent(agentDetails); 
+          // }
+        } else {
+          setError('Task not found or failed to load');
         }
         
         if (taskData.status === 'completed' && taskData.revision_count > 0) {

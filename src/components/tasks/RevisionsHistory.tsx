@@ -9,7 +9,16 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { Clock, MessageSquare } from 'lucide-react';
-import { TaskRevision } from '@/integrations/supabase/client';
+// import { TaskRevision } from '@/integrations/supabase/client';
+
+// TODO: [SUPABASE_REMOVAL] Define TaskRevision structure or import from a non-Supabase source
+export interface TaskRevision {
+  id: string;
+  created_at: string;
+  feedback: string | null;
+  result: string | null;
+  // Add other necessary fields for TaskRevision if any are used in this component
+}
 
 interface RevisionsHistoryProps {
   revisions: TaskRevision[];
