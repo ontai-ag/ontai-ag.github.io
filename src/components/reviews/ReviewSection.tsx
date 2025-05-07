@@ -5,8 +5,20 @@ import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { ThumbsUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { TaskReview } from '@/integrations/supabase/client';
+// import { TaskReview } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase type import
 import { reviewService } from '@/services/reviewService';
+
+// TODO: [SUPABASE_REMOVAL] Define TaskReview locally or move to a shared types file
+export interface TaskReview {
+  id: string;
+  task_id: string;
+  user_id: string;
+  agent_id: string;
+  rating: number;
+  review_text: string | null;
+  created_at: string;
+  updated_at: string;
+}
 import ReviewForm from './ReviewForm';
 import StarRating from './StarRating';
 

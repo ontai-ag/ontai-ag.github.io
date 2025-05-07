@@ -2,7 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'; // Добавить импорт
-import { supabase } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client
+// TODO: [SUPABASE_REMOVAL] Placeholder for auth service or use AuthContext methods for sign-in
+const supabaseAuthMock = {
+  signInWithPassword: () => Promise.reject(new Error('Supabase removed, use AuthService.signInWithPassword')), 
+  signInWithOAuth: () => Promise.reject(new Error('Supabase removed, use AuthService.signInWithOAuth')),
+};
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -45,10 +50,12 @@ const SignIn = () => {
     setError(null);
     
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      // TODO: [SUPABASE_REMOVAL] Replace with authService.signInWithPassword(email, password) or similar
+      const { data, error } = await supabaseAuthMock.signInWithPassword(); // Using mock to demonstrate breakage
+      // const { data, error } = await supabase.auth.signInWithPassword({
+      //   email,
+      //   password,
+      // });
       
       if (error) throw error;
       
@@ -76,12 +83,14 @@ const SignIn = () => {
     setError(null);
     
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: `${window.location.origin}${getDashboardPath()}`,
-        },
-      });
+      // TODO: [SUPABASE_REMOVAL] Replace with authService.signInWithOAuth(provider) or similar
+      const { data, error } = await supabaseAuthMock.signInWithOAuth(); // Using mock to demonstrate breakage
+      // const { data, error } = await supabase.auth.signInWithOAuth({
+      //   provider,
+      //   options: {
+      //     redirectTo: `${window.location.origin}${getDashboardPath()}`,
+      //   },
+      // });
       
       if (error) throw error;
       

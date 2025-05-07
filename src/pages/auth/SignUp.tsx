@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'; // Add this import
-import { supabase } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Use AuthContext for auth operations
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -30,17 +30,9 @@ const SignUp = () => {
     try {
       // Store role in user metadata so it's used for profile creation
       console.log(`Signing up with role: ${userType}`);
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: fullName,
-            role: userType, // This will be used when creating the profile
-          },
-          emailRedirectTo: `${window.location.origin}/dashboard`,
-        },
-      });
+      // const { data, error } = await supabase.auth.signUp({ // TODO: [SUPABASE_REMOVAL] Replace with AuthContext.signUp
+      // TEMPORARY: Simulate error as supabase is removed
+      const { data, error } = { data: null, error: new Error('Supabase client removed. Use AuthContext.') };
       
       if (error) throw error;
       
@@ -71,16 +63,19 @@ const SignUp = () => {
     setError(null);
     
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: `${window.location.origin}/dashboard`,
-          queryParams: {
-            access_type: 'offline',
-            prompt: 'consent',
-          },
-        },
-      });
+      // const { data, error } = await supabase.auth.signInWithOAuth({ // TODO: [SUPABASE_REMOVAL] Replace with AuthContext.signInWithOAuth
+      // TEMPORARY: Simulate error as supabase is removed
+      const { data, error } = { data: null, error: new Error('Supabase client removed. Use AuthContext.') };
+      // TODO: [SUPABASE_REMOVAL] The following lines were part of the original Supabase call and are now removed
+      // provider,
+      // options: {
+      //   redirectTo: `${window.location.origin}/dashboard`,
+      //   queryParams: {
+      //     access_type: 'offline',
+      //     prompt: 'consent',
+      //   },
+      // },
+      // });
       
       if (error) throw error;
       

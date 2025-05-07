@@ -24,8 +24,19 @@ import {
   DialogTitle 
 } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { supabase, Agent, AgentCategory } from '@/integrations/supabase/client';
+// import { supabase, Agent, AgentCategory } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client and types
+import type { Agent, AgentCategory } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined
 import { agentService } from '@/services/agentService';
+
+// TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.
+const supabase: any = {
+  from: (tableName: string) => ({
+    select: (...args: any[]) => ({
+      eq: (column: string, value: any) => Promise.resolve({ count: 0, error: new Error(`Supabase removed, called select on ${tableName}`) }),
+      head: true, // Mocking head for count operations
+    }),
+  }),
+};
 import { useToast } from '@/components/ui/use-toast';
 import { AlertCircle, CheckCircle, XCircle, MessageSquare, User } from 'lucide-react';
 
@@ -104,28 +115,32 @@ const AdminDashboard = () => {
   // Fetch platform stats
   const fetchStats = async () => {
     try {
-      // Get total users count (from profiles)
-      const { count: totalUsers, error: usersError } = await supabase
-        .from('profiles')
-        .select('*', { count: 'exact', head: true });
-      
-      if (usersError) throw usersError;
-      
-      // Get developers count
-      const { count: developers, error: devsError } = await supabase
-        .from('profiles')
-        .select('*', { count: 'exact', head: true })
-        .eq('role', 'developer');
-      
-      if (devsError) throw devsError;
-      
-      // Get active agents count
-      const { count: activeAgents, error: agentsError } = await supabase
-        .from('ai_agents')
-        .select('*', { count: 'exact', head: true })
-        .eq('status', 'approved');
-      
-      if (agentsError) throw agentsError;
+      // TODO: [SUPABASE_REMOVAL] Implement fetching total users with new backend/service.
+      // const { count: totalUsers, error: usersError } = await supabase
+      //   .from('profiles')
+      //   .select('*', { count: 'exact', head: true });
+      // if (usersError) throw usersError;
+      const totalUsers = 0; // Placeholder
+      console.warn('[SUPABASE_REMOVAL] Mocking totalUsers count in AdminDashboard.');
+
+      // TODO: [SUPABASE_REMOVAL] Implement fetching developers count with new backend/service.
+      // const { count: developers, error: devsError } = await supabase
+      //   .from('profiles')
+      //   .select('*', { count: 'exact', head: true })
+      //   .eq('role', 'developer');
+      // if (devsError) throw devsError;
+      const developers = 0; // Placeholder
+      console.warn('[SUPABASE_REMOVAL] Mocking developers count in AdminDashboard.');
+
+      // TODO: [SUPABASE_REMOVAL] Implement fetching active agents count with agentService or new backend.
+      // const { count: activeAgents, error: agentsError } = await supabase
+      //   .from('ai_agents')
+      //   .select('*', { count: 'exact', head: true })
+      //   .eq('status', 'approved');
+      // if (agentsError) throw agentsError;
+      const approvedAgents = await agentService.getAgents({ status: 'approved' });
+      const activeAgents = approvedAgents.length; // Use agentService
+      console.warn('[SUPABASE_REMOVAL] Using agentService for activeAgents count in AdminDashboard.');
       
       // Set the stats
       setStats({

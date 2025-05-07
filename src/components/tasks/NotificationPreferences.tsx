@@ -2,7 +2,10 @@
 import React from 'react';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { NotificationChannel } from '@/integrations/supabase/client';
+// import { NotificationChannel } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Type removed or changed in client.ts
+
+// TODO: [SUPABASE_REMOVAL] Define NotificationChannel locally if no longer available from a central types file.
+export type NotificationChannel = 'email' | 'sms' | 'slack' | 'none';
 import { Mail, MessageSquare, Slack, BellOff } from 'lucide-react';
 
 interface NotificationPreferencesProps {

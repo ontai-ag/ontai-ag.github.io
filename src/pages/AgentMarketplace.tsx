@@ -10,7 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
-import { supabase } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Supabase client import removed
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -60,80 +60,37 @@ const AgentMarketplace = () => {
   // Fetch agents from Supabase
   useEffect(() => {
     const fetchAgents = async () => {
-      try {
-        setIsLoading(true);
-        
-        // Only fetch approved agents
-        const { data, error } = await supabase
-          .from('ai_agents')
-          .select(`
-            id,
-            name,
-            description,
-            category,
-            pricing_model,
-            hourly_rate,
-            user_id,
-            profiles:user_id (
-              full_name,
-              avatar_url
-            )
-          `)
-          .eq('status', 'approved');
-        
-        if (error) {
-          throw error;
-        }
-        
-        // Transform data to match AgentCard props
-        const formattedAgents = data.map(agent => {
-          // Extract profile data correctly
-          let providerName = 'Unknown Developer';
-          
-          // Type guard to check if profiles exists and what type it is
-          if (agent.profiles) {
-            // Handle both cases: profiles as a direct object or as an array
-            if (Array.isArray(agent.profiles)) {
-              // If it's an array, use type assertion to ensure TypeScript treats it as an array of objects with full_name
-              const profilesArray = agent.profiles as { full_name?: string }[];
-              if (profilesArray.length > 0 && profilesArray[0] && profilesArray[0].full_name) {
-                providerName = profilesArray[0].full_name;
-              }
-            } else if (typeof agent.profiles === 'object') {
-              // If it's a direct object, use type assertion to ensure TypeScript understands the shape
-              const profileObj = agent.profiles as { full_name?: string };
-              if (profileObj.full_name) {
-                providerName = profileObj.full_name;
-              }
-            }
-          }
-          
-          return {
-            id: agent.id,
-            name: agent.name,
-            description: agent.description,
-            category: agent.category,
-            rating: Math.floor(Math.random() * 2) + 4, // Mock rating between 4-5
-            reviews: Math.floor(Math.random() * 500) + 50, // Mock reviews count
-            price: agent.hourly_rate || 0.99,
-            priceModel: agent.pricing_model === 'free' ? 'Free' : (agent.pricing_model === 'subscription' ? 'Monthly' : 'Per request'),
-            image: `https://source.unsplash.com/300x200/?${encodeURIComponent(agent.category)}`,
-            provider: providerName
-          };
-        });
-        
-        setAgents(formattedAgents);
-        setFilteredAgents(formattedAgents);
-      } catch (error) {
-        console.error('Error fetching agents:', error);
-        toast({
-          title: "Error loading agents",
-          description: "There was a problem loading the agents. Please try again.",
-          variant: "destructive"
-        });
-      } finally {
-        setIsLoading(false);
-      }
+      // TODO: [SUPABASE_REMOVAL] Implement alternative data fetching logic or use mock data
+      console.warn('Supabase fetchAgents called, but Supabase is being removed. Using mock data or no data.');
+      setIsLoading(true);
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      // Example: Set empty agents list or mock data
+      const mockAgents: AgentData[] = [
+        // Add some mock agent data here if needed for UI testing
+        // {
+        //   id: 'mock-1',
+        //   name: 'Mock Agent 1',
+        //   description: 'This is a mock agent for testing purposes.',
+        //   category: 'text-generation',
+        //   rating: 4.5,
+        //   reviews: 120,
+        //   price: 10,
+        //   priceModel: 'Monthly',
+        //   image: 'https://source.unsplash.com/300x200/?technology',
+        //   provider: 'Mock Provider'
+        // },
+      ];
+      setAgents(mockAgents);
+      setFilteredAgents(mockAgents);
+      
+      toast({
+        title: "Data Loading Placeholder",
+        description: "Agent data fetching is disabled due to Supabase removal. Displaying placeholder or no data.",
+        variant: "default"
+      });
+      setIsLoading(false);
     };
     
     fetchAgents();

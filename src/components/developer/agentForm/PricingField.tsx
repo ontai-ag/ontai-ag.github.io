@@ -4,7 +4,8 @@ import { FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessa
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Control } from 'react-hook-form';
-import { AgentPricingModel } from '@/integrations/supabase/client';
+// AgentPricingModel is now defined locally below.
+export type AgentPricingModel = 'free' | 'pay-per-use' | 'subscription' | 'custom';
 
 export const PRICING_OPTIONS = [
   { label: 'Free', value: 'free' as AgentPricingModel },

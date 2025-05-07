@@ -22,8 +22,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { useToast } from '@/hooks/use-toast';
 import { Separator } from '@/components/ui/separator';
-import { supabase } from '@/integrations/supabase/client';
-import type { AgentWithUIDetails, NotificationChannel } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Client import removed, use services
+import type { AgentWithUIDetails, NotificationChannel, OutputFormat } from '@/integrations/supabase/client'; // Added OutputFormat for taskService
 import KaspiPayment from '@/components/payment/KaspiPayment';
 import NotificationPreferences from '@/components/tasks/NotificationPreferences';
 import { useAppAuth } from '@/contexts/AuthContext';
@@ -152,30 +152,26 @@ const TaskSubmission = () => {
     setPaymentFailed(false);
     
     try {
-      const { data: task, error } = await supabase
-        .from('tasks')
-        .insert({
-          user_id: user.id,
-          agent_id: selectedAgent.id,
-          prompt: data.prompt,
-          additional_info: data.additionalInfo || null,
-          attachment_url: null,
-          status: 'pending',
-          result: null,
-          price: estimatedPrice,
-          payment_status: 'pending',
-          notification_channel: notificationChannel,
-          output_format: 'text'
-        })
-        .select()
-        .single();
-      
-      if (error) throw error;
-      
-      if (task) {
-        setTaskId(task.id);
+      // TODO: [SUPABASE_REMOVAL] Direct Supabase call replaced by taskService.createTask
+      const taskCreationParams = {
+        userId: user.id,
+        agentId: selectedAgent.id,
+        prompt: data.prompt,
+        additionalInfo: data.additionalInfo || null,
+        attachmentUrl: null, // TODO: Handle actual file upload URL for attachmentUrl
+        price: estimatedPrice,
+        notificationChannel: notificationChannel,
+        outputFormat: 'text' as OutputFormat, // TODO: Make this configurable or derive from agent
+        maxRevisions: selectedAgent.max_revisions || 3, // Assuming agent might have max_revisions, or default to 3
+      };
+      const createdTask = await taskService.createTask(taskCreationParams);
+
+      if (!createdTask) {
+        // taskService.createTask returns null on error and logs it internally
+        throw new Error("Task creation failed. Please check logs or try again.");
       }
       
+      setTaskId(createdTask.id);
       setShowPayment(true);
       
     } catch (error) {

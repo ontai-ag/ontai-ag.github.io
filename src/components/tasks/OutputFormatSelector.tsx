@@ -15,7 +15,10 @@ import {
   DropdownMenuItem 
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { OutputFormat } from '@/integrations/supabase/client';
+// import { OutputFormat } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Type moved locally
+
+// TODO: [SUPABASE_REMOVAL] Define OutputFormat locally if no longer available from a central types file.
+export type OutputFormat = 'text' | 'pdf' | 'json' | 'csv' | 'image';
 
 interface OutputFormatSelectorProps {
   currentFormat: OutputFormat;

@@ -1,6 +1,16 @@
 
-import { supabase, PaymentDetails, PaymentLog } from '@/integrations/supabase/client';
+// import { supabase, PaymentDetails, PaymentLog } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client and types
+import type { PaymentDetails, PaymentLog } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined
 import { useToast } from '@/hooks/use-toast';
+
+// TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.
+const supabase: any = {
+  from: (tableName: string) => ({
+    update: (data: any) => ({
+      eq: (column: string, value: any) => Promise.resolve({ error: new Error(`Supabase removed, called update on ${tableName}`) })
+    }),
+  }),
+};
 
 // Payment analytics data structure
 export interface PaymentAnalytics {
@@ -96,10 +106,13 @@ export const paymentService = {
         status
       });
       
+      // TODO: [SUPABASE_REMOVAL] Implement task payment status update with new backend.
       const { error } = await supabase
         .from('tasks')
         .update({ payment_status: status })
         .eq('id', taskId);
+      // console.warn('[SUPABASE_REMOVAL] Mocking successful task payment status update for taskId:', taskId);
+      // const error = null; // Simulate successful update
       
       if (error) {
         console.error(`[TASK_PAYMENT_ERROR] ${new Date().toISOString()} - Failed to update task payment status:`, error);

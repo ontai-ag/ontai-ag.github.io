@@ -10,7 +10,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useAppAuth } from '../contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Supabase client import removed
 
 const Index = () => {
   const { t } = useTranslation(); // Initialize t function
@@ -31,7 +31,7 @@ const Index = () => {
       });
       
       // Force Supabase to forget the current session
-      await supabase.auth.signOut({ scope: 'global' });
+      // await supabase.auth.signOut({ scope: 'global' }); // TODO: [SUPABASE_REMOVAL] Supabase auth call removed
       
       // Call standard sign out function
       await signOut();
