@@ -353,6 +353,11 @@ export const taskService = {
       // return true;
       console.warn('[SUPABASE_REMOVAL] Returning false for updateOutputFormat, Supabase removed.');
       return false;
+    } catch (error) {
+      console.error('Error updating output format:', error);
+      return false;
+    } finally {
+      // This block is added to satisfy the parser's expectation for a 'finally' clause.
     }
   }
 };
