@@ -1,0 +1,297 @@
+{
+  "greeting": "你好！",
+  "welcome": "欢迎使用我们的应用程序。",
+  "change_language": "更改语言",
+  "auth": {
+    "signIn": {
+      "successTitle": "登录成功！",
+      "successDescription": "欢迎回到 Ontai",
+      "genericError": "登录时发生错误",
+      "failedTitle": "登录失败",
+      "failedDescription": "请检查您的凭据并重试",
+      "providerError": "使用 {{provider}} 登录时发生错误",
+      "providerFailedTitle": "使用 {{provider}} 登录失败",
+      "providerFailedDescription": "请稍后重试",
+      "title": "登录您的帐户",
+      "or": "或",
+      "createAccountLink": "创建一个新帐户",
+      "emailLabel": "电子邮件地址",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "密码",
+      "forgotPasswordLink": "忘记密码？",
+      "signInWithEmailButton": "使用电子邮件登录",
+      "orContinueWith": "或继续使用",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "注册成功！",
+      "successDescription": "欢迎来到 Ontai。请检查您的电子邮件以验证您的帐户。",
+      "genericError": "注册时发生错误",
+      "failedTitle": "注册失败",
+      "providerGenericError": "使用 {{provider}} 注册时发生错误",
+      "providerFailedTitle": "使用 {{provider}} 注册失败",
+      "title": "创建您的帐户",
+      "or": "或",
+      "signInLink": "登录现有帐户",
+      "fullNameLabel": "全名",
+      "fullNamePlaceholder": "张三",
+      "emailLabel": "电子邮件地址",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "密码",
+      "passwordHint": "密码必须至少包含 6 个字符",
+      "accountTypeLabel": "帐户类型",
+      "userTypeUser": "用户",
+      "userTypeDeveloper": "开发者",
+      "createAccountButton": "创建帐户",
+      "orContinueWith": "或继续使用",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "backToHome": "返回主页"
+  },
+  "emergencySignOut": {
+    "title": "紧急退出",
+    "successDescription": "所有会话数据已清除。",
+    "failTitle": "紧急退出失败",
+    "failDescription": "请重试或手动清除浏览器 Cookie。",
+    "buttonLabel": "紧急退出（调试）"
+  },
+  "header": {
+    "home": "主页",
+    "marketplace": "AI 市场",
+    "dashboard": "仪表板",
+    "adminPanel": "管理面板",
+    "signOut": "退出",
+    "becomeAdminTooltip": "点击成为管理员（仅限开发）",
+    "signIn": "登录",
+    "signUp": "注册",
+    "becomeAdmin": "成为管理员"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "管理员访问权限",
+      "attempting": "正在尝试获取管理员访问权限...",
+      "grantedTitle": "已授予管理员访问权限",
+      "grantedDescription": "您现在拥有管理员权限。正在重定向到管理面板。",
+      "failedTitle": "管理员访问权限失败",
+      "failedDescription": "无法更新您的角色。请重试。"
+    }
+  },
+  "hero": {
+    "introBadge": "隆重推出 AI 代理市场",
+    "titleLine1": "专业 AI 代理",
+    "titleLine2": "适用于各种任务",
+    "description": "首屈一指的市场，企业和个人可以即时雇佣专业的 AI 代理来完成任务——按需提供，价格透明，质量有保证。",
+    "browseButton": "浏览 AI 代理",
+    "providerButton": "成为提供商",
+    "searchPlaceholder": "搜索代理（例如，内容写作）",
+    "searchSuggestion1": "内容写作代理",
+    "searchSuggestion2": "数据分析工具",
+    "searchSuggestion3": "代码生成",
+    "searchSuggestion4": "图像处理",
+    "searchSuggestion5": "客户支持机器人",
+    "feature1": "10+ 专业代理",
+    "feature2": "闪电般的交付速度",
+    "feature3": "企业级安全"
+  },
+  "featuredAgents": {
+    "title": "特色 AI 代理",
+    "description": "发现我们在各个专业领域中最受欢迎的 AI 代理。每个代理都针对特定任务进行了优化，随时准备为您提供帮助。",
+    "viewAllButton": "查看所有代理",
+    "scrollLeft": "向左滚动",
+    "scrollRight": "向右滚动",
+    "categories": {
+      "all": "所有类别",
+      "contentWriting": "内容写作",
+      "development": "开发",
+      "dataAnalysis": "数据分析",
+      "design": "设计",
+      "customerSupport": "客户支持",
+      "research": "研究",
+      "translation": "翻译"
+    }
+  },
+  "howItWorks": {
+    "title": "工作原理",
+    "description": "通过我们简化的流程，在几分钟内完成从任务到完成的整个过程",
+    "steps": {
+      "browse": {
+        "title": "浏览和选择",
+        "description": "从我们的专业工具市场中为您的任务找到完美的 AI 代理。"
+      },
+      "submit": {
+        "title": "提交您的任务",
+        "description": "提供详细信息、要求以及任何相关文件或参考资料。"
+      },
+      "process": {
+        "title": "AI 处理",
+        "description": "我们的专业 AI 代理以精确和专业的知识处理您的任务。"
+      },
+      "review": {
+        "title": "审核和付款",
+        "description": "实时获取结果，提供反馈，并且只为您批准的内容付款。"
+      },
+      "done": {
+        "title": "完成",
+        "description": "下载您完成的工作，享受专业 AI 的效率。"
+      }
+    },
+    "ctaButton": "立即开始"
+  },
+  "pricing": {
+    "title": "选择您的计划",
+    "subtitle": "为每种需求提供简单、透明的定价。",
+    "monthly": "月",
+    "popular": "最受欢迎",
+    "starter": {
+      "description": "非常适合刚开始使用的个人。",
+      "feature1": "基本代理访问权限",
+      "feature2": "有限的任务运行次数",
+      "feature3": "社区支持",
+      "cta": "开始使用"
+    },
+    "pro": {
+      "description": "非常适合专业人士和团队。",
+      "feature1": "完整的代理访问权限",
+      "feature2": "无限的任务运行次数",
+      "feature3": "优先支持",
+      "feature4": "高级功能",
+      "cta": "选择 Pro"
+    }
+  },
+  "footer": {
+    "product": {
+      "title": "产品",
+      "marketplace": "市场",
+      "aiAgents": "AI 代理",
+      "pricing": "定价",
+      "useCases": "用例"
+    },
+    "company": {
+      "title": "公司",
+      "about": "关于我们",
+      "careers": "职业",
+      "blog": "博客",
+      "press": "新闻"
+    },
+    "resources": {
+      "title": "资源",
+      "documentation": "文档",
+      "helpCenter": "帮助中心",
+      "community": "社区",
+      "status": "状态"
+    },
+    "legal": {
+      "title": "法律",
+      "privacy": "隐私",
+      "terms": "条款",
+      "security": "安全",
+      "compliance": "合规"
+    },
+    "description": "首屈一指的 AI 代理市场，为您的项目带来专业的 AI 功能。",
+    "linkedIn": "领英",
+    "instagram": "Instagram",
+    "allRightsReserved": "版权所有。",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "cookiePolicy": "Cookie 政策"
+  },
+  "marketplace": {
+    "title": "AI 代理市场",
+    "description": "为您的特定任务找到完美的 AI 代理",
+    "searchPlaceholder": "按名称、描述或类别搜索代理...",
+    "mobileFiltersButton": "筛选器",
+    "filters": {
+      "title": "筛选器",
+      "clearAll": "全部清除",
+      "categories": {
+        "title": "类别",
+        "all": "所有类别",
+        "contentWriting": "内容写作",
+        "development": "开发",
+        "dataAnalysis": "数据分析",
+        "design": "设计",
+        "customerSupport": "客户支持",
+        "research": "研究",
+        "translation": "翻译"
+      },
+      "priceRange": {
+        "title": "价格范围"
+      },
+      "rating": {
+        "title": "最低评分",
+        "any": "任何评分",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "显示",
+      "results_one": "个结果",
+      "results_other": "个结果"
+    },
+    "sortBy": {
+      "label": "排序方式：",
+      "relevance": "相关性",
+      "rating": "最高评分",
+      "reviews": "最多评论",
+      "priceLow": "价格：从低到高",
+      "priceHigh": "价格：从高到低"
+    },
+    "noResults": {
+      "title": "未找到代理",
+      "description": "尝试调整您的筛选器或搜索词",
+      "clearFiltersButton": "清除筛选器"
+    }
+  },
+  "forProviders": {
+    "title": "成为提供商",
+    "description": "在我们的市场上提供您的专业 AI 代理。填写下面的表格以提交您的代理进行审核。",
+    "agentNameLabel": "代理名称",
+    "agentNamePlaceholder": "例如，内容摘要器 Pro",
+    "descriptionLabel": "描述",
+    "descriptionPlaceholder": "描述您的代理的功能、主要特点和目标用例。",
+    "categoryLabel": "类别",
+    "categoryPlaceholder": "选择主要类别",
+    "priceLabel": "价格",
+    "pricePlaceholder": "例如，0.05",
+    "priceModelLabel": "定价模型",
+    "priceModelPlaceholder": "选择定价结构",
+    "imageUrlLabel": "图片 URL（可选）",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "您的提供商名称",
+    "providerNamePlaceholder": "例如，AI Solutions Inc.",
+    "submitButton": "提交代理进行审核",
+    "submitting": "正在提交...",
+    "submissionSuccessTitle": "代理提交成功！",
+    "submissionSuccessDesc": "您的代理已提交审核。处理完成后我们会通知您。",
+    "submissionErrorTitle": "提交失败",
+    "submissionErrorDesc": "提交您的代理时发生错误。请检查详细信息并重试。",
+    "submissionNetworkErrorTitle": "网络错误",
+    "submissionNetworkErrorDesc": "无法连接到服务器。请检查您的互联网连接并重试。",
+    "validation": {
+      "nameRequired": "代理名称是必需的。",
+      "descriptionMinLength": "描述必须至少包含 10 个字符。",
+      "categoryRequired": "请选择一个类别。",
+      "pricePositive": "价格必须是正数。",
+      "priceModelRequired": "请选择一个定价模型。",
+      "imageUrlInvalid": "请输入有效的图片 URL。",
+      "providerRequired": "提供商名称是必需的。"
+    }
+  },
+  "categories": {
+    "customerSupport": "客户支持",
+    "sales": "销售",
+    "marketing": "营销",
+    "developerTools": "开发者工具",
+    "other": "其他"
+  },
+  "priceModels": {
+    "perRequest": "按请求",
+    "perHour": "按小时",
+    "subscription": "订阅"
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "greeting": "नमस्ते!",
+  "welcome": "हमारे एप्लिकेशन में आपका स्वागत है।",
+  "change_language": "भाषा बदलें",
+  "auth": {
+    "signIn": {
+      "successTitle": "लॉगिन सफल!",
+      "successDescription": "Ontai में वापस स्वागत है",
+      "genericError": "साइन इन के दौरान एक त्रुटि हुई",
+      "failedTitle": "साइन इन विफल",
+      "failedDescription": "कृपया अपनी क्रेडेंशियल जांचें और पुनः प्रयास करें",
+      "providerError": "{{provider}} साइन इन के दौरान एक त्रुटि हुई",
+      "providerFailedTitle": "{{provider}} साइन इन विफल",
+      "providerFailedDescription": "कृपया बाद में पुनः प्रयास करें",
+      "title": "अपने खाते में साइन इन करें",
+      "or": "या",
+      "createAccountLink": "एक नया खाता बनाएँ",
+      "emailLabel": "ईमेल पता",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "पासवर्ड",
+      "forgotPasswordLink": "पासवर्ड भूल गए?",
+      "signInWithEmailButton": "ईमेल से साइन इन करें",
+      "orContinueWith": "या इसके साथ जारी रखें",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "पंजीकरण सफल!",
+      "successDescription": "Ontai में आपका स्वागत है। कृपया अपना खाता सत्यापित करने के लिए अपना ईमेल जांचें।",
+      "genericError": "साइन अप के दौरान एक त्रुटि हुई",
+      "failedTitle": "साइन अप विफल",
+      "providerGenericError": "{{provider}} साइन अप के दौरान एक त्रुटि हुई",
+      "providerFailedTitle": "{{provider}} साइन अप विफल",
+      "title": "अपना खाता बनाएँ",
+      "or": "या",
+      "signInLink": "मौजूदा खाते में साइन इन करें",
+      "fullNameLabel": "पूरा नाम",
+      "fullNamePlaceholder": "जॉन डो",
+      "emailLabel": "ईमेल पता",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "पासवर्ड",
+      "passwordHint": "पासवर्ड कम से कम 6 वर्णों का होना चाहिए",
+      "accountTypeLabel": "खाता प्रकार",
+      "userTypeUser": "उपयोगकर्ता",
+      "userTypeDeveloper": "डेवलपर",
+      "createAccountButton": "खाता बनाएँ",
+      "orContinueWith": "या इसके साथ जारी रखें",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "backToHome": "होम पर वापस जाएँ"
+  },
+  "emergencySignOut": {
+    "title": "आपातकालीन साइन आउट",
+    "successDescription": "सभी सत्र डेटा साफ़ कर दिया गया है।",
+    "failTitle": "आपातकालीन साइन आउट विफल",
+    "failDescription": "कृपया पुनः प्रयास करें या अपने ब्राउज़र कुकीज़ को मैन्युअल रूप से साफ़ करें।",
+    "buttonLabel": "आपातकालीन साइन आउट (डीबग)"
+  },
+  "header": {
+    "home": "होम",
+    "marketplace": "AI मार्केटप्लेस",
+    "dashboard": "डैशबोर्ड",
+    "adminPanel": "एडमिन पैनल",
+    "signOut": "साइन आउट",
+    "becomeAdminTooltip": "एडमिन बनने के लिए क्लिक करें (केवल विकास के लिए)",
+    "signIn": "साइन इन",
+    "signUp": "साइन अप",
+    "becomeAdmin": "एडमिन बनें"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "एडमिन एक्सेस",
+      "attempting": "एडमिन एक्सेस प्राप्त करने का प्रयास किया जा रहा है...",
+      "grantedTitle": "एडमिन एक्सेस प्रदान किया गया",
+      "grantedDescription": "अब आपके पास एडमिन विशेषाधिकार हैं। एडमिन पैनल पर रीडायरेक्ट किया जा रहा है।",
+      "failedTitle": "एडमिन एक्सेस विफल",
+      "failedDescription": "आपकी भूमिका अपडेट नहीं की जा सकी। कृपया पुनः प्रयास करें।"
+    }
+  },
+  "hero": {
+    "introBadge": "पेश है AI एजेंट्स मार्केटप्लेस",
+    "titleLine1": "विशेषज्ञ AI एजेंट",
+    "titleLine2": "हर कार्य के लिए",
+    "description": "प्रमुख मार्केटप्लेस जहाँ व्यवसाय और व्यक्ति तुरंत कार्यों के लिए विशेषज्ञ AI एजेंटों को काम पर रख सकते हैं - ऑन-डिमांड, पारदर्शी मूल्य निर्धारण और गारंटीकृत गुणवत्ता के साथ।",
+    "browseButton": "AI एजेंट ब्राउज़ करें",
+    "providerButton": "प्रदाता बनें",
+    "searchPlaceholder": "एजेंट खोजें (जैसे, सामग्री लेखन)",
+    "searchSuggestion1": "सामग्री लेखन एजेंट",
+    "searchSuggestion2": "डेटा विश्लेषण उपकरण",
+    "searchSuggestion3": "कोड जनरेशन",
+    "searchSuggestion4": "छवि प्रसंस्करण",
+    "searchSuggestion5": "ग्राहक सहायता बॉट",
+    "feature1": "10+ विशेषज्ञ एजेंट",
+    "feature2": "बिजली की तेजी से डिलीवरी",
+    "feature3": "एंटरप्राइज़-ग्रेड सुरक्षा"
+  },
+  "featuredAgents": {
+    "title": "विशेष रुप से प्रदर्शित AI एजेंट",
+    "description": "विभिन्न विशिष्टताओं में हमारे सबसे लोकप्रिय AI एजेंटों की खोज करें। प्रत्येक विशिष्ट कार्यों के लिए अनुकूलित है और आपकी सहायता के लिए तैयार है।",
+    "viewAllButton": "सभी एजेंट देखें",
+    "scrollLeft": "बाएँ स्क्रॉल करें",
+    "scrollRight": "दाएँ स्क्रॉल करें",
+    "categories": {
+      "all": "सभी श्रेणियाँ",
+      "contentWriting": "सामग्री लेखन",
+      "development": "विकास",
+      "dataAnalysis": "डेटा विश्लेषण",
+      "design": "डिज़ाइन",
+      "customerSupport": "ग्राहक सहायता",
+      "research": "अनुसंधान",
+      "translation": "अनुवाद"
+    }
+  },
+  "howItWorks": {
+    "title": "यह कैसे काम करता है",
+    "description": "हमारी सुव्यवस्थित प्रक्रिया के साथ मिनटों में कार्य से पूर्णता तक पहुँचें",
+    "steps": {
+      "browse": {
+        "title": "ब्राउज़ करें और चुनें",
+        "description": "विशेषज्ञ उपकरणों के हमारे मार्केटप्लेस से अपने कार्य के लिए सही AI एजेंट खोजें।"
+      },
+      "submit": {
+        "title": "अपना कार्य सबमिट करें",
+        "description": "विवरण, आवश्यकताएँ और कोई भी प्रासंगिक फ़ाइलें या संदर्भ प्रदान करें।"
+      },
+      "process": {
+        "title": "AI प्रसंस्करण",
+        "description": "हमारा विशेषज्ञ AI एजेंट सटीकता और विशेषज्ञता के साथ आपके कार्य पर काम करता है।"
+      },
+      "review": {
+        "title": "समीक्षा करें और भुगतान करें",
+        "description": "वास्तविक समय में परिणाम प्राप्त करें, प्रतिक्रिया दें, और केवल उसी के लिए भुगतान करें जिसे आप स्वीकृत करते हैं।"
+      },
+      "done": {
+        "title": "पूर्ण",
+        "description": "अपना पूरा किया हुआ काम डाउनलोड करें और विशेषज्ञ AI की दक्षता का आनंद लें।"
+      }
+    },
+    "ctaButton": "अभी शुरू करें"
+  },
+  "pricing": {
+    "title": "अपनी योजना चुनें",
+    "subtitle": "हर ज़रूरत के लिए सरल, पारदर्शी मूल्य निर्धारण।",
+    "monthly": "माह",
+    "popular": "सबसे लोकप्रिय",
+    "starter": {
+      "description": "शुरुआत करने वाले व्यक्तियों के लिए बिल्कुल सही।",
+      "feature1": "बुनियादी एजेंट एक्सेस",
+      "feature2": "सीमित कार्य रन",
+      "feature3": "सामुदायिक सहायता",
+      "cta": "शुरू करें"
+    },
+    "pro": {
+      "description": "पेशेवरों और टीमों के लिए आदर्श।",
+      "feature1": "पूर्ण एजेंट एक्सेस",
+      "feature2": "असीमित कार्य रन",
+      "feature3": "प्राथमिकता सहायता",
+      "feature4": "उन्नत सुविधाएँ",
+      "cta": "प्रो चुनें"
+    }
+  },
+  "footer": {
+    "product": {
+      "title": "उत्पाद",
+      "marketplace": "मार्केटप्लेस",
+      "aiAgents": "AI एजेंट",
+      "pricing": "मूल्य निर्धारण",
+      "useCases": "उपयोग के मामले"
+    },
+    "company": {
+      "title": "कंपनी",
+      "about": "हमारे बारे में",
+      "careers": "करियर",
+      "blog": "ब्लॉग",
+      "press": "प्रेस"
+    },
+    "resources": {
+      "title": "संसाधन",
+      "documentation": "दस्तावेज़ीकरण",
+      "helpCenter": "सहायता केंद्र",
+      "community": "समुदाय",
+      "status": "स्थिति"
+    },
+    "legal": {
+      "title": "कानूनी",
+      "privacy": "गोपनीयता",
+      "terms": "शर्तें",
+      "security": "सुरक्षा",
+      "compliance": "अनुपालन"
+    },
+    "description": "AI एजेंटों के लिए प्रमुख मार्केटप्लेस, आपके प्रोजेक्ट्स में विशेषज्ञ AI क्षमताएँ लाना।",
+    "linkedIn": "लिंक्डइन",
+    "instagram": "इंस्टाग्राम",
+    "allRightsReserved": "सर्वाधिकार सुरक्षित।",
+    "privacyPolicy": "गोपनीयता नीति",
+    "termsOfService": "सेवा की शर्तें",
+    "cookiePolicy": "कुकी नीति"
+  },
+  "marketplace": {
+    "title": "AI एजेंट्स मार्केटप्लेस",
+    "description": "अपने विशिष्ट कार्य के लिए सही AI एजेंट खोजें",
+    "searchPlaceholder": "नाम, विवरण या श्रेणी के आधार पर एजेंट खोजें...",
+    "mobileFiltersButton": "फ़िल्टर",
+    "filters": {
+      "title": "फ़िल्टर",
+      "clearAll": "सभी साफ़ करें",
+      "categories": {
+        "title": "श्रेणियाँ",
+        "all": "सभी श्रेणियाँ",
+        "contentWriting": "सामग्री लेखन",
+        "development": "विकास",
+        "dataAnalysis": "डेटा विश्लेषण",
+        "design": "डिज़ाइन",
+        "customerSupport": "ग्राहक सहायता",
+        "research": "अनुसंधान",
+        "translation": "अनुवाद"
+      },
+      "priceRange": {
+        "title": "मूल्य सीमा"
+      },
+      "rating": {
+        "title": "न्यूनतम रेटिंग",
+        "any": "कोई भी रेटिंग",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "दिखा रहा है",
+      "results_one": "परिणाम",
+      "results_other": "परिणाम"
+    },
+    "sortBy": {
+      "label": "इसके अनुसार क्रमबद्ध करें:",
+      "relevance": "प्रासंगिकता",
+      "rating": "उच्चतम रेटिंग",
+      "reviews": "सबसे अधिक समीक्षाएँ",
+      "priceLow": "मूल्य: कम से उच्च",
+      "priceHigh": "मूल्य: उच्च से कम"
+    },
+    "noResults": {
+      "title": "कोई एजेंट नहीं मिला",
+      "description": "अपने फ़िल्टर या खोज शब्दों को समायोजित करने का प्रयास करें",
+      "clearFiltersButton": "फ़िल्टर साफ़ करें"
+    }
+  },
+  "forProviders": {
+    "title": "प्रदाता बनें",
+    "description": "हमारे मार्केटप्लेस पर अपना विशेषज्ञ AI एजेंट पेश करें। समीक्षा के लिए अपना एजेंट सबमिट करने के लिए नीचे दिया गया फ़ॉर्म भरें।",
+    "agentNameLabel": "एजेंट का नाम",
+    "agentNamePlaceholder": "जैसे, कंटेंट समराइज़र प्रो",
+    "descriptionLabel": "विवरण",
+    "descriptionPlaceholder": "वर्णन करें कि आपका एजेंट क्या करता है, इसकी मुख्य विशेषताएँ और लक्षित उपयोग के मामले।",
+    "categoryLabel": "श्रेणी",
+    "categoryPlaceholder": "प्राथमिक श्रेणी चुनें",
+    "priceLabel": "मूल्य",
+    "pricePlaceholder": "जैसे, 0.05",
+    "priceModelLabel": "मूल्य मॉडल",
+    "priceModelPlaceholder": "मूल्य निर्धारण संरचना चुनें",
+    "imageUrlLabel": "छवि URL (वैकल्पिक)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "आपका प्रदाता नाम",
+    "providerNamePlaceholder": "जैसे, AI Solutions Inc.",
+    "submitButton": "समीक्षा के लिए एजेंट सबमिट करें",
+    "submitting": "सबमिट किया जा रहा है...",
+    "submissionSuccessTitle": "एजेंट सफलतापूर्वक सबमिट किया गया!",
+    "submissionSuccessDesc": "आपका एजेंट समीक्षा के लिए सबमिट कर दिया गया है। संसाधित होने के बाद हम आपको सूचित करेंगे।",
+    "submissionErrorTitle": "सबमिशन विफल",
+    "submissionErrorDesc": "आपके एजेंट को सबमिट करते समय एक त्रुटि हुई। कृपया विवरण जांचें और पुनः प्रयास करें।",
+    "submissionNetworkErrorTitle": "नेटवर्क त्रुटि",
+    "submissionNetworkErrorDesc": "सर्वर से कनेक्ट नहीं हो सका। कृपया अपना इंटरनेट कनेक्शन जांचें और पुनः प्रयास करें।",
+    "validation": {
+      "nameRequired": "एजेंट का नाम आवश्यक है।",
+      "descriptionMinLength": "विवरण कम से कम 10 वर्णों का होना चाहिए।",
+      "categoryRequired": "कृपया एक श्रेणी चुनें।",
+      "pricePositive": "मूल्य एक सकारात्मक संख्या होनी चाहिए।",
+      "priceModelRequired": "कृपया एक मूल्य मॉडल चुनें।",
+      "imageUrlInvalid": "कृपया छवि के लिए एक मान्य URL दर्ज करें।",
+      "providerRequired": "प्रदाता का नाम आवश्यक है।"
+    }
+  },
+  "categories": {
+    "customerSupport": "ग्राहक सहायता",
+    "sales": "बिक्री",
+    "marketing": "विपणन",
+    "developerTools": "डेवलपर उपकरण",
+    "other": "अन्य"
+  },
+  "priceModels": {
+    "perRequest": "प्रति अनुरोध",
+    "perHour": "प्रति घंटा",
+    "subscription": "सदस्यता"
+  }
+}

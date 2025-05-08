@@ -8,7 +8,7 @@ import { CustomButton } from '@/components/ui-custom/Button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/components/ui/use-toast';
 // import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client
-import type { Agent, AgentCategory } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined by agentService or locally
+// import type { Agent, AgentCategory } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined by agentService or locally
 import { agentService } from '@/services/agentService';
 
 // TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.

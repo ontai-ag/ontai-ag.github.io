@@ -13,7 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import TaskStatusBadge from './TaskStatusBadge';
-import type { Task } from '@/integrations/supabase/client';
+//import type { Task } from '@/integrations/supabase/client';
 
 interface TaskListProps {
   tasks: Task[];

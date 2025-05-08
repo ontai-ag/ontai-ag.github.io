@@ -1,6 +1,6 @@
 
 // import { supabase, PaymentDetails, PaymentLog } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client and types
-import type { PaymentDetails, PaymentLog } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined
+// import type { PaymentDetails, PaymentLog } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined
 import { useToast } from '@/hooks/use-toast';
 
 // TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.

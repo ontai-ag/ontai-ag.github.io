@@ -23,7 +23,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { useToast } from '@/hooks/use-toast';
 import { Separator } from '@/components/ui/separator';
 // import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Client import removed, use services
-import type { AgentWithUIDetails, NotificationChannel, OutputFormat } from '@/integrations/supabase/client'; // Added OutputFormat for taskService
+// import type { AgentWithUIDetails, NotificationChannel, OutputFormat } from '@/integrations/supabase/client'; // Added OutputFormat for taskService
 import KaspiPayment from '@/components/payment/KaspiPayment';
 import NotificationPreferences from '@/components/tasks/NotificationPreferences';
 import { useAppAuth } from '@/contexts/AuthContext';

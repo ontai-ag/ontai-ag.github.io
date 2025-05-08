@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Progress } from '@/components/ui/progress';
-import { type TaskStatus } from '@/integrations/supabase/client';
+//import { type TaskStatus } from '@/integrations/supabase/client';
 
 interface TaskProgressIndicatorProps {
   status: TaskStatus;

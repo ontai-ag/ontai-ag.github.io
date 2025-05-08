@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { type TaskStatus } from '@/integrations/supabase/client';
+//import { type TaskStatus } from '@/integrations/supabase/client';
 import { 
   Clock, 
   Hourglass,

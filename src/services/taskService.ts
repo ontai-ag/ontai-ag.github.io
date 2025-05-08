@@ -1,6 +1,114 @@
 
 // import { supabase, Task, TaskStatus, NotificationChannel, OutputFormat, TaskRevision, typeAdapters } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client and types
-import { Task, TaskStatus, NotificationChannel, OutputFormat, TaskRevision, typeAdapters, ProfileData, Agent, AgentWithUIDetails, TaskReview, PaymentLog, PaymentDetails } from '@/integrations/supabase/client'; // Assuming these types are now placeholders or will be redefined
+// import { Task, TaskStatus, NotificationChannel, OutputFormat, TaskRevision, typeAdapters, ProfileData, Agent, AgentWithUIDetails, TaskReview, PaymentLog, PaymentDetails } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] This import is causing the error
+
+// TODO: [SUPABASE_REMOVAL] Define types locally or import from a non-Supabase source.
+// These definitions are based on those in agentService.ts and common patterns.
+
+export type TaskStatus = 'pending' | 'in_progress' | 'completed' | 'failed' | 'revision_requested';
+export type NotificationChannel = 'email' | 'sms' | 'slack' | 'none';
+export type OutputFormat = 'text' | 'json' | 'markdown' | 'pdf' | 'docx';
+
+export interface Task {
+  id: string;
+  user_id: string;
+  agent_id: string;
+  prompt: string;
+  additional_info?: string | null;
+  attachment_url?: string | null;
+  status: TaskStatus;
+  result: string | null;
+  price: number;
+  payment_status: 'pending' | 'completed' | 'failed';
+  notification_channel: NotificationChannel;
+  output_format: OutputFormat;
+  revision_count: number;
+  max_revisions: number;
+  feedback?: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TaskRevision { // Placeholder definition
+  id: string;
+  task_id: string;
+  user_id: string;
+  revision_details: string;
+  created_at: string;
+  status: 'requested' | 'in_progress' | 'completed' | 'rejected';
+}
+
+export interface ProfileData {
+  id: string;
+  username?: string;
+  avatar_url?: string;
+  // Add other profile fields
+}
+
+// Types for Agent, potentially shared or could be imported from a common types file later
+export type AgentCategory = 'Productivity' | 'Development' | 'Marketing' | 'Content Creation' | 'Customer Support' | 'Data Analysis' | 'Education' | 'Research' | 'Utilities' | 'Other';
+export type AgentStatus = 'active' | 'inactive' | 'pending' | 'rejected';
+export type AgentPricingModel = 'free' | 'pay-per-use' | 'subscription' | 'custom';
+
+export interface Agent {
+  id: string;
+  user_id: string;
+  name: string;
+  description: string;
+  category: AgentCategory;
+  input_format: string;
+  output_format: string;
+  pricing_model: AgentPricingModel;
+  price?: number | null;
+  hourly_rate?: number | null;
+  api_endpoint?: string | null;
+  status: AgentStatus;
+  avg_rating?: number | null;
+  total_reviews?: number | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AgentWithUIDetails extends Agent {
+  profile_picture_url?: string;
+  tags?: string[];
+  user_name?: string;
+  user_avatar_url?: string;
+}
+
+export interface TaskReview {
+  id: string;
+  task_id: string;
+  user_id: string;
+  agent_id: string;
+  rating: number;
+  review_text: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface PaymentLog {
+  id: string;
+  task_id: string;
+  amount: number;
+  status: 'succeeded' | 'failed' | 'pending';
+  payment_method: string;
+  transaction_id?: string | null;
+  created_at: string;
+}
+
+export interface PaymentDetails {
+  payment_intent_id: string;
+  client_secret: string;
+  amount: number;
+  currency: string;
+}
+
+// TODO: [SUPABASE_REMOVAL] Placeholder for typeAdapters. This should be replaced with actual data transformation logic if needed.
+const typeAdapters = {
+  convertToTask: (data: any): Task => data as Task, // This is a naive conversion
+  // Add other adapters if they were used from Supabase client for taskService
+};
 
 // TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.
 const supabase: any = { 

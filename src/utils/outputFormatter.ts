@@ -1,5 +1,4 @@
-
-import { OutputFormat } from '@/integrations/supabase/client';
+// import { OutputFormat } from '@/integrations/supabase/client';
 import { saveAs } from 'file-saver';
 import { jsPDF } from 'jspdf';
 

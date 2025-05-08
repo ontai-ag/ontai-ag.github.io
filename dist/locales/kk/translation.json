@@ -139,6 +139,27 @@
     },
     "ctaButton": "Қазір бастау"
   },
+  "pricing": {
+    "title": "Жоспарыңызды таңдаңыз",
+    "subtitle": "Кез келген қажеттілікке арналған қарапайым, ашық бағалар.",
+    "monthly": "ай",
+    "popular": "Ең танымал",
+    "starter": {
+      "description": "Жаңадан бастағандар үшін өте ыңғайлы.",
+      "feature1": "Агенттерге негізгі қол жетімділік",
+      "feature2": "Тапсырмаларды шектеулі іске қосу",
+      "feature3": "Қоғамдастық қолдауы",
+      "cta": "Бастау"
+    },
+    "pro": {
+      "description": "Кәсіпқойлар мен командалар үшін өте қолайлы.",
+      "feature1": "Агенттерге толық қол жетімділік",
+      "feature2": "Тапсырмаларды шектеусіз іске қосу",
+      "feature3": "Басымдықты қолдау",
+      "feature4": "Кеңейтілген мүмкіндіктер",
+      "cta": "Pro таңдау"
+    }
+  },
   "footer": {
     "product": {
       "title": "Өнім",
@@ -225,5 +246,52 @@
       "description": "Сүзгілерді немесе іздеу шарттарын реттеп көріңіз",
       "clearFiltersButton": "Сүзгілерді тазарту"
     }
+  },
+  "forProviders": {
+    "title": "Провайдер Болу",
+    "description": "Мамандандырылған AI агентіңізді біздің маркетплейсте ұсыныңыз. Агентіңізді қарауға жіберу үшін төмендегі форманы толтырыңыз.",
+    "agentNameLabel": "Агент Атауы",
+    "agentNamePlaceholder": "мысалы, Content Summarizer Pro",
+    "descriptionLabel": "Сипаттама",
+    "descriptionPlaceholder": "Агентіңіз не істейтінін, оның негізгі мүмкіндіктерін және мақсатты пайдалану жағдайларын сипаттаңыз.",
+    "categoryLabel": "Санат",
+    "categoryPlaceholder": "Негізгі санатты таңдаңыз",
+    "priceLabel": "Бағасы",
+    "pricePlaceholder": "мысалы, 0.05",
+    "priceModelLabel": "Баға Моделі",
+    "priceModelPlaceholder": "Баға құрылымын таңдаңыз",
+    "imageUrlLabel": "Сурет URL (Міндетті емес)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "Сіздің Провайдер Атауыңыз",
+    "providerNamePlaceholder": "мысалы, AI Solutions Inc.",
+    "submitButton": "Агентті Қарауға Жіберу",
+    "submitting": "Жіберу...",
+    "submissionSuccessTitle": "Агент Сәтті Жіберілді!",
+    "submissionSuccessDesc": "Сіздің агентіңіз қарауға жіберілді. Ол өңделгеннен кейін сізге хабарлаймыз.",
+    "submissionErrorTitle": "Жіберу Қатесі",
+    "submissionErrorDesc": "Агентіңізді жіберу кезінде қате пайда болды. Мәліметтерді тексеріп, қайталап көріңіз.",
+    "submissionNetworkErrorTitle": "Желі Қатесі",
+    "submissionNetworkErrorDesc": "Серверге қосылу мүмкін болмады. Интернет қосылымыңызды тексеріп, қайталап көріңіз.",
+    "validation": {
+      "nameRequired": "Агент атауы қажет.",
+      "descriptionMinLength": "Сипаттама кемінде 10 таңбадан тұруы керек.",
+      "categoryRequired": "Санатты таңдаңыз.",
+      "pricePositive": "Баға оң сан болуы керек.",
+      "priceModelRequired": "Баға моделін таңдаңыз.",
+      "imageUrlInvalid": "Сурет үшін жарамды URL мекенжайын енгізіңіз.",
+      "providerRequired": "Провайдер атауы қажет."
+    }
+  },
+  "categories": {
+    "customerSupport": "Клиенттерге Қолдау Көрсету",
+    "sales": "Сату",
+    "marketing": "Маркетинг",
+    "developerTools": "Әзірлеуші Құралдары",
+    "other": "Басқа"
+  },
+  "priceModels": {
+    "perRequest": "Сұраныс Басына",
+    "perHour": "Сағат Басына",
+    "subscription": "Жазылым"
   }
 }

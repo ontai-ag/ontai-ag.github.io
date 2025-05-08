@@ -139,6 +139,27 @@
     },
     "ctaButton": "Начать сейчас"
   },
+  "pricing": {
+    "title": "Выберите ваш план",
+    "subtitle": "Простые и прозрачные цены для любых нужд.",
+    "monthly": "месяц",
+    "popular": "Самый популярный",
+    "starter": {
+      "description": "Идеально для начинающих.",
+      "feature1": "Базовый доступ к агентам",
+      "feature2": "Ограниченное количество запусков задач",
+      "feature3": "Поддержка сообщества",
+      "cta": "Начать"
+    },
+    "pro": {
+      "description": "Отлично подходит для профессионалов и команд.",
+      "feature1": "Полный доступ к агентам",
+      "feature2": "Неограниченное количество запусков задач",
+      "feature3": "Приоритетная поддержка",
+      "feature4": "Расширенные функции",
+      "cta": "Выбрать Pro"
+    }
+  },
   "footer": {
     "product": {
       "title": "Продукт",
@@ -227,5 +248,52 @@
       "description": "Попробуйте изменить фильтры или поисковые запросы",
       "clearFiltersButton": "Очистить фильтры"
     }
+  },
+  "forProviders": {
+    "title": "Стать Провайдером",
+    "description": "Предложите своего специализированного ИИ-агента на нашем маркетплейсе. Заполните форму ниже, чтобы отправить вашего агента на рассмотрение.",
+    "agentNameLabel": "Название Агента",
+    "agentNamePlaceholder": "например, Content Summarizer Pro",
+    "descriptionLabel": "Описание",
+    "descriptionPlaceholder": "Опишите, что делает ваш агент, его ключевые особенности и целевые сценарии использования.",
+    "categoryLabel": "Категория",
+    "categoryPlaceholder": "Выберите основную категорию",
+    "priceLabel": "Цена",
+    "pricePlaceholder": "например, 0.05",
+    "priceModelLabel": "Модель Ценообразования",
+    "priceModelPlaceholder": "Выберите структуру ценообразования",
+    "imageUrlLabel": "URL Изображения (Необязательно)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "Название Вашего Провайдера",
+    "providerNamePlaceholder": "например, AI Solutions Inc.",
+    "submitButton": "Отправить Агента на Рассмотрение",
+    "submitting": "Отправка...",
+    "submissionSuccessTitle": "Агент Успешно Отправлен!",
+    "submissionSuccessDesc": "Ваш агент отправлен на рассмотрение. Мы сообщим вам, как только он будет обработан.",
+    "submissionErrorTitle": "Ошибка Отправки",
+    "submissionErrorDesc": "Произошла ошибка при отправке вашего агента. Пожалуйста, проверьте данные и попробуйте снова.",
+    "submissionNetworkErrorTitle": "Сетевая Ошибка",
+    "submissionNetworkErrorDesc": "Не удалось подключиться к серверу. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
+    "validation": {
+      "nameRequired": "Требуется название агента.",
+      "descriptionMinLength": "Описание должно содержать не менее 10 символов.",
+      "categoryRequired": "Пожалуйста, выберите категорию.",
+      "pricePositive": "Цена должна быть положительным числом.",
+      "priceModelRequired": "Пожалуйста, выберите модель ценообразования.",
+      "imageUrlInvalid": "Пожалуйста, введите действительный URL для изображения.",
+      "providerRequired": "Требуется название провайдера."
+    }
+  },
+  "categories": {
+    "customerSupport": "Поддержка Клиентов",
+    "sales": "Продажи",
+    "marketing": "Маркетинг",
+    "developerTools": "Инструменты Разработчика",
+    "other": "Другое"
+  },
+  "priceModels": {
+    "perRequest": "За Запрос",
+    "perHour": "За Час",
+    "subscription": "Подписка"
   }
 }
