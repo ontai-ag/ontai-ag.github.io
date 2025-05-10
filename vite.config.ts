@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: '/vite_react_shadcn_ts/', // для user site (ontai-ag.github.io)
+  base: '/ontai-ag.github.io/', // для user site (ontai-ag.github.io)
   server: {
     host: "::",
     port: 8080,
