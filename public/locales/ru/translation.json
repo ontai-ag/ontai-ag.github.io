@@ -1,0 +1,299 @@
+{
+  "greeting": "Привет!",
+  "welcome": "Добро пожаловать в наше приложение.",
+  "change_language": "Сменить язык",
+  "auth": {
+    "signIn": {
+      "successTitle": "Вход выполнен успешно!",
+      "successDescription": "С возвращением в Ontai",
+      "genericError": "Произошла ошибка при входе в систему",
+      "failedTitle": "Ошибка входа",
+      "failedDescription": "Пожалуйста, проверьте свои учетные данные и попробуйте снова",
+      "providerError": "Произошла ошибка при входе через {{provider}}",
+      "providerFailedTitle": "Ошибка входа через {{provider}}",
+      "providerFailedDescription": "Пожалуйста, попробуйте позже",
+      "title": "Войдите в свой аккаунт",
+      "or": "Или",
+      "createAccountLink": "создайте новый аккаунт",
+      "emailLabel": "Адрес электронной почты",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Пароль",
+      "forgotPasswordLink": "Забыли пароль?",
+      "signInWithEmailButton": "Войти с помощью Email",
+      "orContinueWith": "Или продолжить с",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "Регистрация прошла успешно!",
+      "successDescription": "Добро пожаловать в Ontai. Пожалуйста, проверьте свою электронную почту для подтверждения аккаунта.",
+      "genericError": "Произошла ошибка при регистрации",
+      "failedTitle": "Ошибка регистрации",
+      "providerGenericError": "Произошла ошибка при регистрации через {{provider}}",
+      "providerFailedTitle": "Ошибка регистрации через {{provider}}",
+      "title": "Создайте свой аккаунт",
+      "or": "Или",
+      "signInLink": "войдите в существующий аккаунт",
+      "fullNameLabel": "Полное имя",
+      "fullNamePlaceholder": "Иван Иванов",
+      "emailLabel": "Адрес электронной почты",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Пароль",
+      "passwordHint": "Пароль должен содержать не менее 6 символов",
+      "accountTypeLabel": "Тип аккаунта",
+      "userTypeUser": "Пользователь",
+      "userTypeDeveloper": "Разработчик",
+      "createAccountButton": "Создать аккаунт",
+      "orContinueWith": "Или продолжить с",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "backToHome": "Назад на главную"
+  },
+  "emergencySignOut": {
+    "title": "Аварийный выход",
+    "successDescription": "Все данные сеанса были очищены.",
+    "failTitle": "Ошибка аварийного выхода",
+    "failDescription": "Пожалуйста, попробуйте еще раз или очистите файлы cookie браузера вручную.",
+    "buttonLabel": "Аварийный выход (Отладка)"
+  },
+  "header": {
+    "home": "Главная",
+    "marketplace": "Маркетплейс ИИ",
+    "dashboard": "Панель управления",
+    "adminPanel": "Панель администратора",
+    "signOut": "Выйти",
+    "becomeAdminTooltip": "Нажмите, чтобы стать администратором (только для разработки)",
+    "signIn": "Войти",
+    "signUp": "Зарегистрироваться",
+    "becomeAdmin": "Стать администратором"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "Доступ администратора",
+      "attempting": "Попытка получить доступ администратора...",
+      "grantedTitle": "Доступ администратора предоставлен",
+      "grantedDescription": "Теперь у вас есть права администратора. Перенаправление в панель администратора.",
+      "failedTitle": "Ошибка доступа администратора",
+      "failedDescription": "Не удалось обновить вашу роль. Пожалуйста, попробуйте еще раз."
+    }
+  },
+  "hero": {
+    "introBadge": "Представляем Маркетплейс ИИ Агентов",
+    "titleLine1": "Специализированные ИИ Агенты",
+    "titleLine2": "Для Любой Задачи",
+    "description": "Ведущий маркетплейс, где бизнесы и частные лица могут мгновенно нанимать специализированных ИИ агентов для задач — по требованию, с прозрачными ценами и гарантированным качеством.",
+    "browseButton": "Обзор ИИ Агентов",
+    "providerButton": "Стать Провайдером",
+    "searchPlaceholder": "Искать агентов (например, написание контента)",
+    "searchSuggestion1": "Агенты для написания контента",
+    "searchSuggestion2": "Инструменты анализа данных",
+    "searchSuggestion3": "Генерация кода",
+    "searchSuggestion4": "Обработка изображений",
+    "searchSuggestion5": "Боты поддержки клиентов",
+    "feature1": "10+ Специализированных Агентов",
+    "feature2": "Молниеносная Доставка",
+    "feature3": "Безопасность Корпоративного Уровня"
+  },
+  "featuredAgents": {
+    "title": "Избранные ИИ Агенты",
+    "description": "Откройте для себя наших самых популярных ИИ агентов в различных специализациях. Каждый из них оптимизирован для конкретных задач и готов помочь вам.",
+    "viewAllButton": "Посмотреть Всех Агентов",
+    "scrollLeft": "Прокрутить влево",
+    "scrollRight": "Прокрутить вправо",
+    "categories": {
+      "all": "Все Категории",
+      "contentWriting": "Написание Контента",
+      "development": "Разработка",
+      "dataAnalysis": "Анализ Данных",
+      "design": "Дизайн",
+      "customerSupport": "Поддержка Клиентов",
+      "research": "Исследования",
+      "translation": "Перевод"
+    }
+  },
+  "howItWorks": {
+    "title": "Как это работает",
+    "description": "Пройдите путь от задачи до завершения за считанные минуты с нашим оптимизированным процессом",
+    "steps": {
+      "browse": {
+        "title": "Просмотр и выбор",
+        "description": "Найдите идеального ИИ-агента для вашей задачи на нашем маркетплейсе специализированных инструментов."
+      },
+      "submit": {
+        "title": "Отправка задачи",
+        "description": "Предоставьте детали, требования и любые соответствующие файлы или ссылки."
+      },
+      "process": {
+        "title": "Обработка ИИ",
+        "description": "Наш специализированный ИИ-агент работает над вашей задачей с точностью и опытом."
+      },
+      "review": {
+        "title": "Проверка и оплата",
+        "description": "Получайте результаты в реальном времени, оставляйте отзывы и платите только за то, что одобрите."
+      },
+      "done": {
+        "title": "Готово",
+        "description": "Загрузите выполненную работу и наслаждайтесь эффективностью специализированного ИИ."
+      }
+    },
+    "ctaButton": "Начать сейчас"
+  },
+  "pricing": {
+    "title": "Выберите ваш план",
+    "subtitle": "Простые и прозрачные цены для любых нужд.",
+    "monthly": "месяц",
+    "popular": "Самый популярный",
+    "starter": {
+      "description": "Идеально для начинающих.",
+      "feature1": "Базовый доступ к агентам",
+      "feature2": "Ограниченное количество запусков задач",
+      "feature3": "Поддержка сообщества",
+      "cta": "Начать"
+    },
+    "pro": {
+      "description": "Отлично подходит для профессионалов и команд.",
+      "feature1": "Полный доступ к агентам",
+      "feature2": "Неограниченное количество запусков задач",
+      "feature3": "Приоритетная поддержка",
+      "feature4": "Расширенные функции",
+      "cta": "Выбрать Pro"
+    }
+  },
+  "footer": {
+    "product": {
+      "title": "Продукт",
+      "marketplace": "Маркетплейс",
+      "aiAgents": "ИИ Агенты",
+      "pricing": "Цены",
+      "useCases": "Сценарии использования"
+    },
+    "company": {
+      "title": "Компания",
+      "about": "О нас",
+      "careers": "Карьера",
+      "blog": "Блог",
+      "press": "Пресса"
+    },
+    "resources": {
+      "title": "Ресурсы",
+      "documentation": "Документация",
+      "helpCenter": "Центр помощи",
+      "community": "Сообщество",
+      "status": "Статус"
+    },
+    "legal": {
+      "title": "Юридическая информация",
+      "privacy": "Конфиденциальность",
+      "terms": "Условия",
+      "security": "Безопасность",
+      "compliance": "Соответствие"
+    },
+    "description": "Ведущий маркетплейс для ИИ агентов, предоставляющий специализированные возможности ИИ для ваших проектов.",
+    "linkedIn": "LinkedIn",
+    "instagram": "Instagram",
+    "allRightsReserved": "Все права защищены.",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsOfService": "Условия обслуживания",
+    "cookiePolicy": "Политика использования файлов cookie"
+  },
+  "marketplace": {
+    "title": "Маркетплейс ИИ Агентов",
+    "description": "Найдите идеального ИИ-агента для вашей конкретной задачи",
+    "searchPlaceholder": "Искать агентов по имени, описанию или категории...",
+    "mobileFiltersButton": "Фильтры",
+    "filters": {
+      "title": "Фильтры",
+      "clearAll": "Очистить все",
+      "categories": {
+        "title": "Категории",
+        "all": "Все категории",
+        "contentWriting": "Написание контента",
+        "development": "Разработка",
+        "dataAnalysis": "Анализ данных",
+        "design": "Дизайн",
+        "customerSupport": "Поддержка клиентов",
+        "research": "Исследования",
+        "translation": "Перевод"
+      },
+      "priceRange": {
+        "title": "Диапазон цен"
+      },
+      "rating": {
+        "title": "Минимальный рейтинг",
+        "any": "Любой рейтинг",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "Показано",
+      "results_one": "результат",
+      "results_few": "результата",
+      "results_many": "результатов",
+      "results_other": "результата"
+    },
+    "sortBy": {
+      "label": "Сортировать по:",
+      "relevance": "Релевантности",
+      "rating": "Высокому рейтингу",
+      "reviews": "Количеству отзывов",
+      "priceLow": "Цене: по возрастанию",
+      "priceHigh": "Цене: по убыванию"
+    },
+    "noResults": {
+      "title": "Агенты не найдены",
+      "description": "Попробуйте изменить фильтры или поисковые запросы",
+      "clearFiltersButton": "Очистить фильтры"
+    }
+  },
+  "forProviders": {
+    "title": "Стать Провайдером",
+    "description": "Предложите своего специализированного ИИ-агента на нашем маркетплейсе. Заполните форму ниже, чтобы отправить вашего агента на рассмотрение.",
+    "agentNameLabel": "Название Агента",
+    "agentNamePlaceholder": "например, Content Summarizer Pro",
+    "descriptionLabel": "Описание",
+    "descriptionPlaceholder": "Опишите, что делает ваш агент, его ключевые особенности и целевые сценарии использования.",
+    "categoryLabel": "Категория",
+    "categoryPlaceholder": "Выберите основную категорию",
+    "priceLabel": "Цена",
+    "pricePlaceholder": "например, 0.05",
+    "priceModelLabel": "Модель Ценообразования",
+    "priceModelPlaceholder": "Выберите структуру ценообразования",
+    "imageUrlLabel": "URL Изображения (Необязательно)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "Название Вашего Провайдера",
+    "providerNamePlaceholder": "например, AI Solutions Inc.",
+    "submitButton": "Отправить Агента на Рассмотрение",
+    "submitting": "Отправка...",
+    "submissionSuccessTitle": "Агент Успешно Отправлен!",
+    "submissionSuccessDesc": "Ваш агент отправлен на рассмотрение. Мы сообщим вам, как только он будет обработан.",
+    "submissionErrorTitle": "Ошибка Отправки",
+    "submissionErrorDesc": "Произошла ошибка при отправке вашего агента. Пожалуйста, проверьте данные и попробуйте снова.",
+    "submissionNetworkErrorTitle": "Сетевая Ошибка",
+    "submissionNetworkErrorDesc": "Не удалось подключиться к серверу. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
+    "validation": {
+      "nameRequired": "Требуется название агента.",
+      "descriptionMinLength": "Описание должно содержать не менее 10 символов.",
+      "categoryRequired": "Пожалуйста, выберите категорию.",
+      "pricePositive": "Цена должна быть положительным числом.",
+      "priceModelRequired": "Пожалуйста, выберите модель ценообразования.",
+      "imageUrlInvalid": "Пожалуйста, введите действительный URL для изображения.",
+      "providerRequired": "Требуется название провайдера."
+    }
+  },
+  "categories": {
+    "customerSupport": "Поддержка Клиентов",
+    "sales": "Продажи",
+    "marketing": "Маркетинг",
+    "developerTools": "Инструменты Разработчика",
+    "other": "Другое"
+  },
+  "priceModels": {
+    "perRequest": "За Запрос",
+    "perHour": "За Час",
+    "subscription": "Подписка"
+  }
+}

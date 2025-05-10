@@ -1,0 +1,297 @@
+{
+  "greeting": "مرحباً!",
+  "welcome": "مرحباً بك في تطبيقنا.",
+  "change_language": "تغيير اللغة",
+  "auth": {
+    "signIn": {
+      "successTitle": "تم تسجيل الدخول بنجاح!",
+      "successDescription": "مرحباً بعودتك إلى Ontai",
+      "genericError": "حدث خطأ أثناء تسجيل الدخول",
+      "failedTitle": "فشل تسجيل الدخول",
+      "failedDescription": "يرجى التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى",
+      "providerError": "حدث خطأ أثناء تسجيل الدخول باستخدام {{provider}}",
+      "providerFailedTitle": "فشل تسجيل الدخول باستخدام {{provider}}",
+      "providerFailedDescription": "يرجى المحاولة مرة أخرى لاحقاً",
+      "title": "تسجيل الدخول إلى حسابك",
+      "or": "أو",
+      "createAccountLink": "إنشاء حساب جديد",
+      "emailLabel": "عنوان البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "كلمة المرور",
+      "forgotPasswordLink": "هل نسيت كلمة المرور؟",
+      "signInWithEmailButton": "تسجيل الدخول بالبريد الإلكتروني",
+      "orContinueWith": "أو المتابعة باستخدام",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "تم التسجيل بنجاح!",
+      "successDescription": "مرحباً بك في Ontai. يرجى التحقق من بريدك الإلكتروني للتحقق من حسابك.",
+      "genericError": "حدث خطأ أثناء التسجيل",
+      "failedTitle": "فشل التسجيل",
+      "providerGenericError": "حدث خطأ أثناء التسجيل باستخدام {{provider}}",
+      "providerFailedTitle": "فشل التسجيل باستخدام {{provider}}",
+      "title": "إنشاء حسابك",
+      "or": "أو",
+      "signInLink": "تسجيل الدخول إلى حساب موجود",
+      "fullNameLabel": "الاسم الكامل",
+      "fullNamePlaceholder": "جون دو",
+      "emailLabel": "عنوان البريد الإلكتروني",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "كلمة المرور",
+      "passwordHint": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+      "accountTypeLabel": "نوع الحساب",
+      "userTypeUser": "مستخدم",
+      "userTypeDeveloper": "مطور",
+      "createAccountButton": "إنشاء حساب",
+      "orContinueWith": "أو المتابعة باستخدام",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "backToHome": "العودة إلى الصفحة الرئيسية"
+  },
+  "emergencySignOut": {
+    "title": "تسجيل الخروج الطارئ",
+    "successDescription": "تم مسح جميع بيانات الجلسة.",
+    "failTitle": "فشل تسجيل الخروج الطارئ",
+    "failDescription": "يرجى المحاولة مرة أخرى أو مسح ملفات تعريف الارتباط في متصفحك يدويًا.",
+    "buttonLabel": "تسجيل الخروج الطارئ (تصحيح الأخطاء)"
+  },
+  "header": {
+    "home": "الصفحة الرئيسية",
+    "marketplace": "سوق الذكاء الاصطناعي",
+    "dashboard": "لوحة التحكم",
+    "adminPanel": "لوحة الإدارة",
+    "signOut": "تسجيل الخروج",
+    "becomeAdminTooltip": "انقر لتصبح مسؤولاً (للتطوير فقط)",
+    "signIn": "تسجيل الدخول",
+    "signUp": "التسجيل",
+    "becomeAdmin": "كن مسؤولاً"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "وصول المسؤول",
+      "attempting": "محاولة الحصول على وصول المسؤول...",
+      "grantedTitle": "تم منح وصول المسؤول",
+      "grantedDescription": "لديك الآن امتيازات المسؤول. إعادة التوجيه إلى لوحة الإدارة.",
+      "failedTitle": "فشل وصول المسؤول",
+      "failedDescription": "تعذر تحديث دورك. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "hero": {
+    "introBadge": "تقديم سوق وكلاء الذكاء الاصطناعي",
+    "titleLine1": "وكلاء ذكاء اصطناعي متخصصون",
+    "titleLine2": "لكل مهمة",
+    "description": "السوق الأول حيث يمكن للشركات والأفراد استئجار وكلاء ذكاء اصطناعي متخصصين على الفور للمهام - عند الطلب، بأسعار شفافة وجودة مضمونة.",
+    "browseButton": "تصفح وكلاء الذكاء الاصطناعي",
+    "providerButton": "كن مزودًا",
+    "searchPlaceholder": "ابحث عن وكلاء (مثل كتابة المحتوى)",
+    "searchSuggestion1": "وكلاء كتابة المحتوى",
+    "searchSuggestion2": "أدوات تحليل البيانات",
+    "searchSuggestion3": "توليد الكود",
+    "searchSuggestion4": "معالجة الصور",
+    "searchSuggestion5": "روبوتات دعم العملاء",
+    "feature1": "10+ وكلاء متخصصين",
+    "feature2": "تسليم فائق السرعة",
+    "feature3": "أمان على مستوى المؤسسات"
+  },
+  "featuredAgents": {
+    "title": "وكلاء الذكاء الاصطناعي المميزون",
+    "description": "اكتشف وكلاء الذكاء الاصطناعي الأكثر شيوعًا لدينا في مختلف التخصصات. كل واحد منهم مُحسَّن لمهام محددة وجاهز لمساعدتك.",
+    "viewAllButton": "عرض جميع الوكلاء",
+    "scrollLeft": "التمرير إلى اليسار",
+    "scrollRight": "التمرير إلى اليمين",
+    "categories": {
+      "all": "جميع الفئات",
+      "contentWriting": "كتابة المحتوى",
+      "development": "التطوير",
+      "dataAnalysis": "تحليل البيانات",
+      "design": "التصميم",
+      "customerSupport": "دعم العملاء",
+      "research": "البحث",
+      "translation": "الترجمة"
+    }
+  },
+  "howItWorks": {
+    "title": "كيف يعمل",
+    "description": "انتقل من المهمة إلى الإنجاز في دقائق من خلال عمليتنا المبسطة",
+    "steps": {
+      "browse": {
+        "title": "تصفح واختر",
+        "description": "ابحث عن وكيل الذكاء الاصطناعي المثالي لمهمتك من سوق الأدوات المتخصصة لدينا."
+      },
+      "submit": {
+        "title": "أرسل مهمتك",
+        "description": "قدم التفاصيل والمتطلبات وأي ملفات أو مراجع ذات صلة."
+      },
+      "process": {
+        "title": "معالجة الذكاء الاصطناعي",
+        "description": "يعمل وكيل الذكاء الاصطناعي المتخصص لدينا على مهمتك بدقة وخبرة."
+      },
+      "review": {
+        "title": "مراجعة ودفع",
+        "description": "احصل على النتائج في الوقت الفعلي، وقدم ملاحظاتك، وادفع فقط مقابل ما توافق عليه."
+      },
+      "done": {
+        "title": "تم",
+        "description": "قم بتنزيل عملك المكتمل واستمتع بكفاءة الذكاء الاصطناعي المتخصص."
+      }
+    },
+    "ctaButton": "ابدأ الآن"
+  },
+  "pricing": {
+    "title": "اختر خطتك",
+    "subtitle": "تسعير بسيط وشفاف لكل حاجة.",
+    "monthly": "شهر",
+    "popular": "الأكثر شيوعًا",
+    "starter": {
+      "description": "مثالي للأفراد الذين يبدأون للتو.",
+      "feature1": "وصول أساسي للوكلاء",
+      "feature2": "تشغيل محدود للمهام",
+      "feature3": "دعم المجتمع",
+      "cta": "ابدأ"
+    },
+    "pro": {
+      "description": "مثالي للمحترفين والفرق.",
+      "feature1": "وصول كامل للوكلاء",
+      "feature2": "تشغيل غير محدود للمهام",
+      "feature3": "دعم ذو أولوية",
+      "feature4": "ميزات متقدمة",
+      "cta": "اختر Pro"
+    }
+  },
+  "footer": {
+    "product": {
+      "title": "المنتج",
+      "marketplace": "السوق",
+      "aiAgents": "وكلاء الذكاء الاصطناعي",
+      "pricing": "التسعير",
+      "useCases": "حالات الاستخدام"
+    },
+    "company": {
+      "title": "الشركة",
+      "about": "عنا",
+      "careers": "الوظائف",
+      "blog": "المدونة",
+      "press": "الصحافة"
+    },
+    "resources": {
+      "title": "الموارد",
+      "documentation": "التوثيق",
+      "helpCenter": "مركز المساعدة",
+      "community": "المجتمع",
+      "status": "الحالة"
+    },
+    "legal": {
+      "title": "قانوني",
+      "privacy": "الخصوصية",
+      "terms": "الشروط",
+      "security": "الأمان",
+      "compliance": "الامتثال"
+    },
+    "description": "السوق الأول لوكلاء الذكاء الاصطناعي، مما يوفر قدرات ذكاء اصطناعي متخصصة لمشاريعك.",
+    "linkedIn": "لينكد إن",
+    "instagram": "إنستغرام",
+    "allRightsReserved": "جميع الحقوق محفوظة.",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfService": "شروط الخدمة",
+    "cookiePolicy": "سياسة ملفات تعريف الارتباط"
+  },
+  "marketplace": {
+    "title": "سوق وكلاء الذكاء الاصطناعي",
+    "description": "ابحث عن وكيل الذكاء الاصطناعي المثالي لمهمتك المحددة",
+    "searchPlaceholder": "ابحث عن وكلاء بالاسم أو الوصف أو الفئة...",
+    "mobileFiltersButton": "عوامل التصفية",
+    "filters": {
+      "title": "عوامل التصفية",
+      "clearAll": "مسح الكل",
+      "categories": {
+        "title": "الفئات",
+        "all": "جميع الفئات",
+        "contentWriting": "كتابة المحتوى",
+        "development": "التطوير",
+        "dataAnalysis": "تحليل البيانات",
+        "design": "التصميم",
+        "customerSupport": "دعم العملاء",
+        "research": "البحث",
+        "translation": "الترجمة"
+      },
+      "priceRange": {
+        "title": "نطاق السعر"
+      },
+      "rating": {
+        "title": "الحد الأدنى للتقييم",
+        "any": "أي تقييم",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "عرض",
+      "results_one": "نتيجة",
+      "results_other": "نتائج"
+    },
+    "sortBy": {
+      "label": "فرز حسب:",
+      "relevance": "الصلة",
+      "rating": "أعلى تقييم",
+      "reviews": "الأكثر مراجعة",
+      "priceLow": "السعر: من الأقل إلى الأعلى",
+      "priceHigh": "السعر: من الأعلى إلى الأقل"
+    },
+    "noResults": {
+      "title": "لم يتم العثور على وكلاء",
+      "description": "حاول تعديل عوامل التصفية أو مصطلحات البحث",
+      "clearFiltersButton": "مسح عوامل التصفية"
+    }
+  },
+  "forProviders": {
+    "title": "كن مزودًا",
+    "description": "قدم وكيل الذكاء الاصطناعي المتخصص الخاص بك في سوقنا. املأ النموذج أدناه لإرسال وكيلك للمراجعة.",
+    "agentNameLabel": "اسم الوكيل",
+    "agentNamePlaceholder": "مثلًا، Content Summarizer Pro",
+    "descriptionLabel": "الوصف",
+    "descriptionPlaceholder": "صف ما يفعله وكيلك وميزاته الرئيسية وحالات الاستخدام المستهدفة.",
+    "categoryLabel": "الفئة",
+    "categoryPlaceholder": "حدد الفئة الأساسية",
+    "priceLabel": "السعر",
+    "pricePlaceholder": "مثلًا، 0.05",
+    "priceModelLabel": "نموذج التسعير",
+    "priceModelPlaceholder": "حدد هيكل التسعير",
+    "imageUrlLabel": "عنوان URL للصورة (اختياري)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "اسم المزود الخاص بك",
+    "providerNamePlaceholder": "مثلًا، AI Solutions Inc.",
+    "submitButton": "إرسال الوكيل للمراجعة",
+    "submitting": "جارٍ الإرسال...",
+    "submissionSuccessTitle": "تم إرسال الوكيل بنجاح!",
+    "submissionSuccessDesc": "تم إرسال وكيلك للمراجعة. سنخطرك بمجرد معالجته.",
+    "submissionErrorTitle": "فشل الإرسال",
+    "submissionErrorDesc": "حدث خطأ أثناء إرسال وكيلك. يرجى التحقق من التفاصيل والمحاولة مرة أخرى.",
+    "submissionNetworkErrorTitle": "خطأ في الشبكة",
+    "submissionNetworkErrorDesc": "تعذر الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.",
+    "validation": {
+      "nameRequired": "اسم الوكيل مطلوب.",
+      "descriptionMinLength": "يجب أن يتكون الوصف من 10 أحرف على الأقل.",
+      "categoryRequired": "يرجى تحديد فئة.",
+      "pricePositive": "يجب أن يكون السعر رقمًا موجبًا.",
+      "priceModelRequired": "يرجى تحديد نموذج تسعير.",
+      "imageUrlInvalid": "يرجى إدخال عنوان URL صالح للصورة.",
+      "providerRequired": "اسم المزود مطلوب."
+    }
+  },
+  "categories": {
+    "customerSupport": "دعم العملاء",
+    "sales": "المبيعات",
+    "marketing": "التسويق",
+    "developerTools": "أدوات المطورين",
+    "other": "أخرى"
+  },
+  "priceModels": {
+    "perRequest": "لكل طلب",
+    "perHour": "لكل ساعة",
+    "subscription": "اشتراك"
+  }
+}

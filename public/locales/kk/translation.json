@@ -1,0 +1,297 @@
+{
+  "greeting": "Сәлем!",
+  "welcome": "Біздің қолданбаға қош келдіңіз.",
+  "change_language": "Тілді өзгерту",
+  "auth": {
+    "signIn": {
+      "successTitle": "Сәтті кіру!",
+      "successDescription": "Ontai-ға қайта қош келдіңіз",
+      "genericError": "Кіру кезінде қате пайда болды",
+      "failedTitle": "Кіру сәтсіз аяқталды",
+      "failedDescription": "Тіркелгі деректеріңізді тексеріп, қайталап көріңіз",
+      "providerError": "{{provider}} арқылы кіру кезінде қате пайда болды",
+      "providerFailedTitle": "{{provider}} арқылы кіру сәтсіз аяқталды",
+      "providerFailedDescription": "Кейінірек қайталап көріңіз",
+      "title": "Аккаунтыңызға кіріңіз",
+      "or": "Немесе",
+      "createAccountLink": "жаңа аккаунт жасаңыз",
+      "emailLabel": "Электрондық пошта мекенжайы",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Құпия сөз",
+      "forgotPasswordLink": "Құпия сөзді ұмыттыңыз ба?",
+      "signInWithEmailButton": "Email арқылы кіру",
+      "orContinueWith": "Немесе жалғастырыңыз",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "Тіркелу сәтті аяқталды!",
+      "successDescription": "Ontai-ға қош келдіңіз. Аккаунтыңызды растау үшін электрондық поштаңызды тексеріңіз.",
+      "genericError": "Тіркелу кезінде қате пайда болды",
+      "failedTitle": "Тіркелу сәтсіз аяқталды",
+      "providerGenericError": "{{provider}} арқылы тіркелу кезінде қате пайда болды",
+      "providerFailedTitle": "{{provider}} арқылы тіркелу сәтсіз аяқталды",
+      "title": "Аккаунтыңызды жасаңыз",
+      "or": "Немесе",
+      "signInLink": "бар аккаунтқа кіріңіз",
+      "fullNameLabel": "Толық аты-жөні",
+      "fullNamePlaceholder": "Абай Құнанбаев",
+      "emailLabel": "Электрондық пошта мекенжайы",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Құпия сөз",
+      "passwordHint": "Құпия сөз кемінде 6 таңбадан тұруы керек",
+      "accountTypeLabel": "Аккаунт түрі",
+      "userTypeUser": "Пайдаланушы",
+      "userTypeDeveloper": "Әзірлеуші",
+      "createAccountButton": "Аккаунт жасау",
+      "orContinueWith": "Немесе жалғастырыңыз",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "backToHome": "Басты бетке оралу"
+  },
+  "emergencySignOut": {
+    "title": "Апаттық шығу",
+    "successDescription": "Барлық сеанс деректері тазартылды.",
+    "failTitle": "Апаттық шығу сәтсіз аяқталды",
+    "failDescription": "Қайталап көріңіз немесе браузер cookie файлдарын қолмен тазалаңыз.",
+    "buttonLabel": "Апаттық шығу (Жөндеу)"
+  },
+  "header": {
+    "home": "Басты бет",
+    "marketplace": "AI Маркетплейс",
+    "dashboard": "Басқару панелі",
+    "adminPanel": "Әкімші панелі",
+    "signOut": "Шығу",
+    "becomeAdminTooltip": "Әкімші болу үшін басыңыз (тек әзірлеу үшін)",
+    "signIn": "Кіру",
+    "signUp": "Тіркелу",
+    "becomeAdmin": "Әкімші болу"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "Әкімші қатынасы",
+      "attempting": "Әкімші қатынасын алу әрекеті...",
+      "grantedTitle": "Әкімші қатынасы берілді",
+      "grantedDescription": "Сізде енді әкімші артықшылықтары бар. Әкімші панеліне қайта бағыттау.",
+      "failedTitle": "Әкімші қатынасы сәтсіз аяқталды",
+      "failedDescription": "Рөліңізді жаңарту мүмкін болмады. Қайталап көріңіз."
+    }
+  },
+  "hero": {
+    "introBadge": "AI Агенттер Маркетплейсін таныстыру",
+    "titleLine1": "Мамандандырылған AI Агенттер",
+    "titleLine2": "Әрбір Тапсырма Үшін",
+    "description": "Бизнестер мен жеке тұлғалар тапсырмалар үшін мамандандырылған AI агенттерін лезде жалдай алатын жетекші маркетплейс — сұраныс бойынша, ашық бағамен және кепілдендірілген сапамен.",
+    "browseButton": "AI Агенттерді Шолу",
+    "providerButton": "Провайдер Болу",
+    "searchPlaceholder": "Агенттерді іздеу (мысалы, контент жазу)",
+    "searchSuggestion1": "Контент жазу агенттері",
+    "searchSuggestion2": "Деректерді талдау құралдары",
+    "searchSuggestion3": "Код генерациясы",
+    "searchSuggestion4": "Суреттерді өңдеу",
+    "searchSuggestion5": "Клиенттерге қолдау көрсету боттары",
+    "feature1": "10+ Мамандандырылған Агенттер",
+    "feature2": "Жылдам Жеткізу",
+    "feature3": "Корпоративтік Деңгейдегі Қауіпсіздік"
+  },
+  "featuredAgents": {
+    "title": "Таңдаулы AI Агенттер",
+    "description": "Әртүрлі мамандандырулар бойынша ең танымал AI агенттерімізді табыңыз. Әрқайсысы нақты тапсырмалар үшін оңтайландырылған және сізге көмектесуге дайын.",
+    "viewAllButton": "Барлық Агенттерді Көру",
+    "scrollLeft": "Солға айналдыру",
+    "scrollRight": "Оңға айналдыру",
+    "categories": {
+      "all": "Барлық Санаттар",
+      "contentWriting": "Контент Жазу",
+      "development": "Әзірлеу",
+      "dataAnalysis": "Деректерді Талдау",
+      "design": "Дизайн",
+      "customerSupport": "Клиенттерге Қолдау Көрсету",
+      "research": "Зерттеу",
+      "translation": "Аудару"
+    }
+  },
+  "howItWorks": {
+    "title": "Бұл қалай жұмыс істейді",
+    "description": "Біздің оңтайландырылған процесімізбен тапсырмадан аяқталуға дейін бірнеше минутта өтіңіз",
+    "steps": {
+      "browse": {
+        "title": "Шолу және таңдау",
+        "description": "Біздің мамандандырылған құралдар маркетплейсінен тапсырмаңызға мінсіз AI агентін табыңыз."
+      },
+      "submit": {
+        "title": "Тапсырманы жіберу",
+        "description": "Мәліметтерді, талаптарды және кез келген тиісті файлдарды немесе сілтемелерді ұсыныңыз."
+      },
+      "process": {
+        "title": "AI өңдеу",
+        "description": "Біздің мамандандырылған AI агентіміз сіздің тапсырмаңызды дәлдікпен және тәжірибемен орындайды."
+      },
+      "review": {
+        "title": "Тексеру және төлеу",
+        "description": "Нәтижелерді нақты уақытта алыңыз, кері байланыс беріңіз және тек мақұлдағаныңыз үшін төлеңіз."
+      },
+      "done": {
+        "title": "Дайын",
+        "description": "Аяқталған жұмысыңызды жүктеп алыңыз және мамандандырылған AI тиімділігінен ләззат алыңыз."
+      }
+    },
+    "ctaButton": "Қазір бастау"
+  },
+  "pricing": {
+    "title": "Жоспарыңызды таңдаңыз",
+    "subtitle": "Кез келген қажеттілікке арналған қарапайым, ашық бағалар.",
+    "monthly": "ай",
+    "popular": "Ең танымал",
+    "starter": {
+      "description": "Жаңадан бастағандар үшін өте ыңғайлы.",
+      "feature1": "Агенттерге негізгі қол жетімділік",
+      "feature2": "Тапсырмаларды шектеулі іске қосу",
+      "feature3": "Қоғамдастық қолдауы",
+      "cta": "Бастау"
+    },
+    "pro": {
+      "description": "Кәсіпқойлар мен командалар үшін өте қолайлы.",
+      "feature1": "Агенттерге толық қол жетімділік",
+      "feature2": "Тапсырмаларды шектеусіз іске қосу",
+      "feature3": "Басымдықты қолдау",
+      "feature4": "Кеңейтілген мүмкіндіктер",
+      "cta": "Pro таңдау"
+    }
+  },
+  "footer": {
+    "product": {
+      "title": "Өнім",
+      "marketplace": "Маркетплейс",
+      "aiAgents": "AI Агенттер",
+      "pricing": "Бағалар",
+      "useCases": "Қолдану сценарийлері"
+    },
+    "company": {
+      "title": "Компания",
+      "about": "Біз туралы",
+      "careers": "Мансап",
+      "blog": "Блог",
+      "press": "Баспасөз"
+    },
+    "resources": {
+      "title": "Ресурстар",
+      "documentation": "Құжаттама",
+      "helpCenter": "Анықтама орталығы",
+      "community": "Қауымдастық",
+      "status": "Статус"
+    },
+    "legal": {
+      "title": "Заңды ақпарат",
+      "privacy": "Құпиялылық",
+      "terms": "Шарттар",
+      "security": "Қауіпсіздік",
+      "compliance": "Сәйкестік"
+    },
+    "description": "AI агенттеріне арналған жетекші маркетплейс, жобаларыңызға мамандандырылған AI мүмкіндіктерін ұсынады.",
+    "linkedIn": "LinkedIn",
+    "instagram": "Instagram",
+    "allRightsReserved": "Барлық құқықтар қорғалған.",
+    "privacyPolicy": "Құпиялылық саясаты",
+    "termsOfService": "Қызмет көрсету шарттары",
+    "cookiePolicy": "Cookie файлдарын пайдалану саясаты"
+  },
+  "marketplace": {
+    "title": "AI Агенттер Маркетплейсі",
+    "description": "Нақты тапсырмаңызға мінсіз AI агентін табыңыз",
+    "searchPlaceholder": "Агенттерді аты, сипаттамасы немесе санаты бойынша іздеу...",
+    "mobileFiltersButton": "Сүзгілер",
+    "filters": {
+      "title": "Сүзгілер",
+      "clearAll": "Барлығын тазарту",
+      "categories": {
+        "title": "Санаттар",
+        "all": "Барлық санаттар",
+        "contentWriting": "Контент жазу",
+        "development": "Әзірлеу",
+        "dataAnalysis": "Деректерді талдау",
+        "design": "Дизайн",
+        "customerSupport": "Клиенттерге қолдау көрсету",
+        "research": "Зерттеу",
+        "translation": "Аудару"
+      },
+      "priceRange": {
+        "title": "Баға диапазоны"
+      },
+      "rating": {
+        "title": "Ең төменгі рейтинг",
+        "any": "Кез келген рейтинг",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "Көрсетілуде",
+      "results_one": "нәтиже",
+      "results_other": "нәтиже"
+    },
+    "sortBy": {
+      "label": "Сұрыптау:",
+      "relevance": "Сәйкестік",
+      "rating": "Ең жоғары рейтинг",
+      "reviews": "Ең көп пікірлер",
+      "priceLow": "Баға: төменнен жоғарыға",
+      "priceHigh": "Баға: жоғарыдан төменге"
+    },
+    "noResults": {
+      "title": "Агенттер табылмады",
+      "description": "Сүзгілерді немесе іздеу шарттарын реттеп көріңіз",
+      "clearFiltersButton": "Сүзгілерді тазарту"
+    }
+  },
+  "forProviders": {
+    "title": "Провайдер Болу",
+    "description": "Мамандандырылған AI агентіңізді біздің маркетплейсте ұсыныңыз. Агентіңізді қарауға жіберу үшін төмендегі форманы толтырыңыз.",
+    "agentNameLabel": "Агент Атауы",
+    "agentNamePlaceholder": "мысалы, Content Summarizer Pro",
+    "descriptionLabel": "Сипаттама",
+    "descriptionPlaceholder": "Агентіңіз не істейтінін, оның негізгі мүмкіндіктерін және мақсатты пайдалану жағдайларын сипаттаңыз.",
+    "categoryLabel": "Санат",
+    "categoryPlaceholder": "Негізгі санатты таңдаңыз",
+    "priceLabel": "Бағасы",
+    "pricePlaceholder": "мысалы, 0.05",
+    "priceModelLabel": "Баға Моделі",
+    "priceModelPlaceholder": "Баға құрылымын таңдаңыз",
+    "imageUrlLabel": "Сурет URL (Міндетті емес)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "Сіздің Провайдер Атауыңыз",
+    "providerNamePlaceholder": "мысалы, AI Solutions Inc.",
+    "submitButton": "Агентті Қарауға Жіберу",
+    "submitting": "Жіберу...",
+    "submissionSuccessTitle": "Агент Сәтті Жіберілді!",
+    "submissionSuccessDesc": "Сіздің агентіңіз қарауға жіберілді. Ол өңделгеннен кейін сізге хабарлаймыз.",
+    "submissionErrorTitle": "Жіберу Қатесі",
+    "submissionErrorDesc": "Агентіңізді жіберу кезінде қате пайда болды. Мәліметтерді тексеріп, қайталап көріңіз.",
+    "submissionNetworkErrorTitle": "Желі Қатесі",
+    "submissionNetworkErrorDesc": "Серверге қосылу мүмкін болмады. Интернет қосылымыңызды тексеріп, қайталап көріңіз.",
+    "validation": {
+      "nameRequired": "Агент атауы қажет.",
+      "descriptionMinLength": "Сипаттама кемінде 10 таңбадан тұруы керек.",
+      "categoryRequired": "Санатты таңдаңыз.",
+      "pricePositive": "Баға оң сан болуы керек.",
+      "priceModelRequired": "Баға моделін таңдаңыз.",
+      "imageUrlInvalid": "Сурет үшін жарамды URL мекенжайын енгізіңіз.",
+      "providerRequired": "Провайдер атауы қажет."
+    }
+  },
+  "categories": {
+    "customerSupport": "Клиенттерге Қолдау Көрсету",
+    "sales": "Сату",
+    "marketing": "Маркетинг",
+    "developerTools": "Әзірлеуші Құралдары",
+    "other": "Басқа"
+  },
+  "priceModels": {
+    "perRequest": "Сұраныс Басына",
+    "perHour": "Сағат Басына",
+    "subscription": "Жазылым"
+  }
+}

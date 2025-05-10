@@ -1,0 +1,297 @@
+{
+  "greeting": "¡Hola!",
+  "welcome": "Bienvenido a nuestra aplicación.",
+  "change_language": "Cambiar idioma",
+  "auth": {
+    "signIn": {
+      "successTitle": "¡Inicio de sesión exitoso!",
+      "successDescription": "Bienvenido de nuevo a Ontai",
+      "genericError": "Ocurrió un error durante el inicio de sesión",
+      "failedTitle": "Error al iniciar sesión",
+      "failedDescription": "Por favor, verifica tus credenciales e inténtalo de nuevo",
+      "providerError": "Ocurrió un error durante el inicio de sesión con {{provider}}",
+      "providerFailedTitle": "Error al iniciar sesión con {{provider}}",
+      "providerFailedDescription": "Por favor, inténtalo de nuevo más tarde",
+      "title": "Inicia sesión en tu cuenta",
+      "or": "O",
+      "createAccountLink": "crear una nueva cuenta",
+      "emailLabel": "Dirección de correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "forgotPasswordLink": "¿Olvidaste tu contraseña?",
+      "signInWithEmailButton": "Iniciar sesión con correo electrónico",
+      "orContinueWith": "O continuar con",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "signUp": {
+      "successTitle": "¡Registro exitoso!",
+      "successDescription": "Bienvenido a Ontai. Por favor, revisa tu correo electrónico para verificar tu cuenta.",
+      "genericError": "Ocurrió un error durante el registro",
+      "failedTitle": "Error al registrarse",
+      "providerGenericError": "Ocurrió un error durante el registro con {{provider}}",
+      "providerFailedTitle": "Error al registrarse con {{provider}}",
+      "title": "Crea tu cuenta",
+      "or": "O",
+      "signInLink": "iniciar sesión en una cuenta existente",
+      "fullNameLabel": "Nombre completo",
+      "fullNamePlaceholder": "Juan Pérez",
+      "emailLabel": "Dirección de correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "passwordHint": "La contraseña debe tener al menos 6 caracteres",
+      "accountTypeLabel": "Tipo de cuenta",
+      "userTypeUser": "Usuario",
+      "userTypeDeveloper": "Desarrollador",
+      "createAccountButton": "Crear cuenta",
+      "orContinueWith": "O continuar con",
+      "googleButton": "Google",
+      "githubButton": "GitHub"
+    },
+    "backToHome": "Volver al inicio"
+  },
+  "emergencySignOut": {
+    "title": "Cierre de sesión de emergencia",
+    "successDescription": "Se han borrado todos los datos de la sesión.",
+    "failTitle": "Error en el cierre de sesión de emergencia",
+    "failDescription": "Por favor, inténtalo de nuevo o borra manualmente las cookies de tu navegador.",
+    "buttonLabel": "Cierre de sesión de emergencia (Depuración)"
+  },
+  "header": {
+    "home": "Inicio",
+    "marketplace": "Mercado de IA",
+    "dashboard": "Panel de control",
+    "adminPanel": "Panel de administración",
+    "signOut": "Cerrar sesión",
+    "becomeAdminTooltip": "Haz clic para convertirte en administrador (solo desarrollo)",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "becomeAdmin": "Convertirse en administrador"
+  },
+  "toast": {
+    "adminAccess": {
+      "title": "Acceso de administrador",
+      "attempting": "Intentando obtener acceso de administrador...",
+      "grantedTitle": "Acceso de administrador concedido",
+      "grantedDescription": "Ahora tienes privilegios de administrador. Redirigiendo al panel de administración.",
+      "failedTitle": "Error en el acceso de administrador",
+      "failedDescription": "No se pudo actualizar tu rol. Por favor, inténtalo de nuevo."
+    }
+  },
+  "hero": {
+    "introBadge": "Presentamos el Mercado de Agentes de IA",
+    "titleLine1": "Agentes de IA especializados",
+    "titleLine2": "Para cada tarea",
+    "description": "El principal mercado donde empresas y particulares pueden contratar instantáneamente agentes de IA especializados para tareas, bajo demanda, con precios transparentes y calidad garantizada.",
+    "browseButton": "Explorar agentes de IA",
+    "providerButton": "Convertirse en proveedor",
+    "searchPlaceholder": "Buscar agentes (p. ej., redacción de contenido)",
+    "searchSuggestion1": "Agentes de redacción de contenido",
+    "searchSuggestion2": "Herramientas de análisis de datos",
+    "searchSuggestion3": "Generación de código",
+    "searchSuggestion4": "Procesamiento de imágenes",
+    "searchSuggestion5": "Bots de atención al cliente",
+    "feature1": "+10 agentes especializados",
+    "feature2": "Entrega ultrarrápida",
+    "feature3": "Seguridad de nivel empresarial"
+  },
+  "featuredAgents": {
+    "title": "Agentes de IA destacados",
+    "description": "Descubre nuestros agentes de IA más populares en diversas especialidades. Cada uno está optimizado para tareas específicas y listo para ayudarte.",
+    "viewAllButton": "Ver todos los agentes",
+    "scrollLeft": "Desplazar a la izquierda",
+    "scrollRight": "Desplazar a la derecha",
+    "categories": {
+      "all": "Todas las categorías",
+      "contentWriting": "Redacción de contenido",
+      "development": "Desarrollo",
+      "dataAnalysis": "Análisis de datos",
+      "design": "Diseño",
+      "customerSupport": "Atención al cliente",
+      "research": "Investigación",
+      "translation": "Traducción"
+    }
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "description": "Pasa de la tarea a la finalización en minutos con nuestro proceso simplificado",
+    "steps": {
+      "browse": {
+        "title": "Explorar y seleccionar",
+        "description": "Encuentra el agente de IA perfecto para tu tarea en nuestro mercado de herramientas especializadas."
+      },
+      "submit": {
+        "title": "Envía tu tarea",
+        "description": "Proporciona detalles, requisitos y cualquier archivo o referencia relevante."
+      },
+      "process": {
+        "title": "Procesamiento de IA",
+        "description": "Nuestro agente de IA especializado trabaja en tu tarea con precisión y experiencia."
+      },
+      "review": {
+        "title": "Revisar y pagar",
+        "description": "Obtén resultados en tiempo real, proporciona comentarios y paga solo por lo que apruebes."
+      },
+      "done": {
+        "title": "Hecho",
+        "description": "Descarga tu trabajo completado y disfruta de la eficiencia de la IA especializada."
+      }
+    },
+    "ctaButton": "Empezar ahora"
+  },
+  "pricing": {
+    "title": "Elige tu plan",
+    "subtitle": "Precios simples y transparentes para cada necesidad.",
+    "monthly": "mes",
+    "popular": "Más popular",
+    "starter": {
+      "description": "Perfecto para particulares que empiezan.",
+      "feature1": "Acceso básico a agentes",
+      "feature2": "Ejecuciones de tareas limitadas",
+      "feature3": "Soporte comunitario",
+      "cta": "Empezar"
+    },
+    "pro": {
+      "description": "Ideal para profesionales y equipos.",
+      "feature1": "Acceso completo a agentes",
+      "feature2": "Ejecuciones de tareas ilimitadas",
+      "feature3": "Soporte prioritario",
+      "feature4": "Funciones avanzadas",
+      "cta": "Elegir Pro"
+    }
+  },
+  "footer": {
+    "product": {
+      "title": "Producto",
+      "marketplace": "Mercado",
+      "aiAgents": "Agentes de IA",
+      "pricing": "Precios",
+      "useCases": "Casos de uso"
+    },
+    "company": {
+      "title": "Empresa",
+      "about": "Acerca de",
+      "careers": "Carreras",
+      "blog": "Blog",
+      "press": "Prensa"
+    },
+    "resources": {
+      "title": "Recursos",
+      "documentation": "Documentación",
+      "helpCenter": "Centro de ayuda",
+      "community": "Comunidad",
+      "status": "Estado"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "security": "Seguridad",
+      "compliance": "Cumplimiento"
+    },
+    "description": "El principal mercado de agentes de IA, que aporta capacidades de IA especializadas a tus proyectos.",
+    "linkedIn": "LinkedIn",
+    "instagram": "Instagram",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos de servicio",
+    "cookiePolicy": "Política de cookies"
+  },
+  "marketplace": {
+    "title": "Mercado de Agentes de IA",
+    "description": "Encuentra el agente de IA perfecto para tu tarea específica",
+    "searchPlaceholder": "Buscar agentes por nombre, descripción o categoría...",
+    "mobileFiltersButton": "Filtros",
+    "filters": {
+      "title": "Filtros",
+      "clearAll": "Borrar todo",
+      "categories": {
+        "title": "Categorías",
+        "all": "Todas las categorías",
+        "contentWriting": "Redacción de contenido",
+        "development": "Desarrollo",
+        "dataAnalysis": "Análisis de datos",
+        "design": "Diseño",
+        "customerSupport": "Atención al cliente",
+        "research": "Investigación",
+        "translation": "Traducción"
+      },
+      "priceRange": {
+        "title": "Rango de precios"
+      },
+      "rating": {
+        "title": "Calificación mínima",
+        "any": "Cualquier calificación",
+        "3plus": "3+",
+        "3_5plus": "3.5+",
+        "4plus": "4+",
+        "4_5plus": "4.5+"
+      }
+    },
+    "results": {
+      "showing": "Mostrando",
+      "results_one": "resultado",
+      "results_other": "resultados"
+    },
+    "sortBy": {
+      "label": "Ordenar por:",
+      "relevance": "Relevancia",
+      "rating": "Calificación más alta",
+      "reviews": "Más reseñas",
+      "priceLow": "Precio: de menor a mayor",
+      "priceHigh": "Precio: de mayor a menor"
+    },
+    "noResults": {
+      "title": "No se encontraron agentes",
+      "description": "Intenta ajustar tus filtros o términos de búsqueda",
+      "clearFiltersButton": "Borrar filtros"
+    }
+  },
+  "forProviders": {
+    "title": "Convertirse en proveedor",
+    "description": "Ofrece tu agente de IA especializado en nuestro mercado. Completa el formulario a continuación para enviar tu agente a revisión.",
+    "agentNameLabel": "Nombre del agente",
+    "agentNamePlaceholder": "p. ej., Resumidor de contenido Pro",
+    "descriptionLabel": "Descripción",
+    "descriptionPlaceholder": "Describe qué hace tu agente, sus características clave y los casos de uso objetivo.",
+    "categoryLabel": "Categoría",
+    "categoryPlaceholder": "Selecciona la categoría principal",
+    "priceLabel": "Precio",
+    "pricePlaceholder": "p. ej., 0.05",
+    "priceModelLabel": "Modelo de precios",
+    "priceModelPlaceholder": "Selecciona la estructura de precios",
+    "imageUrlLabel": "URL de la imagen (Opcional)",
+    "imageUrlPlaceholder": "https://example.com/agent-image.png",
+    "providerNameLabel": "Nombre de tu proveedor",
+    "providerNamePlaceholder": "p. ej., AI Solutions Inc.",
+    "submitButton": "Enviar agente para revisión",
+    "submitting": "Enviando...",
+    "submissionSuccessTitle": "¡Agente enviado con éxito!",
+    "submissionSuccessDesc": "Tu agente ha sido enviado para revisión. Te notificaremos una vez que se procese.",
+    "submissionErrorTitle": "Error al enviar",
+    "submissionErrorDesc": "Hubo un error al enviar tu agente. Por favor, verifica los detalles e inténtalo de nuevo.",
+    "submissionNetworkErrorTitle": "Error de red",
+    "submissionNetworkErrorDesc": "No se pudo conectar al servidor. Por favor, verifica tu conexión a Internet e inténtalo de nuevo.",
+    "validation": {
+      "nameRequired": "El nombre del agente es obligatorio.",
+      "descriptionMinLength": "La descripción debe tener al menos 10 caracteres.",
+      "categoryRequired": "Por favor, selecciona una categoría.",
+      "pricePositive": "El precio debe ser un número positivo.",
+      "priceModelRequired": "Por favor, selecciona un modelo de precios.",
+      "imageUrlInvalid": "Por favor, introduce una URL válida para la imagen.",
+      "providerRequired": "El nombre del proveedor es obligatorio."
+    }
+  },
+  "categories": {
+    "customerSupport": "Atención al cliente",
+    "sales": "Ventas",
+    "marketing": "Marketing",
+    "developerTools": "Herramientas para desarrolladores",
+    "other": "Otro"
+  },
+  "priceModels": {
+    "perRequest": "Por solicitud",
+    "perHour": "Por hora",
+    "subscription": "Suscripción"
+  }
+}
