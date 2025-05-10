@@ -47,30 +47,25 @@ const ForProviders = () => {
   const onSubmit = async (data: ProviderFormData) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycby8jr-hHKKsY5lwKPmWz6UgRK7e7ur0oJxZ3dOHwDOOBjGufpmHBWvSCNaBObZTZ9eO/exec', {
+      // Используем режим no-cors для обхода CORS ограничений
+      // В этом режиме мы не можем прочитать ответ, но можем отправить данные
+      await fetch('https://script.google.com/macros/s/AKfycbxoWMCwiFv1JyeIhPHxql-IMSEGIzJ7lN_FQgOT6sbW10Zuw2WcPy-6hsphopMxAQxA/exec', {
         method: 'POST',
+        mode: 'no-cors', // Режим no-cors для обхода CORS ограничений
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain', // Изменено на text/plain для лучшей совместимости с no-cors
         },
+        redirect: 'follow', // Следовать за перенаправлениями
       });
 
-      const result = await response.json();
-
-      if (response.ok && result.result === 'success') { // Предполагая, что ваш скрипт возвращает { result: 'success' }
-        toast({
-          title: t('forProviders.submissionSuccessTitle'),
-          description: t('forProviders.submissionSuccessDesc'),
-        });
-        form.reset(); // Сбросить поля формы после успешной отправки
-      } else {
-        // Обработка потенциальных ошибок, возвращаемых скриптом, или ответов не-2xx
-        toast({
-          title: t('forProviders.submissionErrorTitle'),
-          description: result.message || t('forProviders.submissionErrorDesc'),
-          variant: 'destructive',
-        });
-      }
+      // В режиме no-cors мы не можем прочитать тело ответа или статус
+      // Поэтому предполагаем, что отправка прошла успешно, если не возникло исключение
+      toast({
+        title: t('forProviders.submissionSuccessTitle'),
+        description: t('forProviders.submissionSuccessDesc'),
+      });
+      form.reset(); // Сбросить поля формы после успешной отправки
     } catch (error) {
       console.error('Submission Error:', error);
       toast({
@@ -133,78 +128,104 @@ const ForProviders = () => {
               )}
             />
 
-            {/* Category */}
-            <FormField
-              control={form.control}
-              name="category"
-              render={({ field }) => (
-                <FormItem>
-                  <Label htmlFor="category">{t('forProviders.categoryLabel')}</Label>
-                  <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
-                    <FormControl>
-                      <SelectTrigger id="category" className={form.formState.errors.category ? 'border-red-500' : ''}>
-                        <SelectValue placeholder={t('forProviders.categoryPlaceholder')} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Customer Support">{t('categories.customerSupport')}</SelectItem>
-                      <SelectItem value="Sales">{t('categories.sales')}</SelectItem>
-                      <SelectItem value="Marketing">{t('categories.marketing')}</SelectItem>
-                      <SelectItem value="Developer Tools">{t('categories.developerTools')}</SelectItem>
-                      <SelectItem value="Other">{t('categories.other')}</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {form.formState.errors.category && <FormMessage>{t(form.formState.errors.category.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
-                </FormItem>
-              )}
-            />
+            {/* Category и Price в одной строке */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Category */}
+              <FormField
+                control={form.control}
+                name="category"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="category">{t('forProviders.categoryLabel')}</Label>
+                    <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
+                      <FormControl>
+                        <SelectTrigger id="category" className={form.formState.errors.category ? 'border-red-500' : ''}>
+                          <SelectValue placeholder={t('forProviders.categoryPlaceholder')} />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Customer Support">{t('categories.customerSupport')}</SelectItem>
+                        <SelectItem value="Sales">{t('categories.sales')}</SelectItem>
+                        <SelectItem value="Marketing">{t('categories.marketing')}</SelectItem>
+                        <SelectItem value="Developer Tools">{t('categories.developerTools')}</SelectItem>
+                        <SelectItem value="Other">{t('categories.other')}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {form.formState.errors.category && <FormMessage>{t(form.formState.errors.category.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
+                  </FormItem>
+                )}
+              />
 
-            {/* Price */}
-            <FormField
-              control={form.control}
-              name="price"
-              render={({ field }) => (
-                <FormItem>
-                  <Label htmlFor="price">{t('forProviders.priceLabel')}</Label>
-                  <FormControl>
-                    <Input
-                      id="price"
-                      type="number"
-                      step="0.01"
-                      placeholder={t('forProviders.pricePlaceholder')}
-                      {...field}
-                      onChange={e => field.onChange(parseFloat(e.target.value) || 0)} // Убедимся, что значение является числом
-                      className={form.formState.errors.price ? 'border-red-500' : ''}
-                    />
-                  </FormControl>
-                  {form.formState.errors.price && <FormMessage>{t(form.formState.errors.price.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
-                </FormItem>
-              )}
-            />
-
-            {/* Price Model */}
-            <FormField
-              control={form.control}
-              name="priceModel"
-              render={({ field }) => (
-                <FormItem>
-                  <Label htmlFor="priceModel">{t('forProviders.priceModelLabel')}</Label>
-                  <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
+              {/* Price */}
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="price">{t('forProviders.priceLabel')}</Label>
                     <FormControl>
-                      <SelectTrigger id="priceModel" className={form.formState.errors.priceModel ? 'border-red-500' : ''}>
-                        <SelectValue placeholder={t('forProviders.priceModelPlaceholder')} />
-                      </SelectTrigger>
+                      <Input
+                        id="price"
+                        type="number"
+                        step="0.01"
+                        placeholder={t('forProviders.pricePlaceholder')}
+                        {...field}
+                        onChange={e => field.onChange(parseFloat(e.target.value) || 0)} // Убедимся, что значение является числом
+                        className={form.formState.errors.price ? 'border-red-500' : ''}
+                      />
                     </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Per request">{t('priceModels.perRequest')}</SelectItem>
-                      <SelectItem value="Per hour">{t('priceModels.perHour')}</SelectItem>
-                      <SelectItem value="Subscription">{t('priceModels.subscription')}</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {form.formState.errors.priceModel && <FormMessage>{t(form.formState.errors.priceModel.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
-                </FormItem>
-              )}
-            />
+                    {form.formState.errors.price && <FormMessage>{t(form.formState.errors.price.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* Price Model и Provider Name в одной строке */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Price Model */}
+              <FormField
+                control={form.control}
+                name="priceModel"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="priceModel">{t('forProviders.priceModelLabel')}</Label>
+                    <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
+                      <FormControl>
+                        <SelectTrigger id="priceModel" className={form.formState.errors.priceModel ? 'border-red-500' : ''}>
+                          <SelectValue placeholder={t('forProviders.priceModelPlaceholder')} />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Per request">{t('priceModels.perRequest')}</SelectItem>
+                        <SelectItem value="Per hour">{t('priceModels.perHour')}</SelectItem>
+                        <SelectItem value="Subscription">{t('priceModels.subscription')}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {form.formState.errors.priceModel && <FormMessage>{t(form.formState.errors.priceModel.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
+                  </FormItem>
+                )}
+              />
+
+              {/* Provider Name */}
+              <FormField
+                control={form.control}
+                name="provider"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="provider">{t('forProviders.providerNameLabel')}</Label>
+                    <FormControl>
+                      <Input
+                        id="provider"
+                        placeholder={t('forProviders.providerNamePlaceholder')}
+                        {...field}
+                        className={form.formState.errors.provider ? 'border-red-500' : ''}
+                      />
+                    </FormControl>
+                    {form.formState.errors.provider && <FormMessage>{t(form.formState.errors.provider.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
+                  </FormItem>
+                )}
+              />
+            </div>
 
             {/* Image URL */}
             <FormField
@@ -222,26 +243,6 @@ const ForProviders = () => {
                     />
                   </FormControl>
                   {form.formState.errors.imageUrl && <FormMessage>{t(form.formState.errors.imageUrl.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
-                </FormItem>
-              )}
-            />
-
-            {/* Provider Name */}
-            <FormField
-              control={form.control}
-              name="provider"
-              render={({ field }) => (
-                <FormItem>
-                  <Label htmlFor="provider">{t('forProviders.providerNameLabel')}</Label>
-                  <FormControl>
-                    <Input
-                      id="provider"
-                      placeholder={t('forProviders.providerNamePlaceholder')}
-                      {...field}
-                      className={form.formState.errors.provider ? 'border-red-500' : ''}
-                    />
-                  </FormControl>
-                  {form.formState.errors.provider && <FormMessage>{t(form.formState.errors.provider.message as string)}</FormMessage>} {/* Добавлен 'as string' для t */}
                 </FormItem>
               )}
             />
