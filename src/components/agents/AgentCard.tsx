@@ -5,6 +5,7 @@ import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import StarRating from '@/components/reviews/StarRating';
+import { useTranslation } from 'react-i18next';
 
 interface AgentCardProps {
   agent: {
@@ -23,6 +24,7 @@ interface AgentCardProps {
 
 const AgentCard = ({ agent }: AgentCardProps) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   
   // Truncate description to fit within the card
   const truncatedDescription = agent.description.length > 100 ? agent.description.substring(0, 100) + '...' : agent.description;
@@ -71,8 +73,8 @@ const AgentCard = ({ agent }: AgentCardProps) => {
             <span className="text-gray-500">No ratings yet</span>
           )}
         </div>
-        <Button variant="secondary" size="sm" onClick={handleSubmitTask}>
-          Submit Task
+        <Button variant="default" size="sm" onClick={handleSubmitTask}>
+          {t('agentCard.startButton', 'Start')}
         </Button>
       </CardFooter>
     </Card>

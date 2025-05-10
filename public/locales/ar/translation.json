@@ -2,6 +2,9 @@
   "greeting": "مرحباً!",
   "welcome": "مرحباً بك في تطبيقنا.",
   "change_language": "تغيير اللغة",
+  "agentCard": {
+    "startButton": "ابدأ"
+  },
   "auth": {
     "signIn": {
       "successTitle": "تم تسجيل الدخول بنجاح!",

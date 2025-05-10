@@ -2,6 +2,9 @@
   "greeting": "Сәлем!",
   "welcome": "Біздің қолданбаға қош келдіңіз.",
   "change_language": "Тілді өзгерту",
+  "agentCard": {
+    "startButton": "Бастау"
+  },
   "auth": {
     "signIn": {
       "successTitle": "Сәтті кіру!",

@@ -39,6 +39,18 @@ const allAgents = [
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
     provider: 'DevTech Solutions'
   },
+  {
+    id: '3',
+    name: 'LinguaGenius',
+    description: 'Профессиональный переводчик с поддержкой более 50 языков и сохранением контекста.',
+    category: 'Translation',
+    rating: 4.9,
+    reviews: 423,
+    price: 0.08,
+    priceModel: 'Per 1K tokens',
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    provider: 'TranslateAI'
+  },
   
 ];
 
