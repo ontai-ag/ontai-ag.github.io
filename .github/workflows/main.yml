@@ -3,31 +3,24 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # или master, в зависимости от вашей основной ветки
+      - main
 
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
-      # Шаг 1: Checkout вашего репозитория
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Шаг 2: Установить Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Укажите вашу версию Node.js
+          node-version: '20'
 
-      # Шаг 3: Установить зависимости
       - name: Install dependencies
         run: npm install
 
-      # Шаг 4: Сборка проекта
-      - name: Build the project
-        run: npm run build
-
-      # Шаг 5: Деплой на GitHub Pages
-      - name: Deploy to GitHub Pages
+      - name: Build and Deploy
+        env:
+          CI: false
         run: npm run deploy
