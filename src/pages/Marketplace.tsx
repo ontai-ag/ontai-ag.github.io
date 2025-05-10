@@ -155,7 +155,7 @@ const Marketplace = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className={`mb-8 transition-all duration-500 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <h1 className="text-3xl font-bold tracking-tight mb-2">{t('marketplace.title')}</h1>
-            <p className="text-gray-600 text-lg">{t('marketplace.description')}</p>
+            <p className="text-muted-foreground text-lg">{t('marketplace.description')}</p>
           </div>
           
           <div className={`mb-8 transition-all duration-500 delay-100 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -187,13 +187,13 @@ const Marketplace = () => {
                 showFilters ? 'max-h-[1000px] opacity-100' : 'max-h-0 md:max-h-[1000px] overflow-hidden opacity-0 md:opacity-100'
               }`}
             >
-              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-5 sticky top-24">
+              <div className="bg-card rounded-lg border border-border shadow-sm p-5 sticky top-24">
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="text-lg font-semibold">{t('marketplace.filters.title')}</h3>
                   <Button 
                     variant="ghost" 
                     size="sm" 
-                    className="h-8 text-sm text-gray-500 hover:text-gray-900"
+                    className="h-8 text-sm text-muted-foreground hover:text-foreground"
                     onClick={clearFilters}
                   >
                     <XCircle className="mr-1 h-4 w-4" />
@@ -214,7 +214,7 @@ const Marketplace = () => {
                         />
                         <Label 
                           htmlFor={`category-${categoryKey}`}
-                          className="ml-2 text-sm cursor-pointer"
+                          className="ml-2 text-sm cursor-pointer text-foreground"
                         >
                           {t(categoryKeys[categoryKey as keyof typeof categoryKeys])} {/* Translate label */}
                         </Label>
@@ -235,8 +235,8 @@ const Marketplace = () => {
                     className="my-6"
                   />
                   <div className="flex items-center justify-between text-sm">
-                    <span>${priceRange[0]}</span>
-                    <span>${priceRange[1]}</span>
+                    <span className="text-foreground">${priceRange[0]}</span>
+                    <span className="text-foreground">${priceRange[1]}</span>
                   </div>
                 </div>
                 
@@ -253,7 +253,7 @@ const Marketplace = () => {
                         />
                         <Label 
                           htmlFor={`rating-${value}`}
-                          className="ml-2 text-sm cursor-pointer flex items-center"
+                          className="ml-2 text-sm cursor-pointer flex items-center text-foreground"
                         >
                           {value > 0 ? (
                             <>
@@ -276,17 +276,17 @@ const Marketplace = () => {
               {/* Sort options */}
               <div className={`mb-6 flex items-center justify-between transition-all duration-500 delay-200 ${isPageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <div className="text-sm">
-                  <span className="text-gray-500">{t('marketplace.results.showing')}</span>{' '}
-                  <span className="font-medium">{filteredAgents.length}</span>{' '}
-                  <span className="text-gray-500">{t('marketplace.results.results', { count: filteredAgents.length })}</span>
+                  <span className="text-muted-foreground">{t('marketplace.results.showing')}</span>{' '}
+                  <span className="font-medium text-foreground">{filteredAgents.length}</span>{' '}
+                  <span className="text-muted-foreground">{t('marketplace.results.results', { count: filteredAgents.length })}</span>
                 </div>
                 
                 <div className="flex items-center">
-                  <span className="mr-2 text-sm text-gray-500">{t('marketplace.sortBy.label')}</span>
+                  <span className="mr-2 text-sm text-muted-foreground">{t('marketplace.sortBy.label')}</span>
                   <select
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
-                    className="border-none bg-transparent text-sm font-medium focus:outline-none focus:ring-0"
+                    className="border-none bg-transparent text-sm font-medium focus:outline-none focus:ring-0 text-foreground"
                   >
                     {sortOptions.map(({ value, key }) => (
                       <option key={value} value={value}>{t(key)}</option>
@@ -306,8 +306,8 @@ const Marketplace = () => {
                   ))
                 ) : (
                   <div className="col-span-full py-16 text-center">
-                    <h3 className="text-xl font-medium mb-2">{t('marketplace.noResults.title')}</h3>
-                    <p className="text-gray-500 mb-4">{t('marketplace.noResults.description')}</p>
+                    <h3 className="text-xl font-medium mb-2 text-foreground">{t('marketplace.noResults.title')}</h3>
+                    <p className="text-muted-foreground mb-4">{t('marketplace.noResults.description')}</p>
                     <Button onClick={clearFilters}>{t('marketplace.noResults.clearFiltersButton')}</Button>
                   </div>
                 )}
