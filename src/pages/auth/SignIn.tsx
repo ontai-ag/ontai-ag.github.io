@@ -1,13 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'; // Добавить импорт
-// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client
-// TODO: [SUPABASE_REMOVAL] Placeholder for auth service or use AuthContext methods for sign-in
-const supabaseAuthMock = {
-  signInWithPassword: () => Promise.reject(new Error('Supabase removed, use AuthService.signInWithPassword')), 
-  signInWithOAuth: () => Promise.reject(new Error('Supabase removed, use AuthService.signInWithOAuth')),
-};
+import { useTranslation } from 'react-i18next';
+import authService from '@/services/authService';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -50,14 +45,7 @@ const SignIn = () => {
     setError(null);
     
     try {
-      // TODO: [SUPABASE_REMOVAL] Replace with authService.signInWithPassword(email, password) or similar
-      const { data, error } = await supabaseAuthMock.signInWithPassword(); // Using mock to demonstrate breakage
-      // const { data, error } = await supabase.auth.signInWithPassword({
-      //   email,
-      //   password,
-      // });
-      
-      if (error) throw error;
+      const response = await authService.login(email, password);
       
       toast({
         title: t('auth.signIn.successTitle'),
@@ -83,16 +71,8 @@ const SignIn = () => {
     setError(null);
     
     try {
-      // TODO: [SUPABASE_REMOVAL] Replace with authService.signInWithOAuth(provider) or similar
-      const { data, error } = await supabaseAuthMock.signInWithOAuth(); // Using mock to demonstrate breakage
-      // const { data, error } = await supabase.auth.signInWithOAuth({
-      //   provider,
-      //   options: {
-      //     redirectTo: `${window.location.origin}${getDashboardPath()}`,
-      //   },
-      // });
-      
-      if (error) throw error;
+      // Социальная аутентификация пока не реализована
+      throw new Error('Социальная аутентификация временно недоступна');
       
     } catch (error: any) {
       console.error(`Error signing in with ${provider}:`, error);

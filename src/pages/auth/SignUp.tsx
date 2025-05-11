@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useSignUp } from '@clerk/clerk-react'; // Clerk import
-// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Use AuthContext for auth operations
+import authService from '@/services/authService';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -16,44 +15,32 @@ const SignUp = () => {
   const { t } = useTranslation(); // Initialize t function
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { isLoaded, signUp, setActive } = useSignUp(); // Clerk hook
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [userType, setUserType] = useState<'user' | 'developer'>('user');
-  const [pendingVerification, setPendingVerification] = useState(false);
-  const [code, setCode] = useState('');
 
   const handleSignUpWithEmail = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isLoaded) {
-      return;
-    }
     setLoading(true);
     setError(null);
 
     try {
-      await signUp.create({
-        emailAddress: email,
-        password,
-        unsafeMetadata: { // Store role and fullName in unsafeMetadata
-          fullName: fullName,
-          role: userType,
-        },
-      });
-
-      // Send email verification code
-      await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
-      setPendingVerification(true);
+      const response = await authService.register(email, password);
+      
       toast({
-        title: t('auth.signUp.verificationTitle'),
-        description: t('auth.signUp.verificationDescription'),
+        title: t('auth.signUp.successTitle'),
+        description: t('auth.signUp.successDescription'),
       });
+      
+      // После успешной регистрации выполняем вход
+      await authService.login(email, password);
+      navigate('/dashboard');
     } catch (err: any) {
-      console.error('Error signing up:', JSON.stringify(err, null, 2));
-      const errorMessage = err.errors?.[0]?.message || t('auth.signUp.genericError');
+      console.error('Error signing up:', err);
+      const errorMessage = err.message || t('auth.signUp.genericError');
       setError(errorMessage);
       toast({
         title: t('auth.signUp.failedTitle'),
@@ -65,39 +52,16 @@ const SignUp = () => {
     }
   };
 
-  const onPressVerify = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isLoaded) {
-      return;
-    }
+  const handleSignUpWithProvider = async (provider: 'github' | 'google') => {
     setLoading(true);
     setError(null);
 
     try {
-      const completeSignUp = await signUp.attemptEmailAddressVerification({
-        code,
-      });
-
-      if (completeSignUp.status === 'complete') {
-        await setActive({ session: completeSignUp.createdSessionId });
-        toast({
-          title: t('auth.signUp.successTitle'),
-          description: t('auth.signUp.successDescription'),
-        });
-        navigate('/dashboard'); // Redirect to dashboard or role-specific page
-      } else {
-        // This should not happen if verification is successful
-        console.error('Verification not complete:', completeSignUp);
-        setError(t('auth.signUp.verificationFailedError'));
-        toast({
-          title: t('auth.signUp.failedTitle'),
-          description: t('auth.signUp.verificationFailedError'),
-          variant: 'destructive',
-        });
-      }
+      // Социальная аутентификация пока не реализована
+      throw new Error('Социальная аутентификация временно недоступна');
     } catch (err: any) {
-      console.error('Error verifying email:', JSON.stringify(err, null, 2));
-      const errorMessage = err.errors?.[0]?.message || t('auth.signUp.verificationGenericError');
+      console.error(`Error signing up with ${provider}:`, err);
+      const errorMessage = err.message || t('auth.signUp.providerGenericError', { provider });
       setError(errorMessage);
       toast({
         title: t('auth.signUp.failedTitle'),

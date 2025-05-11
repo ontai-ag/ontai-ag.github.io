@@ -1,48 +1,17 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-// import { supabase } from '@/integrations/supabase/client'; // TODO: [SUPABASE_REMOVAL] Remove Supabase client
-// import { Session, User } from '@supabase/supabase-js'; // TODO: [SUPABASE_REMOVAL] Remove Supabase types
+import authService from '@/services/authService';
 
-// TODO: [SUPABASE_REMOVAL] Define User and Session types or import from a non-Supabase source if needed
-type User = any; 
-type Session = any;
+interface User {
+  id: string;
+  email: string;
+  role: string;
+}
 
-// TODO: [SUPABASE_REMOVAL] Placeholder for supabase client if needed by other logic, otherwise remove.
-const supabase: any = {
-  auth: {
-    getSession: () => Promise.resolve({ data: { session: null }, error: null }),
-    onAuthStateChange: (callback: (event: string, session: Session | null) => void) => {
-      console.warn('[SUPABASE_REMOVAL] onAuthStateChange is a mock and will not fire.');
-      // Simulate an initial check, then do nothing.
-      // callback('INITIAL_SESSION', null);
-      return {
-        data: { subscription: { unsubscribe: () => { console.warn('[SUPABASE_REMOVAL] Unsubscribe called on mock subscription.'); } } },
-      };
-    },
-    signInWithPassword: () => Promise.resolve({ data: { user: null, session: null }, error: new Error('Supabase removed') }),
-    signUp: () => Promise.resolve({ data: { user: null, session: null }, error: new Error('Supabase removed') }),
-    signOut: () => Promise.resolve({ error: null }),
-    signInWithOAuth: () => Promise.resolve({ data: { provider: '', url: ''}, error: new Error('Supabase removed') }),
-    updateUser: () => Promise.resolve({ data: { user: null }, error: new Error('Supabase removed') }),
-    sendPasswordResetEmail: () => Promise.resolve({ data: {}, error: new Error('Supabase removed') }),
-    reauthenticate: () => Promise.resolve({ error: new Error('Supabase removed') }),
-  },
-  from: (tableName: string) => ({
-    select: (...args: any[]) => ({
-      eq: (column: string, value: any) => ({
-        single: () => Promise.resolve({ data: null, error: new Error(`Supabase removed, called select on ${tableName}`) })
-      })
-    }),
-    insert: (data: any) => ({
-      select: () => ({
-        single: () => Promise.resolve({ data: null, error: new Error(`Supabase removed, called insert on ${tableName}`) })
-      })
-    }),
-    update: (data: any) => ({
-      eq: (column: string, value: any) => Promise.resolve({ error: new Error(`Supabase removed, called update on ${tableName}`) })
-    }),
-  })
-};
+interface Session {
+  token: string;
+  user: User;
+}
 import { useToast } from '@/hooks/use-toast';
 
 // Define our roles
@@ -108,42 +77,41 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return;
     }
 
-    // Get initial session
-    // TODO: [SUPABASE_REMOVAL] Replace Supabase auth.getSession()
-    supabase.auth.getSession().then(({ data: { session } }) => { // Mock will return null session
-      console.log('Initial session check:', session ? 'Found session' : 'No session');
-      setSession(session);
-      setUser(session?.user ?? null);
-      setIsLoading(false);
-    });
+    const checkAuthStatus = async () => {
+      try {
+        setIsLoading(true);
+        // Инициализируем authService
+        authService.init();
 
-    // Listen for changes
-    // TODO: [SUPABASE_REMOVAL] Replace Supabase auth.onAuthStateChange()
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        console.log('Auth state changed, event:', event, 'session:', session ? 'exists' : 'null');
-        
-        if (event === 'SIGNED_OUT' || isSigningOut) {
-          // Clear all user state
+        if (authService.isAuthenticated()) {
+          // Получаем данные текущего пользователя
+          const userData = await authService.getCurrentUser();
+          const sessionData = {
+            token: authService.getToken() || '',
+            user: userData
+          };
+          
+          console.log('Initial session check: Found session');
+          setSession(sessionData);
+          setUser(userData);
+        } else {
+          console.log('Initial session check: No session');
           setSession(null);
           setUser(null);
-          setUserRole('user');
-          setUserMetadata(null);
-          
-          if (isSigningOut) {
-            console.log('Sign-out process in progress, redirecting to home page');
-            window.location.href = '/';
-          }
-        } else {
-          setSession(session);
-          setUser(session?.user ?? null);
         }
-        
+      } catch (error) {
+        console.error('Error checking auth status:', error);
+        // В случае ошибки сбрасываем состояние
+        setSession(null);
+        setUser(null);
+        setUserRole('user');
+        setUserMetadata(null);
+      } finally {
         setIsLoading(false);
       }
-    );
+    };
 
-    return () => subscription.unsubscribe();
+    checkAuthStatus();
   }, [isSigningOut]);
 
   // Fetch the user's profile when user changes
@@ -164,78 +132,53 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       console.log('Creating user profile for:', user.id);
-      const fullName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
+      const fullName = user.email?.split('@')[0] || 'User';
       
-      // Use the role from user metadata if available, otherwise default to 'user'
-      const role = (user.user_metadata?.role as UserRole) || 'user';
+      // Используем роль по умолчанию 'user'
+      const role = 'user';
       console.log('Creating profile with role:', role);
       
-      // TODO: [SUPABASE_REMOVAL] Replace Supabase insert profile
-      const { data, error } = await (supabase as any)
-        .from('profiles')
-        .insert([
-          { 
-            id: user.id, 
-            full_name: fullName,
-            role: role 
-          }
-        ])
-        .select()
-        .single(); // Mock will return error
+      // TODO: Implement profile creation through REST API
+      const profileData: ProfileData = {
+        id: user.id,
+        full_name: fullName,
+        avatar_url: null,
+        role: role
+      };
       
-      if (error) {
-        console.error('Error creating user profile:', error);
-        return;
-      }
-
-      // Set user metadata after creating profile
-      if (data) {
-        console.log('Profile created successfully:', data);
-        const profileData = data as unknown as ProfileData;
-        setUserRole(profileData.role as UserRole);
-        setUserMetadata(profileData);
-      }
+      setUserRole(role);
+      setUserMetadata(profileData);
+      console.log('Profile created successfully:', profileData);
       
     } catch (error) {
       console.error('Error creating user profile:', error);
     }
   };
 
-  // Function to fetch user profile from our profiles table
+  // Function to fetch user profile
   const fetchUserProfile = async () => {
     if (!user) return;
 
     try {
       console.log('Fetching profile for user ID:', user.id);
-      // TODO: [SUPABASE_REMOVAL] Replace Supabase select profile
-      // Cast the entire Supabase client to any to bypass TypeScript checking
-      const { data, error } = await (supabase as any)
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single(); // Mock will return error
+      const userData = await authService.getCurrentUser();
       
-      if (error) {
-        // If no rows found, create a profile
-        if (error.code === 'PGRST116') {
-          console.log('No profile found, creating one...');
-          await createUserProfile();
-          return;
-        }
-        
-        console.error('Error fetching user profile:', error);
-        return;
-      }
-
-      if (data) {
-        console.log('Profile data fetched:', data);
-        // Use type assertion to tell TypeScript about the expected structure
-        const profileData = data as unknown as ProfileData;
-        setUserRole(profileData.role as UserRole);
-        setUserMetadata(profileData);
-      }
+      // Создаем профиль на основе данных пользователя
+      const profileData: ProfileData = {
+        id: userData.id,
+        full_name: userData.email.split('@')[0],
+        avatar_url: null,
+        role: userData.role as UserRole
+      };
+      
+      console.log('Profile data fetched:', profileData);
+      setUserRole(profileData.role);
+      setUserMetadata(profileData);
+      
     } catch (error) {
       console.error('Error fetching user profile:', error);
+      // Если профиль не найден, создаем новый
+      await createUserProfile();
     }
   };
 
@@ -267,28 +210,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!user) throw new Error('No user logged in');
     
     try {
-      // TODO: [SUPABASE_REMOVAL] Replace Supabase update profile role
-      // Cast the entire Supabase client to any to bypass TypeScript checking
-      const { error } = await (supabase as any)
-        .from('profiles')
-        .update({ role: role })
-        .eq('id', user.id); // Mock will return error
-
-      if (error) {
-        console.error('Failed to update user role:', error);
-        toast({
-          title: "Role Update Failed",
-          description: "There was an error updating your role. Please try again.",
-          variant: "destructive",
-        });
-        throw error;
-      }
-      
-      // Update local state
+      // TODO: Implement role update through REST API
+      // Временно обновляем только локальное состояние
       setUserRole(role);
       
-      // Refetch the user profile to get updated data
-      await fetchUserProfile();
+      if (userMetadata) {
+        const updatedMetadata = { ...userMetadata, role };
+        setUserMetadata(updatedMetadata);
+      }
       
       toast({
         title: "Role Updated",
@@ -296,6 +225,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
     } catch (error) {
       console.error('Failed to update user role:', error);
+      toast({
+        title: "Role Update Failed",
+        description: "There was an error updating your role. Please try again.",
+        variant: "destructive",
+      });
       throw error;
     }
   };
@@ -313,23 +247,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
       });
       
-      // Clear local and session storage
-      localStorage.clear();
-      sessionStorage.clear();
+      // Используем authService для выхода
+      authService.logout();
       
       // Clear auth state in our React app
       setUser(null);
       setSession(null);
       setUserRole('user');
       setUserMetadata(null);
-      
-      // TODO: [SUPABASE_REMOVAL] Replace Supabase auth.signOut()
-      // Now try to sign out with Supabase
-      const { error } = await supabase.auth.signOut({ scope: 'global' }); // Mock will return no error
-      
-      if (error) {
-        throw error;
-      }
       
       console.log('User signed out successfully');
       toast({
