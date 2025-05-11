@@ -36,7 +36,7 @@ const SignUp = () => {
       });
       
       // После успешной регистрации выполняем вход
-      await authService.login(email, password);
+      await authService.signInWithPassword(email, password);
       navigate('/dashboard');
     } catch (err: any) {
       console.error('Error signing up:', err);

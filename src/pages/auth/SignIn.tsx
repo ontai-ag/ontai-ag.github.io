@@ -45,7 +45,7 @@ const SignIn = () => {
     setError(null);
     
     try {
-      const response = await authService.login(email, password);
+      const response = await authService.signInWithPassword(email, password);
       
       toast({
         title: t('auth.signIn.successTitle'),

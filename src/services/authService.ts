@@ -49,7 +49,7 @@ const authService = {
   },
 
   // Вход пользователя
-  login: async (email: string, password: string): Promise<AuthResponse> => {
+  signInWithPassword: async (email: string, password: string): Promise<AuthResponse> => {
     try {
       const response = await axios.post(`${API_URL}/api/v1/users/login`, {
         email,
