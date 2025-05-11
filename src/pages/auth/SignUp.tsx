@@ -63,7 +63,9 @@ const SignUp = () => {
       
       // После успешной регистрации выполняем вход
       await authService.signInWithPassword(email, password);
-      setRegistrationSuccess(true);
+      
+      // Немедленный редирект на dashboard
+      navigate('/dashboard', { replace: true });
     } catch (err: any) {
       console.error('Error signing up:', err);
       const errorMessage = err.message || t('auth.signUp.genericError');

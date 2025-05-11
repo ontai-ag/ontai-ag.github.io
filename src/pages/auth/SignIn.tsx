@@ -52,7 +52,9 @@ const SignIn = () => {
         description: t('auth.signIn.successDescription'),
       });
       
-      // Let the effect hook handle redirection
+      // Немедленный редирект после успешной авторизации
+      const redirectPath = getDashboardPath();
+      navigate(redirectPath, { replace: true });
     } catch (error: any) {
       console.error('Error signing in:', error);
       setError(error.message || t('auth.signIn.genericError'));
