@@ -12,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Github, Mail, AlertCircle, UserPlus } from 'lucide-react';
 
 const SignUp = () => {
-  const { t } = useTranslation(); // Initialize t function
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [email, setEmail] = useState('');
@@ -21,6 +21,32 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [userType, setUserType] = useState<'user' | 'developer'>('user');
+  const [pendingVerification, setPendingVerification] = useState(false);
+  const [code, setCode] = useState('');
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
+  const onPressVerify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Здесь будет логика верификации кода
+      setPendingVerification(false);
+      navigate('/dashboard');
+    } catch (err: any) {
+      console.error('Error verifying code:', err);
+      const errorMessage = err.message || t('auth.signUp.verificationError');
+      setError(errorMessage);
+      toast({
+        title: t('auth.signUp.verificationFailedTitle'),
+        description: errorMessage,
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSignUpWithEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +63,7 @@ const SignUp = () => {
       
       // После успешной регистрации выполняем вход
       await authService.signInWithPassword(email, password);
-      navigate('/dashboard');
+      setRegistrationSuccess(true);
     } catch (err: any) {
       console.error('Error signing up:', err);
       const errorMessage = err.message || t('auth.signUp.genericError');
@@ -52,51 +78,30 @@ const SignUp = () => {
     }
   };
 
-  const handleSignUpWithProvider = async (provider: 'github' | 'google') => {
-    setLoading(true);
-    setError(null);
+  // const handleSignUpWithProvider = async (provider: 'oauth_github' | 'oauth_google') => {
+  //   if (!isLoaded) return;
+  //   setLoading(true);
+  //   setError(null);
 
-    try {
-      // Социальная аутентификация пока не реализована
-      throw new Error('Социальная аутентификация временно недоступна');
-    } catch (err: any) {
-      console.error(`Error signing up with ${provider}:`, err);
-      const errorMessage = err.message || t('auth.signUp.providerGenericError', { provider });
-      setError(errorMessage);
-      toast({
-        title: t('auth.signUp.failedTitle'),
-        description: errorMessage,
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSignUpWithProvider = async (provider: 'oauth_github' | 'oauth_google') => {
-    if (!isLoaded) return;
-    setLoading(true);
-    setError(null);
-
-    try {
-      await signUp.authenticateWithRedirect({
-        strategy: provider,
-        redirectUrl: '/sso-callback',
-        redirectUrlComplete: '/dashboard',
-      });
-      // OAuth flow will redirect the user, no further client-side action needed here for success
-    } catch (err: any) {
-      console.error(`Error signing up with ${provider}:`, JSON.stringify(err, null, 2));
-      const errorMessage = err.errors?.[0]?.message || t('auth.signUp.providerGenericError', { provider: provider.replace('oauth_', '') });
-      setError(errorMessage);
-      toast({
-        title: t('auth.signUp.providerFailedTitle', { provider: provider.replace('oauth_', '') }),
-        description: errorMessage,
-        variant: 'destructive',
-      });
-      setLoading(false); // Only set loading to false on error, as success redirects
-    }
-  };
+  //   try {
+  //     await signUp.authenticateWithRedirect({
+  //       strategy: provider,
+  //       redirectUrl: '/sso-callback',
+  //       redirectUrlComplete: '/dashboard',
+  //     });
+  //     // OAuth flow will redirect the user, no further client-side action needed here for success
+  //   } catch (err: any) {
+  //     console.error(`Error signing up with ${provider}:`, JSON.stringify(err, null, 2));
+  //     const errorMessage = err.errors?.[0]?.message || t('auth.signUp.providerGenericError', { provider: provider.replace('oauth_', '') });
+  //     setError(errorMessage);
+  //     toast({
+  //       title: t('auth.signUp.providerFailedTitle', { provider: provider.replace('oauth_', '') }),
+  //       description: errorMessage,
+  //       variant: 'destructive',
+  //     });
+  //     setLoading(false); // Only set loading to false on error, as success redirects
+  //   }
+  // };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
@@ -125,7 +130,7 @@ const SignUp = () => {
             </div>
           )}
           
-          {!pendingVerification && (
+          {!pendingVerification && !registrationSuccess && (
           <form onSubmit={handleSignUpWithEmail} className="space-y-4">
             <div>
               <Label htmlFor="fullName">{t('auth.signUp.fullNameLabel')}</Label>
@@ -202,6 +207,21 @@ const SignUp = () => {
           </form>
           )}
 
+          {registrationSuccess && (
+            <div className="space-y-4 text-center">
+              <div className="text-green-600 font-medium">
+                {t('auth.signUp.registrationSuccessMessage')}
+              </div>
+              <CustomButton
+                type="button"
+                fullWidth
+                onClick={() => navigate('/dashboard')}
+              >
+                {t('auth.signUp.continueToDashboard')}
+              </CustomButton>
+            </div>
+          )}
+
           {pendingVerification && (
             <form onSubmit={onPressVerify} className="space-y-4">
               <div>
@@ -237,27 +257,27 @@ const SignUp = () => {
             </div>
             
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <Button
+              {/* <Button
                 type="button"
                 variant="outline"
                 onClick={() => handleSignUpWithProvider('google')}
                 disabled={loading || !isLoaded}
                 className="w-full"
-              >
+              > */}
                 {/* SVG for Google Icon */}
-                {t('auth.signUp.googleButton')}
-              </Button>
+                {/* {t('auth.signUp.googleButton')}
+              </Button> */}
               
-              <Button
+              {/* <Button
                 type="button"
                 variant="outline"
                 onClick={() => handleSignUpWithProvider('github')}
                 disabled={loading || !isLoaded}
                 className="w-full"
-              >
-                <Github className="w-5 h-5 mr-2" />
+              > */}
+                {/* <Github className="w-5 h-5 mr-2" />
                 {t('auth.signUp.githubButton')}
-              </Button>
+              </Button> */}
             </div>
           </div>
 
