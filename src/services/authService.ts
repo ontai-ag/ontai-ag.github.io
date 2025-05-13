@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const API_URL = 'http://94.131.84.168:8080';
 
+// Настройка глобальных параметров axios
+axios.defaults.headers.common['Referrer-Policy'] = 'strict-origin-when-cross-origin';
+axios.defaults.withCredentials = true; // Включаем передачу куки для кросс-доменных запросов
+
 interface AuthResponse {
   token: string;
   user: {
