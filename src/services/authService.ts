@@ -42,7 +42,7 @@ const authService = {
   // Регистрация пользователя
   register: async (email: string, password: string): Promise<AuthResponse> => {
     try {
-      const response = await axios.post(`${API_URL}/api/v1/users/register`, {
+      const response = await axios.post(`${API_URL}/v1/users/register`, {
         email,
         password
       });
@@ -55,7 +55,7 @@ const authService = {
   // Вход пользователя
   signInWithPassword: async (email: string, password: string): Promise<AuthResponse> => {
     try {
-      const response = await axios.post(`${API_URL}/api/v1/users/login`, {
+      const response = await axios.post(`${API_URL}/v1/users/login`, {
         email,
         password
       });
@@ -74,7 +74,7 @@ const authService = {
       if (!token) {
         throw new Error('Не авторизован');
       }
-      const response = await axios.get(`${API_URL}/api/v1/users/me`);
+      const response = await axios.get(`${API_URL}/v1/users/me`);
       return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Ошибка при получении профиля');
