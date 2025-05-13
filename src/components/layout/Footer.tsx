@@ -23,7 +23,7 @@ const Footer = () => {
       links: [
         { name: t('footer.company.about'), href: '/about' },
         // { name: t('footer.company.careers'), href: '/careers' },
-        { name: t('footer.company.blog'), href: '/' },  //blog
+        { name: t('footer.company.blog'), href: '/blog' },
         // { name: t('footer.company.press'), href: '/press' },
       ],
     },
