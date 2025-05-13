@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { CustomButton } from '@/components/ui-custom/Button';
 import { Card } from '@/components/ui-custom/Card';
 import { useToast } from '@/hooks/use-toast';
-import { Github, Mail, AlertCircle } from 'lucide-react';
+import { Github, Mail, AlertCircle, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { useAppAuth } from '@/contexts/AuthContext';
 
 const SignIn = () => {
@@ -20,8 +20,11 @@ const SignIn = () => {
   const { isAuthenticated, getDashboardPath } = useAppAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   // Redirect authenticated users to their dashboard with a delay
   // This helps prevent infinite redirect loops during sign-out/sign-in transitions
@@ -90,9 +93,23 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <img src="59e843a5-7fb2-4c2d-adac-cd2ce6413ee1.png" alt="Logo" className="mx-auto mb-4 h-16 w-auto" /> {/* Предполагаемый путь и размер */} 
+      <div className="max-w-md w-full space-y-8"> {/* Removed 'relative' */}
+        {/* Header with Back Button and Centered Logo */}
+        <div className="flex items-center w-full">
+          <Link to="/" className="text-gray-500 hover:text-primary">
+            <Button variant="outline" size="icon" className="rounded-full">
+              <ArrowLeft className="h-6 w-6" />
+            </Button>
+          </Link>
+          <div className="flex-grow flex justify-center">
+            <img src="59e843a5-7fb2-4c2d-adac-cd2ce6413ee1.png" alt="Logo" className="h-12 w-auto" /> {/* Adjusted logo height */}
+          </div>
+          {/* Spacer for visual balance to center the logo correctly */}
+          <div className="w-10" /> {/* Corresponds to size="icon" button width (2.5rem = 40px) */}
+        </div>
+
+        {/* Title and Subtitle Section */}
+        <div className="text-center"> {/* Removed pt-12 */}
           <h2 className="text-3xl font-extrabold text-foreground-900">
             {t('auth.signIn.title')}
           </h2>
@@ -139,14 +156,25 @@ const SignIn = () => {
                   {t('auth.signIn.forgotPasswordLink')}
                 </Link>
               </div>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="mt-1"
-              />
+              <div className="relative mt-1">
+                <Input
+                  id="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="pr-10"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="absolute inset-y-0 right-0 flex items-center justify-center h-full w-10 text-gray-500 hover:text-primary"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                </Button>
+              </div>
             </div>
             
             <CustomButton
@@ -161,23 +189,23 @@ const SignIn = () => {
           
           <div className="mt-6">
             <div className="relative">
-              <div className="absolute inset-0 flex items-center">
+              {/* <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
+              </div> */}
+              {/* <div className="relative flex justify-center text-sm">
                 <span className="px-2 bg-white text-gray-500">{t('auth.signIn.orContinueWith')}</span>
-              </div>
+              </div> */}
             </div>
             
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <Button
+              {/* <Button
                 type="button"
                 variant="outline"
                 onClick={() => handleSignInWithProvider('google')}
                 disabled={loading}
                 className="w-full"
-              >
-                <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+              > */}
+                {/* <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                   <path
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                     fill="#4285F4"
@@ -197,9 +225,9 @@ const SignIn = () => {
                   <path d="M1 1h22v22H1z" fill="none" />
                 </svg>
                 Google
-              </Button>
+              </Button> */}
               
-              <Button
+              {/* <Button
                 type="button"
                 variant="outline"
                 onClick={() => handleSignInWithProvider('github')}
@@ -208,19 +236,10 @@ const SignIn = () => {
               >
                 <Github className="w-5 h-5 mr-2" />
                 {t('auth.signIn.githubButton')}
-              </Button>
+              </Button> */}
             </div>
           </div>
 
-          {/* Back to Home Link */}
-          <div className="mt-6 text-center">
-            <Link
-              to="/"
-              className="text-sm text-gray-500 hover:text-primary"
-            >
-              {t('auth.backToHome')}
-            </Link>
-          </div>
         </Card>
       </div>
     </div>
