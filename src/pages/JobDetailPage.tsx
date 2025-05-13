@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import CareersLayout from '@/components/layout/CareersLayout';
+import CareersLayout from '@/layouts/CareersLayout';
 import { jobs, Job } from '@/data/careers'; // Mock data and type
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';

@@ -15,7 +15,7 @@ export const mockPosts: Post[] = [
     id: '1',
     title: 'Первый пост в блоге о AI',
     slug: 'first-ai-post',
-    date: '2024-07-20',
+    date: '2025-05-02',
     author: 'Ontai AI Team',
     excerpt: 'Это краткое описание первого поста в нашем новом блоге, посвященном искусственному интеллекту и его возможностям.',
     content: `
@@ -51,7 +51,7 @@ greet('World');
     id: '2',
     title: 'Как Shadcn/UI упрощает разработку интерфейсов',
     slug: 'shadcn-ui-benefits',
-    date: '2024-07-22',
+    date: '2025-05-10',
     author: 'Frontend Developer @ Ontai',
     excerpt: 'Обзор преимуществ использования библиотеки компонентов Shadcn/UI в связке с Tailwind CSS для создания современных и адаптивных веб-интерфейсов.',
     content: `
@@ -86,7 +86,7 @@ npx shadcn-ui@latest add button
     id: '3',
     title: 'Будущее React: Server Components и их влияние',
     slug: 'react-server-components',
-    date: '2024-07-25',
+    date: '2025-05-13',
     excerpt: 'Разбираемся, что такое React Server Components (RSC), как они работают и какое влияние окажут на разработку веб-приложений.',
     content: `
 ## React Server Components: Революция или эволюция?

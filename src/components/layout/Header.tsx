@@ -112,7 +112,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center space-x-2">
-              <img src="59e843a5-7fb2-4c2d-adac-cd2ce6413ee1.png" alt="Ontai Logo" className="h-10" />
+              <img src="/59e843a5-7fb2-4c2d-adac-cd2ce6413ee1.png" alt="Ontai Logo" className="h-10" />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">

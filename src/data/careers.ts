@@ -51,7 +51,7 @@ export const jobs: Job[] = [
       'Opportunities for professional development and growth.',
       'A collaborative and innovative work environment.',
     ],
-    datePosted: '2024-07-20T10:00:00Z',
+    datePosted: '2025-05-11T10:00:00Z',
     companyDescription: 'Ontai is a forward-thinking company dedicated to revolutionizing industries through cutting-edge AI solutions. We foster a culture of innovation, collaboration, and continuous learning, empowering our team to make a real impact.'
   },
   {
@@ -88,7 +88,7 @@ export const jobs: Job[] = [
       'Generous budget for learning and development.',
       'Dynamic and stimulating research environment.',
     ],
-    datePosted: '2024-07-22T09:00:00Z',
+    datePosted: '2025-05-20T09:00:00Z',
     companyDescription: 'Ontai is a forward-thinking company dedicated to revolutionizing industries through cutting-edge AI solutions. We foster a culture of innovation, collaboration, and continuous learning, empowering our team to make a real impact.'
   },
 ];

@@ -53,7 +53,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6">
-              <img src="79949da3-4f51-4906-b982-61fa265a04f6.png" alt="Ontai Logo" className="h-10" />
+              <img src="/79949da3-4f51-4906-b982-61fa265a04f6.png" alt="Ontai Logo" className="h-10" />
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
               {t('footer.description')}
