@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/api';
+const API_URL = 'http://94.131.84.168:8080';
 
 interface AuthResponse {
   token: string;
