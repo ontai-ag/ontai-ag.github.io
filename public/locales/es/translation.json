@@ -293,5 +293,50 @@
     "perRequest": "Por solicitud",
     "perHour": "Por hora",
     "subscription": "Suscripción"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Ontai: Optimizando el Futuro con Inteligencia Artificial",
+      "missionStatement": "Somos Ontai, una startup dinámica de IA nacida de la pasión por la optimización y la tecnología de vanguardia. Estamos construyendo soluciones inteligentes para abordar desafíos complejos y promover el progreso.",
+      "slogan": "Sueños Más Allá de la Caja"
+    },
+    "genesis": {
+      "title": "Nuestra Chispa y Nombre",
+      "storyIntro": "La idea de Ontai fue encendida por nuestro impulso compartido por la eficiencia y la innovación.",
+      "tomorrowSchool": "Como estudiantes ambiciosos de Tomorrow School (01edu), estamos estudiando IA progresivamente, colocándonos a la vanguardia de las tecnologías modernas.",
+      "startupGarage": "Nuestra participación en la cuarta cohorte de Startup Garage por Astana Hub valida nuestro potencial y la viabilidad de nuestra visión.",
+      "nameMeaningTitle": "El Significado de Ontai",
+      "nameOrigin": "Nuestro nombre, Ontai, no es casualidad. Nosotros, los fundadores, Syrym y Arsen, somos apasionados por la optimización - en todo lo que hacemos. La palabra 'Ontai' se origina del kazajo 'оңтайландыру' (optimización) y su forma corta 'Оңтай', que también significa 'la mejor opción' o 'camino óptimo'.",
+      "aiConnection": "El final 'ai' es nuestra pasión diaria y enfoque: Inteligencia Artificial. Así, Ontai encarna nuestra misión - encontrar las mejores soluciones óptimas a través del poder de la inteligencia artificial."
+    },
+    "team": {
+      "title": "Conoce a los Pioneros",
+      "telegramButton": "Conectar en Telegram",
+      "syrym": {
+        "name": "Syrym [Apellido]",
+        "role": "Cofundador y CTO / Arquitecto Principal de IA",
+        "description": "El genio técnico de Ontai. Con más de 6 años en desarrollo, Syrym está profundamente inmerso en la arquitectura de IA y LLMs. Su pasión es convertir algoritmos complejos en soluciones elegantes y óptimas que cambian el mundo. Graduado de Tomorrow School, donde perfeccionó sus habilidades a la perfección."
+      },
+      "arsen": {
+        "name": "Arsen [Apellido]",
+        "role": "Cofundador y CEO / Líder de Estrategia",
+        "description": "La fuerza impulsora y mente estratégica de Ontai. Un MBA y más de 8 años de experiencia en desarrollo de negocios ayudan a Arsen a ver oportunidades globales y construir puentes entre la tecnología y el mercado, encontrando los mejores caminos para el crecimiento. Junto con Syrym, traza el curso de Ontai hacia las cumbres de la industria de IA, estudiando en la progresiva Tomorrow School."
+      }
+    },
+    "edge": {
+      "title": "La Ventaja de Ontai (Para Inversores y Talento)",
+      "intro": "¿Por qué Ontai es una apuesta por el futuro? Combinamos liderazgo visionario, profunda experiencia técnica y una búsqueda incansable de la optimización.",
+      "point1": "Sinergia Única del Equipo: Una combinación perfecta de destreza técnica (Syrym) y perspicacia empresarial estratégica (Arsen).",
+      "point2": "Potencial del Mercado: Posicionado en el sector de IA de rápido crecimiento con soluciones innovadoras.",
+      "point3": "Tracción Comprobada: Validada por Startup Garage de Astana Hub, señalando un fuerte potencial.",
+      "pointOptimization": "Filosofía de Optimización: Nuestro nombre es nuestro ADN. Nos esforzamos por la máxima eficiencia y la creación de las mejores soluciones de IA, asegurando altos rendimientos de inversión y satisfacción del cliente.",
+      "conclusion": "Invertir en Ontai o unirse a nuestro equipo significa convertirse en parte de la próxima gran cosa en IA."
+    },
+    "join": {
+      "title": "Únete a Nuestro Viaje",
+      "description": "Ya sea que seas un inversor buscando el próximo unicornio, o un individuo talentoso ansioso por dar forma al futuro de la IA, Ontai es donde tus ambiciones puedan prosperar.",
+      "careersButton": "Explorar Carreras",
+      "contactButton": "Ponerse en Contacto"
+    }
   }
 }

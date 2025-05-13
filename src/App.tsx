@@ -29,6 +29,7 @@ const BlogIndexPage = lazy(() => import("./pages/Blog/BlogIndexPage"));
 const BlogPostPage = lazy(() => import("./pages/Blog/BlogPostPage"));
 const CareersIndexPage = lazy(() => import("./pages/CareersIndexPage"));
 const JobDetailPage = lazy(() => import("./pages/JobDetailPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage")); // Add this line
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
@@ -117,6 +118,7 @@ function App() {
                   <Route path="/blog/:slug" element={<BlogPostPage />} />
                   <Route path="/careers" element={<CareersIndexPage />} />
                   <Route path="/careers/:slug" element={<JobDetailPage />} />
+                  <Route path="/about" element={<AboutPage />} /> {/* Add this line */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

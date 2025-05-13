@@ -296,5 +296,50 @@
     "perRequest": "按请求",
     "perHour": "按小时",
     "subscription": "订阅"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Ontai: 优化未来的人工智能",
+      "missionStatement": "我们是 Ontai，一个充满活力的 AI 初创公司，源于对优化和尖端技术的热情。我们正在构建智能解决方案，以解决复杂的挑战并推动进步。",
+      "slogan": "超越框架的梦想"
+    },
+    "genesis": {
+      "title": "我们的火花与名字",
+      "storyIntro": "Ontai 的想法是由我们共同的效率和创新驱动点燃的。",
+      "tomorrowSchool": "作为 Tomorrow School (01edu) 的雄心勃勃的学生，我们正在逐步学习 AI，使我们处于现代技术的前沿。",
+      "startupGarage": "我们参与了 Astana Hub 的第四届 Startup Garage，验证了我们的潜力和愿景的可行性。",
+      "nameMeaningTitle": "Ontai 的意义",
+      "nameOrigin": "我们的名字，Ontai，不是偶然的。我们，创始人 Syrym 和 Arsen，对优化充满热情——在我们所做的一切中。单词 'Ontai' 源自哈萨克语 'оңтайландыру'（优化）及其简短形式 'Оңтай'，也意味着 '最佳选择' 或 '最佳路径'。",
+      "aiConnection": "'ai' 的结尾是我们每天的激情和关注点：人工智能。因此，Ontai 体现了我们的使命——通过人工智能的力量找到最佳、最优的解决方案。"
+    },
+    "team": {
+      "title": "认识开拓者",
+      "telegramButton": "在 Telegram 上联系",
+      "syrym": {
+        "name": "Syrym [姓氏]",
+        "role": "联合创始人兼首席技术官 / 领先的 AI 架构师",
+        "description": "Ontai 的技术天才。拥有超过 6 年的开发经验，Syrym 深入研究 AI 架构和 LLMs。他的激情是将复杂的算法转化为优雅、最佳的解决方案，改变世界。Tomorrow School 的毕业生，在那里他将自己的技能磨练到完美。"
+      },
+      "arsen": {
+        "name": "Arsen [姓氏]",
+        "role": "联合创始人兼首席执行官 / 战略领导者",
+        "description": "Ontai 的推动力和战略头脑。MBA 和超过 8 年的业务发展经验帮助 Arsen 看到全球机会，并在技术和市场之间架起桥梁，找到最佳的增长路径。与 Syrym 一起，他绘制了 Ontai 的路线，走向 AI 行业的巅峰，在进步的 Tomorrow School 学习。"
+      }
+    },
+    "edge": {
+      "title": "Ontai 的优势（针对投资者和人才）",
+      "intro": "为什么 Ontai 是对未来的赌注？我们结合了远见卓识的领导力、深厚的技术专长和不懈的优化追求。",
+      "point1": "独特的团队协同：技术实力（Syrym）和战略商业敏锐度（Arsen）的完美结合。",
+      "point2": "市场潜力：定位于快速增长的 AI 领域，提供创新解决方案。",
+      "point3": "验证的牵引力：由 Astana Hub 的 Startup Garage 验证，表明强大的潜力。",
+      "pointOptimization": "优化哲学：我们的名字是我们的 DNA。我们追求最大效率并创造最佳的 AI 解决方案，确保高投资回报和客户满意度。",
+      "conclusion": "投资 Ontai 或加入我们的团队意味着成为 AI 领域的下一个大事件的一部分。"
+    },
+    "join": {
+      "title": "加入我们的旅程",
+      "description": "无论您是寻找下一个独角兽的投资者，还是渴望塑造 AI 未来的有才华的个人，Ontai 是您雄心壮志可以蓬勃发展的地方。",
+      "careersButton": "探索职业",
+      "contactButton": "联系我们"
+    }
   }
 }

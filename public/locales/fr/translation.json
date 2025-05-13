@@ -293,5 +293,50 @@
     "perRequest": "Par requête",
     "perHour": "Par heure",
     "subscription": "Abonnement"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Ontai : Optimiser l'avenir avec l'intelligence artificielle",
+      "missionStatement": "Nous sommes Ontai, une startup dynamique en IA née d'une passion pour l'optimisation et la technologie de pointe. Nous construisons des solutions intelligentes pour relever des défis complexes et faire progresser le progrès.",
+      "slogan": "Rêves au-delà de la boîte"
+    },
+    "genesis": {
+      "title": "Notre Étincelle et Nom",
+      "storyIntro": "L'idée d'Ontai a été allumée par notre volonté commune d'efficacité et d'innovation.",
+      "tomorrowSchool": "En tant qu'étudiants ambitieux de Tomorrow School (01edu), nous étudions progressivement l'IA, nous plaçant à l'avant-garde des technologies modernes.",
+      "startupGarage": "Notre participation à la 4ème cohorte de Startup Garage par Astana Hub valide notre potentiel et la viabilité de notre vision.",
+      "nameMeaningTitle": "La Signification d'Ontai",
+      "nameOrigin": "Notre nom, Ontai, n'est pas un hasard. Nous, les fondateurs, Syrym et Arsen, sommes passionnés par l'optimisation - dans tout ce que nous faisons. Le mot 'Ontai' provient du kazakh 'оңтайландыру' (optimisation) et de sa forme courte 'Оңтай', qui signifie également 'la meilleure option' ou 'chemin optimal'.",
+      "aiConnection": "La terminaison 'ai' est notre passion quotidienne et notre focus : l'intelligence artificielle. Ainsi, Ontai incarne notre mission - trouver les meilleures solutions optimales grâce à la puissance de l'intelligence artificielle."
+    },
+    "team": {
+      "title": "Rencontrez les Pionniers",
+      "telegramButton": "Connectez-vous sur Telegram",
+      "syrym": {
+        "name": "Syrym [Nom de famille]",
+        "role": "Cofondateur et CTO / Architecte principal en IA",
+        "description": "Le génie technique d'Ontai. Avec plus de 6 ans de développement, Syrym est profondément immergé dans l'architecture IA et les LLMs. Sa passion est de transformer des algorithmes complexes en solutions élégantes et optimales qui changent le monde. Diplômé de Tomorrow School, où il a perfectionné ses compétences à la perfection."
+      },
+      "arsen": {
+        "name": "Arsen [Nom de famille]",
+        "role": "Cofondateur et PDG / Responsable de la stratégie",
+        "description": "La force motrice et l'esprit stratégique d'Ontai. Un MBA et plus de 8 ans d'expérience en développement commercial aident Arsen à voir les opportunités mondiales et à construire des ponts entre la technologie et le marché, trouvant les meilleurs chemins pour la croissance. Avec Syrym, il trace le parcours d'Ontai vers les sommets de l'industrie de l'IA, étudiant à l'école progressive Tomorrow School."
+      }
+    },
+    "edge": {
+      "title": "L'Avantage d'Ontai (Pour les Investisseurs et les Talents)",
+      "intro": "Pourquoi Ontai est-il un pari sur l'avenir ? Nous combinons un leadership visionnaire, une expertise technique approfondie et une quête incessante de l'optimisation.",
+      "point1": "Synergie Unique de l'Équipe : Un mélange parfait de prouesses techniques (Syrym) et de perspicacité commerciale stratégique (Arsen).",
+      "point2": "Potentiel du Marché : Positionné dans le secteur de l'IA en pleine croissance avec des solutions innovantes.",
+      "point3": "Traction Prouvée : Validée par Startup Garage d'Astana Hub, signalant un fort potentiel.",
+      "pointOptimization": "Philosophie de l'Optimisation : Notre nom est notre ADN. Nous nous efforçons d'atteindre une efficacité maximale et de créer les meilleures solutions IA, assurant des rendements élevés sur investissement et la satisfaction des clients.",
+      "conclusion": "Investir dans Ontai ou rejoindre notre équipe signifie devenir partie intégrante de la prochaine grande chose en IA."
+    },
+    "join": {
+      "title": "Rejoignez Notre Voyage",
+      "description": "Que vous soyez un investisseur à la recherche de la prochaine licorne, ou un individu talentueux désireux de façonner l'avenir de l'IA, Ontai est l'endroit où vos ambitions peuvent prospérer.",
+      "careersButton": "Explorer les Carrières",
+      "contactButton": "Contactez-nous"
+    }
   }
 }

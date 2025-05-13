@@ -296,5 +296,50 @@
     "perRequest": "Per Request",
     "perHour": "Per Hour",
     "subscription": "Subscription"
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "Ontai: Optimizing the Future with Artificial Intelligence",
+      "missionStatement": "We are Ontai, a dynamic AI startup born from a passion for optimization and cutting-edge technology. We're building intelligent solutions to tackle complex challenges and drive progress.",
+      "slogan": "Dreams Beyond the Box"
+    },
+    "genesis": {
+      "title": "Our Spark & Name",
+      "storyIntro": "The idea for Ontai was ignited by our shared drive for efficiency and innovation.",
+      "tomorrowSchool": "As ambitious students at Tomorrow School (01edu), we are progressively studying AI, placing us at the forefront of modern technologies.",
+      "startupGarage": "Our participation in the 4th cohort of Startup Garage by Astana Hub validates our potential and the viability of our vision.",
+      "nameMeaningTitle": "The Meaning of Ontai",
+      "nameOrigin": "Our name, Ontai, is no accident. We, the founders, Syrym and Arsen, are passionate about optimization – in everything we do. The word 'Ontai' originates from the Kazakh 'оңтайландыру' (optimization) and its short form 'Оңтай', which also means 'the best option' or 'optimal path'.",
+      "aiConnection": "The 'ai' ending is our daily passion and focus: Artificial Intelligence. Thus, Ontai embodies our mission – to find the best, optimal solutions through the power of artificial intelligence."
+    },
+    "team": {
+      "title": "Meet The Trailblazers",
+      "telegramButton": "Connect on Telegram",
+      "syrym": {
+        "name": "Syrym [Last Name]",
+        "role": "Co-founder & CTO / Lead AI Architect",
+        "description": "Ontai's technical genius. With over 6 years in development, Syrym is deeply immersed in AI architecture and LLMs. His passion is turning complex algorithms into elegant, optimal solutions that change the world. A graduate of Tomorrow School, where he honed his skills to perfection."
+      },
+      "arsen": {
+        "name": "Arsen [Last Name]",
+        "role": "Co-founder & CEO / Strategy Lead",
+        "description": "The driving force and strategic mind of Ontai. An MBA and 8+ years of business development experience help Arsen see global opportunities and build bridges between technology and the market, finding the best paths for growth. Together with Syrym, he charts Ontai's course to the pinnacles of the AI industry, studying at the progressive Tomorrow School."
+      }
+    },
+    "edge": {
+      "title": "The Ontai Edge (For Investors & Talent)",
+      "intro": "Why is Ontai a bet on the future? We combine visionary leadership, deep technical expertise, and a relentless pursuit of optimization.",
+      "point1": "Unique Team Synergy: A perfect blend of technical prowess (Syrym) and strategic business acumen (Arsen).",
+      "point2": "Market Potential: Positioned in the rapidly growing AI sector with innovative solutions.",
+      "point3": "Proven Traction: Validated by Astana Hub's Startup Garage, signaling strong potential.",
+      "pointOptimization": "Philosophy of Optimization: Our name is our DNA. We strive for maximum efficiency and the creation of the best AI solutions, ensuring high returns on investment and client satisfaction.",
+      "conclusion": "Investing in Ontai or joining our team means becoming part of the next big thing in AI."
+    },
+    "join": {
+      "title": "Join Our Journey",
+      "description": "Whether you're an investor looking for the next unicorn, or a talented individual eager to shape the future of AI, Ontai is where your ambitions can thrive.",
+      "careersButton": "Explore Careers",
+      "contactButton": "Get in Touch"
+    }
   }
 }
