@@ -27,6 +27,8 @@ const ForProviders = lazy(() => import("./pages/ForProviders")); // Lazy load Fo
 const Pricing = lazy(() => import("./pages/Pricing")); // Add this line
 const BlogIndexPage = lazy(() => import("./pages/Blog/BlogIndexPage"));
 const BlogPostPage = lazy(() => import("./pages/Blog/BlogPostPage"));
+const CareersIndexPage = lazy(() => import("./pages/CareersIndexPage"));
+const JobDetailPage = lazy(() => import("./pages/JobDetailPage"));
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
@@ -113,6 +115,8 @@ function App() {
                   <Route path="/pricing" element={<Pricing />} /> {/* Add this line */}
                   <Route path="/blog" element={<BlogIndexPage />} />
                   <Route path="/blog/:slug" element={<BlogPostPage />} />
+                  <Route path="/careers" element={<CareersIndexPage />} />
+                  <Route path="/careers/:slug" element={<JobDetailPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
