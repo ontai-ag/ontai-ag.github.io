@@ -55,10 +55,10 @@ const authService = {
   // Вход пользователя
   signInWithPassword: async (email: string, password: string): Promise<AuthResponse> => {
     try {
-      const response = await axios.post(`${API_URL}/v1/users/login`, {
-        email,
-        password
-      });
+      const response = await axios.post<AuthResponse>(
+        `${API_URL}/v1/users/login`,
+        { email, password }
+      );
       const { token, user } = response.data;
       authService.setToken(token);
       return response.data;

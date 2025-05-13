@@ -2,6 +2,9 @@
   "greeting": "Hello!",
   "welcome": "Welcome to our application.",
   "change_language": "Change Language",
+  "agentCard": {
+    "startButton": "Start"
+  },
   "auth": {
     "signIn": {
       "successTitle": "Login successful!",
