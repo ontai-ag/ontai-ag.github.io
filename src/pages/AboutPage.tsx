@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'; // Assuming Button component is
 import { Link } from 'react-router-dom'; // For internal links
 
 // Placeholder images - replace with actual paths or URLs
-const syrymImage = '/images/syrym-placeholder.jpg'; // Replace with actual image path
-const arsenImage = '/images/arsen-placeholder.jpg'; // Replace with actual image path
+const syrymImage = '/public/photo_2025-05-14_21-59-08.jpg'; // Replace with actual image path
+const arsenImage = '/public/photo_2025-05-14_21-59-17.jpg'; // Replace with actual image path
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -68,14 +68,14 @@ const AboutPage = () => {
               nameKey="aboutPage.team.syrym.name"
               roleKey="aboutPage.team.syrym.role"
               descriptionKey="aboutPage.team.syrym.description"
-              telegramLink="https://t.me/syrymjoli" // Replace with actual link
+              telegramLink="https://t.me/Syrym"
             />
             <TeamMemberCard 
               imageSrc={arsenImage} 
               nameKey="aboutPage.team.arsen.name"
               roleKey="aboutPage.team.arsen.role"
               descriptionKey="aboutPage.team.arsen.description"
-              telegramLink="https://t.me/arsen_example" // Replace with actual link
+              telegramLink="https://t.me/arsglm"
             />
           </div>
         </section>
@@ -111,9 +111,9 @@ const AboutPage = () => {
             <Button size="lg" asChild>
               <Link to="/careers">{t('aboutPage.join.careersButton')}</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            {/* <Button size="lg" variant="outline" asChild>
               <Link to="/contact">{t('aboutPage.join.contactButton')}</Link> 
-            </Button>
+            </Button> */}
           </div>
         </section>
       </div>
