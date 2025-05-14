@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'; // Assuming Button component is
 import { Link } from 'react-router-dom'; // For internal links
 
 // Placeholder images - replace with actual paths or URLs
-const syrymImage = '/public/photo_2025-05-14_21-59-08.jpg'; // Replace with actual image path
-const arsenImage = '/public/photo_2025-05-14_21-59-17.jpg'; // Replace with actual image path
+const syrymImage = '/photo_2025-05-14_21-59-08.jpg'; // Replace with actual image path
+const arsenImage = '/photo_2025-05-14_21-59-17.jpg'; // Replace with actual image path
 
 const AboutPage = () => {
   const { t } = useTranslation();
