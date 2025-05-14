@@ -297,6 +297,28 @@
     "perHour": "Per Hour",
     "subscription": "Subscription"
   },
+  "careers": {
+    "index": {
+      "title": "Careers at Ontai",
+      "intro": "Join our innovative team and help shape the future of AI. We are looking for talented individuals ready to tackle complex challenges and grow with us.",
+      "noOpenings": "There are currently no open positions. Check back later!",
+      "whyOntai": {
+        "title": "Why Ontai?",
+        "item1": {
+          "title": "Innovative Projects",
+          "description": "Work on cutting-edge AI solutions that are changing industries."
+        },
+        "item2": {
+          "title": "Expert Team",
+          "description": "Collaborate with leading specialists in artificial intelligence and development."
+        },
+        "item3": {
+          "title": "Growth Opportunities",
+          "description": "We invest in our employees' development, offering training and career advancement."
+        }
+      }
+    }
+  },
   "aboutPage": {
     "hero": {
       "title": "Ontai: Optimizing the Future with Artificial Intelligence",

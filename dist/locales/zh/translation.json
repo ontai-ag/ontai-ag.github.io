@@ -297,6 +297,28 @@
     "perHour": "按小时",
     "subscription": "订阅"
   },
+  "careers": {
+    "index": {
+      "title": "加入Ontai开启职业生涯",
+      "intro": "加入我们的创新团队，帮助塑造人工智能的未来。我们正在寻找有才华的人士，准备好应对复杂的挑战并与我们共同成长。",
+      "noOpenings": "目前没有空缺职位。请稍后再来查看！",
+      "whyOntai": {
+        "title": "为什么选择 Ontai？",
+        "item1": {
+          "title": "创新项目",
+          "description": "参与正在改变行业的前沿人工智能解决方案。"
+        },
+        "item2": {
+          "title": "专家团队",
+          "description": "与人工智能和开发领域的顶尖专家合作。"
+        },
+        "item3": {
+          "title": "成长机会",
+          "description": "我们投资于员工的发展，提供培训和职业发展机会。"
+        }
+      }
+    }
+  },
   "aboutPage": {
     "hero": {
       "title": "Ontai: 优化未来的人工智能",
