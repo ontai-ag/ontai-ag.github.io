@@ -1,7 +1,7 @@
 # ontai-frontend
 
 <!-- Место для значков (shields.io) -->
-[![Статус сборки](https://img.shields.io/gitlab/pipeline-status/YOUR_GITLAB_USER/YOUR_GITLAB_REPO?branch=main)](https://gitlab.com/YOUR_GITLAB_USER/YOUR_GITLAB_REPO/-/pipelines)
+[![Статус сборки GitHub Actions](https://img.shields.io/github/actions/workflow/status/ontai-ag/ontai-ag.github.io/YOUR_WORKFLOW_FILE.yml?branch=main)](https://github.com/ontai-ag/ontai-ag.github.io/actions) <!-- Замените YOUR_WORKFLOW_FILE.yml на имя вашего файла воркфлоу GitHub Actions, если используется -->
 [![Версия NPM](https://img.shields.io/npm/v/your-package-name.svg)](https://www.npmjs.com/package/your-package-name) <!-- Если это NPM пакет -->
 [![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md) <!-- Пример, если лицензия MIT -->
 
@@ -45,11 +45,11 @@
 ## Технологический стек
 
 - **Язык:** TypeScript
-- **Фреймворк/Библиотека UI:** [React, Vue, Angular, Svelte - Укажите используемый]
-- **Сборщик мусора:** [Webpack, Vite, Parcel - Укажите используемый]
-- **Управление состоянием:** [Redux, Zustand, Pinia, Context API - Укажите используемый]
-- **Роутинг:** [React Router, Vue Router - Укажите используемый]
-- **Стилизация:** [CSS Modules, Styled Components, Tailwind CSS - Укажите используемый]
+- **Фреймворк/Библиотека UI:** React
+- **Сборщик мусора:** Vite
+- **Управление состоянием:** TanStack Query (для серверного состояния), Context API (или укажите другую библиотеку, если используется для клиентского состояния)
+- **Роутинг:** React Router DOM
+- **Стилизация:** Tailwind CSS, clsx, class-variance-authority
 - **Менеджер пакетов:** npm (или yarn)
 - **Node.js:** (Версия указана в `.gitlab-ci.yml` как `node:20`)
 
@@ -85,7 +85,7 @@
     ```bash
     npm start
     ```
-    После запуска сервер будет доступен по адресу [http://localhost:PORT](http://localhost:PORT) (укажите порт, если известен, обычно 3000, 5173 или 8080).
+    После запуска сервер будет доступен по адресу [http://localhost:8080](http://localhost:8080).
 
 2.  **Сборка проекта для продакшена:**
     ```bash
@@ -281,9 +281,9 @@
 
 [По аналогии с задачами, опишите эндпоинты для `TaskRevision` (`GET /tasks/{taskId}/revisions`, `POST /tasks/{taskId}/revisions`, `GET /revisions/{revisionId}` и т.д.), если они являются частью API.]
 
-Интерфейс `TaskRevision` из `src/services/taskService.ts`:
+Интерфейс `TaskRevision` (пример из `src/services/taskService.ts` - может потребовать актуализации в соответствии с реальной структурой API):
 ```typescript
-export interface TaskRevision {
+export interface TaskRevision { // Placeholder definition from taskService.ts
   id: string;
   task_id: string;
   user_id: string;
@@ -292,6 +292,8 @@ export interface TaskRevision {
   status: 'requested' | 'in_progress' | 'completed' | 'rejected';
 }
 ```
+
+**Примечание:** Локально при разработке запросы к API могут проксироваться через `http://94.131.84.168:8080` (согласно `vite.config.ts`).
 
 --- 
 
@@ -309,25 +311,27 @@ export interface TaskRevision {
 Проект может использовать переменные окружения для конфигурации. Создайте файл `.env` в корне проекта по примеру `.env.example` (если такой есть).
 
 **Основные переменные окружения:**
-- `REACT_APP_API_BASE_URL` или `VITE_API_BASE_URL`: Базовый URL для API бэкенда.
+- `VITE_API_BASE_URL`: Базовый URL для API бэкенда (например, `https://api.ontai.kz/v1` для продакшена или URL для разработки).
 - [Другие переменные, если есть]
 
 ## Тестирование
 
-Для запуска тестов выполните команду:
+Для запуска линтера выполните команду:
 ```bash
-npm test
+npm run lint
 ```
-[Укажите, какие типы тестов используются (unit, integration, e2e) и какие инструменты (Jest, Vitest, Cypress, Playwright).]
+Проект использует ESLint для статического анализа кода.
+[Укажите информацию о фреймворках для тестирования (например, Jest, Vitest, Cypress, Playwright), если они используются, и команду для запуска тестов, например `npm test`.]
 
 ## Развертывание
 
-Проект настроен для развертывания с использованием GitLab CI/CD на GitLab Pages.
-Конфигурация находится в файле `.gitlab-ci.yml`.
-
-- Сборка происходит при каждом коммите в ветку `main`.
-- Собранные артефакты из папки `dist` копируются в `public` и развертываются.
-- Проект доступен по адресу, указанному в `CNAME`: `ontai.kz`.
+Проект настроен для развертывания на GitHub Pages.
+Для развертывания используется команда:
+```bash
+npm run deploy
+```
+Эта команда выполняет сборку проекта (`vite build`) и публикацию содержимого папки `dist` с помощью `gh-pages`.
+Проект доступен по адресу, указанному в файле `CNAME` (`ontai.kz`), который является пользовательским доменом для GitHub Pages.
 
 ## Как внести вклад
 
@@ -342,7 +346,7 @@ npm test
 
 ## Авторы
 
-- [Ваше Имя/Название Компании] - ([Ссылка на ваш профиль/сайт])
+- Ontai AG - ([https://ontai.kz](https://ontai.kz))
 - [Другие участники, если есть]
 
 ## Лицензия
