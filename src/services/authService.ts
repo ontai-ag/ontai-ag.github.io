@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.MODE === 'development'
   ? '/api' // Для локальной разработки используется Vite proxy
-  : 'http://94.131.84.168:8080'; // Для продакшена прямой вызов на бэкенд
+  : 'http://94.131.84.168:8080/api'; // Для продакшена прямой вызов на бэкенд
 
 // Настройка глобальных параметров axios
 axios.defaults.headers.common['Referrer-Policy'] = 'strict-origin-when-cross-origin';
