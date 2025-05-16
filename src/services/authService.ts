@@ -1,8 +1,6 @@
+import '@/lib/axiosConfig';
 import axios from 'axios';
 
-const API_URL = import.meta.env.MODE === 'development'
-  ? '/api' // Для локальной разработки используется Vite proxy
-  : 'http://94.131.84.168:8080/api'; // Для продакшена прямой вызов на бэкенд
 
 // Настройка глобальных параметров axios
 axios.defaults.headers.common['Referrer-Policy'] = 'strict-origin-when-cross-origin';
@@ -44,7 +42,7 @@ const authService = {
   // Регистрация пользователя
   register: async (email: string, password: string): Promise<AuthResponse> => {
     try {
-      const response = await axios.post(`${API_URL}/v1/users/register`, {
+      const response = await axios.post('/v1/users/register', {
         email,
         password
       });
@@ -58,7 +56,7 @@ const authService = {
   signInWithPassword: async (email: string, password: string): Promise<AuthResponse> => {
     try {
       const response = await axios.post<AuthResponse>(
-        `${API_URL}/v1/users/login`,
+        '/v1/users/login',
         { email, password }
       );
       const { token, user } = response.data;
@@ -76,7 +74,7 @@ const authService = {
       if (!token) {
         throw new Error('Не авторизован');
       }
-      const response = await axios.get(`${API_URL}/v1/users/me`);
+      const response = await axios.get('/v1/users/me');
       return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Ошибка при получении профиля');
