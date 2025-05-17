@@ -25,9 +25,41 @@
       "signInWithEmailButton": "使用电子邮件登录",
       "orContinueWith": "或继续使用",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "加入"
+    },
+    "invite": {
+      "codeModalTitle": "仅限邀请访问 - 您是受邀用户吗?",
+"codeModalDescription": "已提交200多份申请 - 每份都经过人工审核。您有邀请码吗?",
+"codeModalDescription2": "🕒 每48小时审批一次",
+      "codeLabel": "邀请码",
+      "codePlaceholder": "输入您的代码",
+      "checkCodeButton": "检查代码",
+      "noCodePrompt": "没有邀请码？",
+      "requestInviteLink": "🚀 成为早期用户",
+      "codeValidTitle": "邀请码有效",
+      "codeValidDescription": "您的邀请码有效。您现在可以继续创建您的帐户了。",
+      "codeInvalidTitle": "邀请码无效",
+      "codeInvalidError": "您输入的邀请码无效或已过期。请检查代码或请求新的邀请。",
+      "requestModalTitle": "请求邀请",
+      "requestModalDescription": "填写下面的表格以请求加入邀请。我们将审核您的请求并与您联系。",
+      "requestNameLabel": "您的姓名",
+      "requestNamePlaceholder": "输入您的全名",
+      "requestEmailLabel": "您的电子邮件",
+      "requestEmailPlaceholder": "you@example.com",
+      "requestReasonLabel": "请求原因（可选）",
+      "requestReasonPlaceholder": "告诉我们您为什么想加入",
+      "sendRequestButton": "发送请求",
+      "requestSuccessTitle": "🎉 已完成！您已在等候名单",
+      "requestSuccessMessage": "当有空位时我们会联系您。附：请关注我们的通讯——访问权限将按顺序授予。",
+      "requestFailedTitle": "邀请请求失败",
+      "requestGenericError": "发送您的邀请请求时发生错误。请稍后再试。",
+      "requestFormErrorRequiredFields": "请填写您的姓名和电子邮件地址。",
+      "requestFormErrorInvalidEmail": "请输入有效的电子邮件地址。"
     },
     "signUp": {
+      "waitlistNotice1": "⏳ 并非所有人都能获得访问权限。",
+      "waitlistNotice2": "200+早期申请 - 正在进行人工筛选。",
       "successTitle": "注册成功！",
       "successDescription": "欢迎来到 Ontai。请检查您的电子邮件以验证您的帐户。",
       "genericError": "注册时发生错误",
@@ -49,7 +81,37 @@
       "createAccountButton": "创建帐户",
       "orContinueWith": "或继续使用",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "加入"
+    },
+    "invite": {
+      "codeModalTitle": "仅限邀请访问 - 您是受邀用户吗?",
+"codeModalDescription": "已提交200多份申请 - 每份都经过人工审核。您有邀请码吗?",
+"codeModalDescription2": "🕒 每48小时审批一次",
+      "codeLabel": "邀请码",
+      "codePlaceholder": "输入您的代码",
+      "checkCodeButton": "检查代码",
+      "noCodePrompt": "没有邀请码？",
+      "requestInviteLink": "🚀 成为早期用户",
+      "codeValidTitle": "邀请码有效",
+      "codeValidDescription": "您的邀请码有效。您现在可以继续创建您的帐户了。",
+      "codeInvalidTitle": "邀请码无效",
+      "codeInvalidError": "您输入的邀请码无效或已过期。请检查代码或请求新的邀请。",
+      "requestModalTitle": "请求邀请",
+      "requestModalDescription": "填写下面的表格以请求加入邀请。我们将审核您的请求并与您联系。",
+      "requestNameLabel": "您的姓名",
+      "requestNamePlaceholder": "输入您的全名",
+      "requestEmailLabel": "您的电子邮件",
+      "requestEmailPlaceholder": "you@example.com",
+      "requestReasonLabel": "请求原因（可选）",
+      "requestReasonPlaceholder": "告诉我们您为什么想加入",
+      "sendRequestButton": "发送请求",
+      "requestSuccessTitle": "🎉 已完成！您已在等候名单",
+      "requestSuccessMessage": "当有空位时我们会联系您。附：请关注我们的通讯——访问权限将按顺序授予。",
+      "requestFailedTitle": "邀请请求失败",
+      "requestGenericError": "发送您的邀请请求时发生错误。请稍后再试。",
+      "requestFormErrorRequiredFields": "请填写您的姓名和电子邮件地址。",
+      "requestFormErrorInvalidEmail": "请输入有效的电子邮件地址。"
     },
     "backToHome": "返回主页"
   },
@@ -363,5 +425,8 @@
       "careersButton": "探索职业",
       "contactButton": "联系我们"
     }
+  },
+  "common": {
+    "close": "关闭"
   }
 }

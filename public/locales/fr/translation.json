@@ -37,6 +37,8 @@
       "codeValidDescription": "Votre code d'invitation est valide. Vous pouvez maintenant procéder à la création de votre compte.",
       "codeInvalidTitle": "Code d'invitation invalide",
       "codeInvalidError": "Le code d'invitation que vous avez entré est invalide ou a expiré. Veuillez vérifier le code ou demander une nouvelle invitation.",
+      "requestSuccessTitle": "🎉 Fait! Vous êtes sur la liste d'attente",
+      "requestSuccessMessage": "Nous vous contacterons lorsqu'une place se libérera. P.S. Surveillez notre newsletter - l'accès est accordé par ordre d'arrivée.",
       "requestModalTitle": "Demander une invitation",
       "requestModalDescription": "Remplissez le formulaire ci-dessous pour demander une invitation à nous rejoindre. Nous examinerons votre demande et vous répondrons.",
       "requestNameLabel": "Votre nom",
@@ -54,6 +56,8 @@
       "requestFormErrorInvalidEmail": "Veuillez entrer une adresse e-mail valide."
     },
     "signUp": {
+    "waitlistNotice1": "⏳ L'accès n'est pas accordé à tous.",
+    "waitlistNotice2": "200+ demandes précoces - sélection manuelle en cours.",
       "successTitle": "Inscription réussie !",
       "successDescription": "Bienvenue sur Ontai. Veuillez vérifier votre e-mail pour valider votre compte.",
       "genericError": "Une erreur s'est produite lors de l'inscription",
@@ -90,6 +94,8 @@
       "codeValidDescription": "Votre code d'invitation est valide. Vous pouvez maintenant procéder à la création de votre compte.",
       "codeInvalidTitle": "Code d'invitation invalide",
       "codeInvalidError": "Le code d'invitation que vous avez entré est invalide ou a expiré. Veuillez vérifier le code ou demander une nouvelle invitation.",
+      "requestSuccessTitle": "Fait! Vous êtes sur la liste d'attente",
+      "requestSuccessMessage": "Nous vous contacterons lorsqu'une place se libérera. P.S. Surveillez notre newsletter - l'accès est accordé par ordre d'arrivée.",
       "requestModalTitle": "Demander une invitation",
       "requestModalDescription": "Remplissez le formulaire ci-dessous pour demander une invitation à nous rejoindre. Nous examinerons votre demande et vous répondrons.",
       "requestNameLabel": "Votre nom",

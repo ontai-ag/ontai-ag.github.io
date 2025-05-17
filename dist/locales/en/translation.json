@@ -25,7 +25,36 @@
       "signInWithEmailButton": "Sign in with Email",
       "orContinueWith": "Or continue with",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "Join"
+    },
+    "invite": {
+      "codeModalTitle": "Enter Invite Code",
+      "codeModalDescription": "To create an account, please enter your invite code. If you don't have one, you can request an invite.",
+      "codeLabel": "Invite Code",
+      "codePlaceholder": "Enter your code",
+      "checkCodeButton": "Check Code",
+      "noCodePrompt": "Don't have an invite code?",
+      "requestInviteLink": "🚀 Become Early Adopter",
+      "codeValidTitle": "Invite Code Valid",
+      "codeValidDescription": "Your invite code is valid. You can now proceed to create your account.",
+      "codeInvalidTitle": "Invalid Invite Code",
+      "codeInvalidError": "The invite code you entered is invalid or has expired. Please check the code or request a new invite.",
+      "requestSuccessTitle": "All set! You're on the waitlist",
+      "requestSuccessMessage": "We'll contact you when a spot opens up. P.S. Watch our newsletter - access is granted in order.",
+      "requestModalTitle": "Request an Invite",
+      "requestModalDescription": "Fill out the form below to request an invitation to join. We'll review your request and get back to you.",
+      "requestNameLabel": "Your Name",
+      "requestNamePlaceholder": "Enter your full name",
+      "requestEmailLabel": "Your Email",
+      "requestEmailPlaceholder": "you@example.com",
+      "requestReasonLabel": "Reason for Request (Optional)",
+      "requestReasonPlaceholder": "Tell us why you'd like to join",
+      "sendRequestButton": "Send Request",
+      "requestFailedTitle": "Invite Request Failed",
+      "requestGenericError": "An error occurred while sending your invite request. Please try again later.",
+      "requestFormErrorRequiredFields": "Please fill in your name and email address.",
+      "requestFormErrorInvalidEmail": "Please enter a valid email address."
     },
     "signUp": {
       "successTitle": "Registration successful!",
@@ -49,7 +78,10 @@
       "createAccountButton": "Create Account",
       "orContinueWith": "Or continue with",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "Join",
+      "waitlistNotice1": "⏳ Access is not granted to everyone.",
+      "waitlistNotice2": "200+ early applications — manual selection is underway."
     },
     "backToHome": "Back to Home"
   },
@@ -363,5 +395,8 @@
       "careersButton": "Explore Careers",
       "contactButton": "Get in Touch"
     }
+  },
+  "common": {
+    "close": "Close"
   }
 }

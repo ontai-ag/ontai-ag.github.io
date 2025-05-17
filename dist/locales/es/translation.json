@@ -22,9 +22,41 @@
       "signInWithEmailButton": "Iniciar sesión con correo electrónico",
       "orContinueWith": "O continuar con",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "Unirse"
+    },
+    "invite": {
+      "codeModalTitle": "Acceso solo por invitación - ¿estás entre los elegidos?",
+      "codeModalDescription": "Actualmente hay más de 200 solicitudes - cada una se revisa manualmente. ¿Tienes un código?",
+      "codeModalDescription2": "🕒 Nuevas aprobaciones cada 48 horas",
+      "codeLabel": "Código de invitación",
+      "codePlaceholder": "Ingresa tu código",
+      "checkCodeButton": "Verificar código",
+      "noCodePrompt": "¿No tienes un código de invitación?",
+      "requestInviteLink": "🚀 Convertirse en early adopter",
+      "codeValidTitle": "Código de invitación válido",
+      "codeValidDescription": "Tu código de invitación es válido. Ahora puedes proceder a crear tu cuenta.",
+      "codeInvalidTitle": "Código de invitación inválido",
+      "codeInvalidError": "El código de invitación que ingresaste es inválido o ha expirado. Por favor, verifica el código o solicita una nueva invitación.",
+      "requestModalTitle": "Solicitar una invitación",
+      "requestModalDescription": "Completa el formulario a continuación para solicitar una invitación para unirte. Revisaremos tu solicitud y nos pondremos en contacto contigo.",
+      "requestNameLabel": "Tu nombre",
+      "requestNamePlaceholder": "Ingresa tu nombre completo",
+      "requestEmailLabel": "Tu correo electrónico",
+      "requestEmailPlaceholder": "tu@ejemplo.com",
+      "requestReasonLabel": "Motivo de la solicitud (Opcional)",
+      "requestReasonPlaceholder": "Cuéntanos por qué te gustaría unirte",
+      "sendRequestButton": "Enviar solicitud",
+      "requestSuccessTitle": "🎉 ¡Listo! Estás en la lista de espera",
+      "requestSuccessMessage": "Nos comunicaremos contigo cuando haya disponibilidad. P.D. Mantente atento a nuestro boletín: el acceso se otorga por orden de llegada.",
+      "requestFailedTitle": "Falló la solicitud de invitación",
+      "requestGenericError": "Ocurrió un error al enviar tu solicitud de invitación. Por favor, inténtalo de nuevo más tarde.",
+      "requestFormErrorRequiredFields": "Por favor, completa tu nombre y dirección de correo electrónico.",
+      "requestFormErrorInvalidEmail": "Por favor, ingresa una dirección de correo electrónico válida."
     },
     "signUp": {
+    "waitlistNotice1": "⏳ No todos obtienen acceso.",
+    "waitlistNotice2": "200+ solicitudes tempranas - selección manual en proceso.",
       "successTitle": "¡Registro exitoso!",
       "successDescription": "Bienvenido a Ontai. Por favor, revisa tu correo electrónico para verificar tu cuenta.",
       "genericError": "Ocurrió un error durante el registro",
@@ -46,7 +78,37 @@
       "createAccountButton": "Crear cuenta",
       "orContinueWith": "O continuar con",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "Unirse"
+    },
+    "invite": {
+      "codeModalTitle": "Acceso solo por invitación - ¿estás entre los elegidos?",
+      "codeModalDescription": "Actualmente hay más de 200 solicitudes - cada una se revisa manualmente. ¿Tienes un código?",
+      "codeModalDescription2": "🕒 Nuevas aprobaciones cada 48 horas",
+      "codeLabel": "Código de invitación",
+      "codePlaceholder": "Ingresa tu código",
+      "checkCodeButton": "Verificar código",
+      "noCodePrompt": "¿No tienes un código de invitación?",
+      "requestInviteLink": "🚀 Convertirse en early adopter",
+      "codeValidTitle": "Código de invitación válido",
+      "codeValidDescription": "Tu código de invitación es válido. Ahora puedes proceder a crear tu cuenta.",
+      "codeInvalidTitle": "Código de invitación inválido",
+      "codeInvalidError": "El código de invitación que ingresaste es inválido o ha expirado. Por favor, verifica el código o solicita una nueva invitación.",
+      "requestModalTitle": "Solicitar una invitación",
+      "requestModalDescription": "Completa el formulario a continuación para solicitar una invitación para unirte. Revisaremos tu solicitud y nos pondremos en contacto contigo.",
+      "requestNameLabel": "Tu nombre",
+      "requestNamePlaceholder": "Ingresa tu nombre completo",
+      "requestEmailLabel": "Tu correo electrónico",
+      "requestEmailPlaceholder": "tu@ejemplo.com",
+      "requestReasonLabel": "Motivo de la solicitud (Opcional)",
+      "requestReasonPlaceholder": "Cuéntanos por qué te gustaría unirte",
+      "sendRequestButton": "Enviar solicitud",
+      "requestSuccessTitle": "🎉 ¡Listo! Estás en la lista de espera",
+      "requestSuccessMessage": "Nos comunicaremos contigo cuando haya disponibilidad. P.D. Mantente atento a nuestro boletín: el acceso se otorga por orden de llegada.",
+      "requestFailedTitle": "Falló la solicitud de invitación",
+      "requestGenericError": "Ocurrió un error al enviar tu solicitud de invitación. Por favor, inténtalo de nuevo más tarde.",
+      "requestFormErrorRequiredFields": "Por favor, completa tu nombre y dirección de correo electrónico.",
+      "requestFormErrorInvalidEmail": "Por favor, ingresa una dirección de correo electrónico válida."
     },
     "backToHome": "Volver al inicio"
   },
@@ -338,5 +400,8 @@
       "careersButton": "Explorar Carreras",
       "contactButton": "Ponerse en Contacto"
     }
+  },
+  "common": {
+    "close": "Cerrar"
   }
 }

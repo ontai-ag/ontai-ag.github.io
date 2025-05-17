@@ -272,7 +272,12 @@ const SignUp = () => {
             </div>
           )}
           
-          {/* Button to trigger invite code modal */} 
+          <div className="text-center text-sm text-muted-foreground mb-4">
+            {t('auth.signUp.waitlistNotice1')}
+          </div>
+          <div className="text-center text-sm text-muted-foreground mb-4">
+            {t('auth.signUp.waitlistNotice2')}
+          </div>
           <CustomButton
             type="button"
             fullWidth
@@ -287,6 +292,11 @@ const SignUp = () => {
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
                 <DialogTitle>{t('auth.invite.codeModalTitle')}</DialogTitle>
+                
+                <DialogDescription>
+                  {t('auth.invite.codeModalDescription2')}
+                </DialogDescription>
+
                 <DialogDescription>
                   {t('auth.invite.codeModalDescription')}
                 </DialogDescription>
@@ -390,13 +400,13 @@ const SignUp = () => {
                   {t('auth.invite.sendRequestButton')}
                 </CustomButton>
               </form>
-              <DialogFooter className="sm:justify-start">
+              {/* <DialogFooter className="sm:justify-start">
                 <DialogClose asChild>
                   <Button type="button" variant="ghost">
                     {t('common.close')}
                   </Button>
                 </DialogClose>
-              </DialogFooter>
+              </DialogFooter> */}
             </DialogContent>
           </Dialog>
           
