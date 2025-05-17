@@ -57,6 +57,7 @@
       "requestFormErrorInvalidEmail": "Please enter a valid email address."
     },
     "signUp": {
+      "codeModalDescription2": "🕒 New selection — every 48 hours",
       "successTitle": "Registration successful!",
       "successDescription": "Welcome to Ontai. Please check your email to verify your account.",
       "genericError": "An error occurred during sign up",
