@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru"> <!-- Добавил lang атрибут -->
+<head>
+  <meta charset="UTF-8"> <!-- Используем UTF-8, это стандарт -->
+  <title>Перенаправление...</title> <!-- Более осмысленный title -->
+
+  <!-- Скрипт для сохранения пути -->
+  <script>
+    // Сохраняем текущий путь (включая параметры и хеш) в sessionStorage
+    // Страница, на которую произойдет редирект ("/") сможет прочитать это значение
+    try {
+      sessionStorage.setItem('redirectFromPath', window.location.pathname + window.location.search + window.location.hash);
+    } catch (e) {
+      // sessionStorage может быть недоступен (например, в приватном режиме некоторых браузеров или если отключены cookies)
+      console.warn('sessionStorage is not available or disabled:', e);
+    }
+  </script>
+
+  <!-- Редирект через meta-тег. Срабатывает после выполнения скриптов в <head> -->
+  <meta http-equiv="refresh" content="0; URL=/" />
+
+  <!-- Канонический URL указывает поисковикам, что основная версия этой страницы - корень сайта -->
+  <link rel="canonical" href="/" />
+
+  <!-- Дополнительные мета-теги для лучшей совместимости и отображения -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <h1>Перенаправление...</h1>
+  <p>Если вас не перенаправило автоматически, пожалуйста, перейдите по этой <a href="/">ссылке</a>.</p>
+
+  <!-- Можно добавить noscript для пользователей с отключенным JS, хотя meta-refresh сработает и без JS -->
+  <noscript>
+    <p>Для автоматического перенаправления необходим JavaScript или поддержка meta-refresh. Пожалуйста, перейдите по <a href="/">ссылке вручную</a>.</p>
+  </noscript>
+</body>
+</html>
