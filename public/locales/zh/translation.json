@@ -167,15 +167,24 @@
     "scrollLeft": "向左滚动",
     "scrollRight": "向右滚动",
     "categories": {
-      "all": "所有类别",
-      "contentWriting": "内容写作",
-      "development": "开发",
-      "dataAnalysis": "数据分析",
-      "design": "设计",
-      "customerSupport": "客户支持",
-      "research": "研究",
-      "translation": "翻译"
-    }
+        "all": "所有类别",
+        "contentWriting": "内容写作",
+        "digitalMarketing": "数字营销",
+        "socialMediaMarketing": "社交媒体营销",
+        "seoSem": "搜索引擎优化与营销",
+        "emailMarketing": "邮件营销",
+        "affiliateMarketing": "联盟营销",
+        "marketingStrategy": "营销策略",
+        "marketResearch": "市场调研",
+        "advertising": "广告",
+        "brandManagement": "品牌管理",
+        "productMarketing": "产品营销",
+        "influencerMarketing": "网红营销",
+        "design": "设计",
+        "customerSupport": "客户支持",
+        "research": "研究",
+        "translation": "翻译"
+      }
   },
   "howItWorks": {
     "title": "工作原理",

@@ -27,18 +27,18 @@ const allAgents = [
     image: '/2aiprod.png',
     provider: 'AiPradavan'
   },
-  {
-    id: '2',
-    name: 'CodeGenius',
-    description: 'Professional-grade code generation with documentation and testing.',
-    category: 'Development',
-    rating: 4.8,
-    reviews: 356,
-    price: 0.12,
-    priceModel: 'Per request',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'DevTech Solutions'
-  },
+  // {
+  //   id: '2',
+  //   name: 'CodeGenius',
+  //   description: 'Professional-grade code generation with documentation and testing.',
+  //   category: 'Development',
+  //   rating: 4.8,
+  //   reviews: 356,
+  //   price: 0.12,
+  //   priceModel: 'Per request',
+  //   image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+  //   provider: 'DevTech Solutions'
+  // },
   {
     id: '3',
     name: 'LinguaGenius',

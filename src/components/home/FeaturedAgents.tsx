@@ -21,30 +21,30 @@ const featuredAgents = [
     image: '/2aiprod.png',
     provider: 'AIPradavan'
   },
-  {
-    id: '2',
-    name: 'CodeGenius',
-    description: 'Professional-grade code generation with documentation and testing.',
-    category: 'Development',
-    rating: 4.8,
-    reviews: 356,
-    price: 0.12,
-    priceModel: 'Per request',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'DevTech Solutions'
-  },
-  {
-    id: '3',
-    name: 'DataWizard',
-    description: 'Analyze and visualize data with customizable dashboards and insights.',
-    category: 'Data Analysis',
-    rating: 4.7,
-    reviews: 291,
-    price: 0.25,
-    priceModel: 'Per analysis',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    provider: 'Analytix'
-  },
+  // {
+  //   id: '2',
+  //   name: 'CodeGenius',
+  //   description: 'Professional-grade code generation with documentation and testing.',
+  //   category: 'Development',
+  //   rating: 4.8,
+  //   reviews: 356,
+  //   price: 0.12,
+  //   priceModel: 'Per request',
+  //   image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+  //   provider: 'DevTech Solutions'
+  // },
+  // {
+  //   id: '3',
+  //   name: 'DataWizard',
+  //   description: 'Analyze and visualize data with customizable dashboards and insights.',
+  //   category: 'Data Analysis',
+  //   rating: 4.7,
+  //   reviews: 291,
+  //   price: 0.25,
+  //   priceModel: 'Per analysis',
+  //   image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+  //   provider: 'Analytix'
+  // },
   {
     id: '4',
     name: 'DesignCraft',
@@ -87,10 +87,20 @@ const featuredAgents = [
 const categoryKeys = {
   'All Categories': 'featuredAgents.categories.all',
   'Content Writing': 'featuredAgents.categories.contentWriting',
-  'Development': 'featuredAgents.categories.development',
-  'Data Analysis': 'featuredAgents.categories.dataAnalysis',
+  'Digital Marketing': 'featuredAgents.categories.digitalMarketing',
+  'Social Media Marketing': 'featuredAgents.categories.socialMediaMarketing',
+  'SEO/SEM': 'featuredAgents.categories.seoSem',
+  'Email Marketing': 'featuredAgents.categories.emailMarketing',
+  'Affiliate Marketing': 'featuredAgents.categories.affiliateMarketing',
+  'Marketing Strategy': 'featuredAgents.categories.marketingStrategy',
+  'Market Research': 'featuredAgents.categories.marketResearch',
+  'Advertising': 'featuredAgents.categories.advertising',
+  'Brand Management': 'featuredAgents.categories.brandManagement',
+  'Product Marketing': 'featuredAgents.categories.productMarketing',
+  'Influencer Marketing': 'featuredAgents.categories.influencerMarketing',
   'Design': 'featuredAgents.categories.design',
   'Customer Support': 'featuredAgents.categories.customerSupport',
+  'Data Analysis': 'featuredAgents.categories.dataAnalysis',
   'Research': 'featuredAgents.categories.research',
   'Translation': 'featuredAgents.categories.translation'
 };
@@ -156,13 +166,13 @@ const FeaturedAgents = () => {
               ref={scrollRef}
               style={{ scrollbarWidth: 'none' }}
             >
-              {/* <button 
+              <button 
                 className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md z-10 hidden md:flex"
                 onClick={handleScrollLeft}
                 aria-label={t('featuredAgents.scrollLeft')} // Add aria-label for accessibility
               >
                 <ArrowLeft className="h-4 w-4" />
-              </button> */}
+              </button>
               
               {categories.map((category) => (
                 <button
@@ -178,13 +188,13 @@ const FeaturedAgents = () => {
                 </button>
               ))}
               
-              {/* <button 
+              <button 
                 className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md z-10 hidden md:flex"
                 onClick={handleScrollRight}
                 aria-label={t('featuredAgents.scrollRight')} // Add aria-label for accessibility
               >
                 <ArrowRight className="h-4 w-4" />
-              </button> */}
+              </button>
             </div>
           </div>
         </div>

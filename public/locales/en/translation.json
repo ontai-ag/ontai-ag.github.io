@@ -132,21 +132,30 @@
     "feature3": "Enterprise-Grade Security"
   },
   "featuredAgents": {
-    "title": "Featured AI Agents",
-    "description": "Discover our most popular AI agents across various specialties. Each one is optimized for specific tasks and ready to assist you.",
-    "viewAllButton": "View All Agents",
-    "scrollLeft": "Scroll left",
-    "scrollRight": "Scroll right",
     "categories": {
       "all": "All Categories",
       "contentWriting": "Content Writing",
-      "development": "Development",
-      "dataAnalysis": "Data Analysis",
+      "digitalMarketing": "Digital Marketing",
+      "socialMediaMarketing": "Social Media Marketing",
+      "seoSem": "SEO/SEM",
+      "emailMarketing": "Email Marketing",
+      "affiliateMarketing": "Affiliate Marketing",
+      "marketingStrategy": "Marketing Strategy",
+      "marketResearch": "Market Research",
+      "advertising": "Advertising",
+      "brandManagement": "Brand Management",
+      "productMarketing": "Product Marketing",
+      "influencerMarketing": "Influencer Marketing",
       "design": "Design",
       "customerSupport": "Customer Support",
       "research": "Research",
       "translation": "Translation"
-    }
+    },
+    "title": "Featured AI Agents",
+    "description": "Discover our most popular AI agents across various specialties. Each one is optimized for specific tasks and ready to assist you.",
+    "viewAllButton": "View All Agents",
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right"
   },
   "howItWorks": {
     "title": "How It Works",
