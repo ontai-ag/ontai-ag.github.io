@@ -150,7 +150,7 @@ const SignIn = () => {
               <div className="flex justify-between items-center">
                 <Label htmlFor="password">{t('auth.signIn.passwordLabel')}</Label>
                 <Link
-                  to="/forgot-password"
+                  to="/" //forgot-password
                   className="text-sm text-primary hover:underline"
                 >
                   {t('auth.signIn.forgotPasswordLink')}

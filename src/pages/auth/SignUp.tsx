@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import authService from '@/services/authService';
 import { Input } from '@/components/ui/input';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { CustomButton } from '@/components/ui-custom/Button';
@@ -310,15 +311,24 @@ const SignUp = () => {
                 )}
                 <div>
                   <Label htmlFor="inviteCode">{t('auth.invite.codeLabel')}</Label>
-                  <Input
-                    id="inviteCode"
-                    type="text"
+                  <InputOTP
+                    maxLength={6} // Adjust max length as needed for your invite code
                     value={inviteCode}
-                    onChange={(e) => setInviteCode(e.target.value)}
-                    required
-                    className="mt-1"
-                    placeholder={t('auth.invite.codePlaceholder')}
-                  />
+                    onChange={(value) => setInviteCode(value)}
+                    className="mt-4 flex justify-center text-2xl" // Added classes for centering and size
+                  >
+                    <InputOTPGroup>
+                      <InputOTPSlot index={0} />
+                      <InputOTPSlot index={1} />
+                      <InputOTPSlot index={2} />
+                    </InputOTPGroup>
+                    <div className="mx-2">-</div> {/* Separator */}
+                    <InputOTPGroup>
+                      <InputOTPSlot index={3} />
+                      <InputOTPSlot index={4} />
+                      <InputOTPSlot index={5} />
+                    </InputOTPGroup>
+                  </InputOTP>
                 </div>
                 <CustomButton type="submit" fullWidth loading={loading}>
                   {t('auth.invite.checkCodeButton')}
