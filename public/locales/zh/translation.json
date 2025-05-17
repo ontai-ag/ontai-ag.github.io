@@ -25,7 +25,36 @@
       "signInWithEmailButton": "使用电子邮件登录",
       "orContinueWith": "或继续使用",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "加入"
+    },
+    "invite": {
+      "codeModalTitle": "输入邀请码",
+      "codeModalDescription": "要创建帐户，请输入您的邀请码。如果您没有邀请码，可以请求邀请。",
+      "codeLabel": "邀请码",
+      "codePlaceholder": "输入您的代码",
+      "checkCodeButton": "检查代码",
+      "noCodePrompt": "没有邀请码？",
+      "requestInviteLink": "请求邀请",
+      "codeValidTitle": "邀请码有效",
+      "codeValidDescription": "您的邀请码有效。您现在可以继续创建您的帐户了。",
+      "codeInvalidTitle": "邀请码无效",
+      "codeInvalidError": "您输入的邀请码无效或已过期。请检查代码或请求新的邀请。",
+      "requestModalTitle": "请求邀请",
+      "requestModalDescription": "填写下面的表格以请求加入邀请。我们将审核您的请求并与您联系。",
+      "requestNameLabel": "您的姓名",
+      "requestNamePlaceholder": "输入您的全名",
+      "requestEmailLabel": "您的电子邮件",
+      "requestEmailPlaceholder": "you@example.com",
+      "requestReasonLabel": "请求原因（可选）",
+      "requestReasonPlaceholder": "告诉我们您为什么想加入",
+      "sendRequestButton": "发送请求",
+      "requestSuccessTitle": "邀请请求已发送",
+      "requestSuccessMessage": "您的邀请请求已成功发送。我们将很快与您联系。",
+      "requestFailedTitle": "邀请请求失败",
+      "requestGenericError": "发送您的邀请请求时发生错误。请稍后再试。",
+      "requestFormErrorRequiredFields": "请填写您的姓名和电子邮件地址。",
+      "requestFormErrorInvalidEmail": "请输入有效的电子邮件地址。"
     },
     "signUp": {
       "successTitle": "注册成功！",
@@ -49,7 +78,36 @@
       "createAccountButton": "创建帐户",
       "orContinueWith": "或继续使用",
       "googleButton": "Google",
-      "githubButton": "GitHub"
+      "githubButton": "GitHub",
+      "joinButton": "加入"
+    },
+    "invite": {
+      "codeModalTitle": "输入邀请码",
+      "codeModalDescription": "要创建帐户，请输入您的邀请码。如果您没有邀请码，可以请求邀请。",
+      "codeLabel": "邀请码",
+      "codePlaceholder": "输入您的代码",
+      "checkCodeButton": "检查代码",
+      "noCodePrompt": "没有邀请码？",
+      "requestInviteLink": "请求邀请",
+      "codeValidTitle": "邀请码有效",
+      "codeValidDescription": "您的邀请码有效。您现在可以继续创建您的帐户了。",
+      "codeInvalidTitle": "邀请码无效",
+      "codeInvalidError": "您输入的邀请码无效或已过期。请检查代码或请求新的邀请。",
+      "requestModalTitle": "请求邀请",
+      "requestModalDescription": "填写下面的表格以请求加入邀请。我们将审核您的请求并与您联系。",
+      "requestNameLabel": "您的姓名",
+      "requestNamePlaceholder": "输入您的全名",
+      "requestEmailLabel": "您的电子邮件",
+      "requestEmailPlaceholder": "you@example.com",
+      "requestReasonLabel": "请求原因（可选）",
+      "requestReasonPlaceholder": "告诉我们您为什么想加入",
+      "sendRequestButton": "发送请求",
+      "requestSuccessTitle": "邀请请求已发送",
+      "requestSuccessMessage": "您的邀请请求已成功发送。我们将很快与您联系。",
+      "requestFailedTitle": "邀请请求失败",
+      "requestGenericError": "发送您的邀请请求时发生错误。请稍后再试。",
+      "requestFormErrorRequiredFields": "请填写您的姓名和电子邮件地址。",
+      "requestFormErrorInvalidEmail": "请输入有效的电子邮件地址。"
     },
     "backToHome": "返回主页"
   },
@@ -363,5 +421,8 @@
       "careersButton": "探索职业",
       "contactButton": "联系我们"
     }
+  },
+  "common": {
+    "close": "关闭"
   }
 }

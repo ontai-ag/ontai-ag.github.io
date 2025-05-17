@@ -10,24 +10,147 @@ import { CustomButton } from '@/components/ui-custom/Button';
 import { Card } from '@/components/ui-custom/Card';
 import { useToast } from '@/hooks/use-toast';
 import { Github, Mail, AlertCircle, UserPlus, ArrowLeft, Eye, EyeOff } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 
 const SignUp = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { toast } = useToast();
+  // Existing state for email/password sign-up (will be used later or for actual registration after invite)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [fullName, setFullName] = useState('');
+  const [fullName, setFullName] = useState(''); // Can be reused for invite request name
+  const [userType, setUserType] = useState<'user' | 'developer'>('user'); // Part of old flow
+  
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [userType, setUserType] = useState<'user' | 'developer'>('user');
+  
+  // State for invite flow
+  const [showInviteCodeModal, setShowInviteCodeModal] = useState(false);
+  const [showRequestInviteModal, setShowRequestInviteModal] = useState(false);
+  const [inviteCode, setInviteCode] = useState('');
+  const [requestName, setRequestName] = useState(''); // For invite request form
+  const [requestEmail, setRequestEmail] = useState(''); // For invite request form
+  const [requestReason, setRequestReason] = useState(''); // Optional reason
+  const [inviteRequestLoading, setInviteRequestLoading] = useState(false);
+  const [inviteRequestError, setInviteRequestError] = useState<string | null>(null);
+  const [inviteRequestSuccessMessage, setInviteRequestSuccessMessage] = useState<string | null>(null);
+
+  // States for previous verification/success flow (might be adjusted or removed)
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState('');
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
+  // Placeholder for Google Apps Script URL
+  const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyAI4e65xy0O1knl_122NMmiTH7ZE58O1fL4q2Jlg4qFCEgPVzGTC4SE8IThacw4Ceu/exec';
+
+  const handleOpenInviteCodeModal = () => {
+    setError(null); // Clear previous errors
+    setInviteRequestError(null);
+    setInviteRequestSuccessMessage(null);
+    setShowInviteCodeModal(true);
+  };
+
+  const handleOpenRequestInviteModal = () => {
+    setShowInviteCodeModal(false);
+    setShowRequestInviteModal(true);
+  };
+
+  const handleInviteCodeCheck = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    // TODO: Implement actual invite code verification logic here
+    // For now, simulate a check and then potentially show the original registration form or navigate
+    setTimeout(() => {
+      setLoading(false);
+      if (inviteCode === 'VALID_CODE') { // Example: a dummy valid code
+        toast({
+          title: t('auth.invite.codeValidTitle'),
+          description: t('auth.invite.codeValidDescription'),
+        });
+        setShowInviteCodeModal(false);
+        // Here you might show the original registration form or proceed to a specific step
+        // For now, let's just close the modal. The user would then need to be guided to the actual sign up.
+        // Or, we could set a state to show the original form:
+        // setRegistrationStep('enterDetails'); 
+      } else {
+        setError(t('auth.invite.codeInvalidError'));
+        toast({
+          title: t('auth.invite.codeInvalidTitle'),
+          description: t('auth.invite.codeInvalidError'),
+          variant: 'destructive',
+        });
+      }
+    }, 1000);
+  };
+
+  const handleInviteRequestSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setInviteRequestLoading(true);
+    setInviteRequestError(null);
+    setInviteRequestSuccessMessage(null);
+
+    if (!requestName || !requestEmail) {
+      setInviteRequestError(t('auth.invite.requestFormErrorRequiredFields'));
+      setInviteRequestLoading(false);
+      return;
+    }
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(requestEmail)) {
+      setInviteRequestError(t('auth.invite.requestFormErrorInvalidEmail'));
+      setInviteRequestLoading(false);
+      return;
+    }
+
+    try {
+      // В режиме no-cors мы не можем прочитать тело ответа или статус
+      // Поэтому предполагаем, что отправка прошла успешно, если не возникло исключение
+      await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Important for cross-origin requests to Apps Script
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'text/plain', // Изменено на text/plain для лучшей совместимости с no-cors
+        },
+        redirect: 'follow', // Следовать за перенаправлениями
+        body: JSON.stringify({ 
+          name: requestName, 
+          email: requestEmail, 
+          reason: requestReason 
+        }),
+      });
+
+      // В режиме no-cors мы не можем прочитать тело ответа или статус
+      // Поэтому предполагаем, что отправка прошла успешно, если не возникло исключение
+      setInviteRequestSuccessMessage(t('auth.invite.requestSuccessMessage'));
+      toast({
+        title: t('auth.invite.requestSuccessTitle'),
+        description: t('auth.invite.requestSuccessMessage'),
+      });
+      setRequestName('');
+      setRequestEmail('');
+      setRequestReason('');
+      setShowRequestInviteModal(false);
+    } catch (err: any) {
+      console.error('Error submitting invite request:', err);
+      const errorMessage = err.message || t('auth.invite.requestGenericError');
+      setInviteRequestError(errorMessage);
+      toast({
+        title: t('auth.invite.requestFailedTitle'),
+        description: errorMessage,
+        variant: 'destructive',
+      });
+    } finally {
+      setInviteRequestLoading(false);
+    }
+  };
+
+  // Original sign-up and verify functions (will be triggered differently now or removed/refactored)
   const onPressVerify = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -149,167 +272,144 @@ const SignUp = () => {
             </div>
           )}
           
-          {!pendingVerification && !registrationSuccess && (
-          <form onSubmit={handleSignUpWithEmail} className="space-y-4">
-            <div>
-              <Label htmlFor="fullName">{t('auth.signUp.fullNameLabel')}</Label>
-              <Input
-                id="fullName"
-                type="text"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-                className="mt-1"
-                placeholder={t('auth.signUp.fullNamePlaceholder')}
-              />
-            </div>
-            
-            <div>
-              <Label htmlFor="email">{t('auth.signUp.emailLabel')}</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="mt-1"
-                placeholder={t('auth.signUp.emailPlaceholder')}
-              />
-            </div>
-            
-            <div>
-              <Label htmlFor="password">{t('auth.signUp.passwordLabel')}</Label>
-              <div className="relative mt-1">
-                <Input
-                  id="password"
-                  type={showPassword ? 'text' : 'password'}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="pr-10"
-                  minLength={6}
-                />
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  className="absolute inset-y-0 right-0 flex items-center justify-center h-full w-10 text-gray-500 hover:text-primary"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                </Button>
-              </div>
-              <p className="text-xs text-gray-500 mt-1">
-                {t('auth.signUp.passwordHint')}
-              </p>
-            </div>
-            
-            <div>
-              <Label>{t('auth.signUp.accountTypeLabel')}</Label>
-              <div className="grid grid-cols-2 gap-4 mt-1">
-                <Button
-                  type="button"
-                  variant={userType === 'user' ? 'default' : 'outline'}
-                  onClick={() => setUserType('user')}
-                  className="w-full"
-                >
-                  {t('auth.signUp.userTypeUser')}
-                </Button>
-                <Button
-                  type="button"
-                  variant={userType === 'developer' ? 'default' : 'outline'}
-                  onClick={() => setUserType('developer')}
-                  className="w-full"
-                >
-                  {t('auth.signUp.userTypeDeveloper')}
-                </Button>
-              </div>
-            </div>
-            
-            <CustomButton
-              type="submit"
-              fullWidth
-              loading={loading}
-              leftIcon={<UserPlus className="h-4 w-4" />}
-            >
-              {t('auth.signUp.createAccountButton')}
-            </CustomButton>
-          </form>
-          )}
+          {/* Button to trigger invite code modal */} 
+          <CustomButton
+            type="button"
+            fullWidth
+            onClick={handleOpenInviteCodeModal}
+            leftIcon={<UserPlus className="h-4 w-4" />}
+          >
+            {t('auth.signUp.joinButton')}{/* Changed from 'Create Account' */}
+          </CustomButton>
 
-          {registrationSuccess && (
-            <div className="space-y-4 text-center">
-              <div className="text-green-600 font-medium">
-                {t('auth.signUp.registrationSuccessMessage')}
+          {/* Invite Code Modal */}
+          <Dialog open={showInviteCodeModal} onOpenChange={setShowInviteCodeModal}>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>{t('auth.invite.codeModalTitle')}</DialogTitle>
+                <DialogDescription>
+                  {t('auth.invite.codeModalDescription')}
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleInviteCodeCheck} className="space-y-4">
+                {error && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-md flex items-start gap-2">
+                    <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-red-700">{error}</p>
+                  </div>
+                )}
+                <div>
+                  <Label htmlFor="inviteCode">{t('auth.invite.codeLabel')}</Label>
+                  <Input
+                    id="inviteCode"
+                    type="text"
+                    value={inviteCode}
+                    onChange={(e) => setInviteCode(e.target.value)}
+                    required
+                    className="mt-1"
+                    placeholder={t('auth.invite.codePlaceholder')}
+                  />
+                </div>
+                <CustomButton type="submit" fullWidth loading={loading}>
+                  {t('auth.invite.checkCodeButton')}
+                </CustomButton>
+              </form>
+              <div className="mt-4 text-center text-sm">
+                {t('auth.invite.noCodePrompt')}{' '}
+                <Button variant="link" className="p-0 h-auto" onClick={handleOpenRequestInviteModal}>
+                  {t('auth.invite.requestInviteLink')}
+                </Button>
               </div>
-              <CustomButton
-                type="button"
-                fullWidth
-                onClick={() => navigate('/dashboard')}
-              >
-                {t('auth.signUp.continueToDashboard')}
-              </CustomButton>
-            </div>
-          )}
+              {/* <DialogFooter className="sm:justify-start">
+                <DialogClose asChild>
+                  <Button type="button" variant="ghost">
+                    {t('common.close')}
+                  </Button>
+                </DialogClose>
+              </DialogFooter> */}
+            </DialogContent>
+          </Dialog>
 
-          {pendingVerification && (
-            <form onSubmit={onPressVerify} className="space-y-4">
-              <div>
-                <Label htmlFor="code">{t('auth.signUp.verificationCodeLabel')}</Label>
-                <Input
-                  id="code"
-                  type="text"
-                  value={code}
-                  onChange={(e) => setCode(e.target.value)}
-                  required
-                  className="mt-1"
-                  placeholder={t('auth.signUp.verificationCodePlaceholder')}
-                />
-              </div>
-              <CustomButton
-                type="submit"
-                fullWidth
-                loading={loading}
-              >
-                {t('auth.signUp.verifyButton')}
-              </CustomButton>
-            </form>
-          )}
+          {/* Request Invite Modal */}
+          <Dialog open={showRequestInviteModal} onOpenChange={setShowRequestInviteModal}>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>{t('auth.invite.requestModalTitle')}</DialogTitle>
+                <DialogDescription>
+                  {t('auth.invite.requestModalDescription')}
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleInviteRequestSubmit} className="space-y-4">
+                {inviteRequestError && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-md flex items-start gap-2">
+                    <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-red-700">{inviteRequestError}</p>
+                  </div>
+                )}
+                {inviteRequestSuccessMessage && (
+                  <div className="p-3 bg-green-50 border border-green-200 rounded-md text-sm text-green-700">
+                    {inviteRequestSuccessMessage}
+                  </div>
+                )}
+                <div>
+                  <Label htmlFor="requestName">{t('auth.invite.requestNameLabel')}</Label>
+                  <Input
+                    id="requestName"
+                    type="text"
+                    value={requestName}
+                    onChange={(e) => setRequestName(e.target.value)}
+                    required
+                    className="mt-1"
+                    placeholder={t('auth.invite.requestNamePlaceholder')}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="requestEmail">{t('auth.invite.requestEmailLabel')}</Label>
+                  <Input
+                    id="requestEmail"
+                    type="email"
+                    value={requestEmail}
+                    onChange={(e) => setRequestEmail(e.target.value)}
+                    required
+                    className="mt-1"
+                    placeholder={t('auth.invite.requestEmailPlaceholder')}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="requestReason">{t('auth.invite.requestReasonLabel')}</Label>
+                  <Input // Changed from Textarea for simplicity, can be Textarea if available and preferred
+                    id="requestReason"
+                    type="text"
+                    value={requestReason}
+                    onChange={(e) => setRequestReason(e.target.value)}
+                    className="mt-1"
+                    placeholder={t('auth.invite.requestReasonPlaceholder')}
+                  />
+                </div>
+                <CustomButton type="submit" fullWidth loading={inviteRequestLoading}>
+                  {t('auth.invite.sendRequestButton')}
+                </CustomButton>
+              </form>
+              <DialogFooter className="sm:justify-start">
+                <DialogClose asChild>
+                  <Button type="button" variant="ghost">
+                    {t('common.close')}
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
           
-          <div className="mt-6">
-            <div className="relative">
-              {/* <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div> */}
-              {/* <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">{t('auth.signUp.orContinueWith')}</span>
-              </div> */}
-            </div>
-            
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              {/* <Button
-                type="button"
-                variant="outline"
-                onClick={() => handleSignUpWithProvider('google')}
-                disabled={loading || !isLoaded}
-                className="w-full"
-              > */}
-                {/* SVG for Google Icon */}
-                {/* {t('auth.signUp.googleButton')}
-              </Button> */}
-              
-              {/* <Button
-                type="button"
-                variant="outline"
-                onClick={() => handleSignUpWithProvider('github')}
-                disabled={loading || !isLoaded}
-                className="w-full"
-              > */}
-                {/* <Github className="w-5 h-5 mr-2" />
-                {t('auth.signUp.githubButton')}
-              </Button> */}
-            </div>
-          </div>
+          {/* The original registration form, pendingVerification, and registrationSuccess sections are removed from direct view. */}
+          {/* They might be conditionally rendered later based on invite code validation or other logic. */}
+
+          {/* Commented out or removed original form and provider buttons */}
+          {/* {!pendingVerification && !registrationSuccess && (
+          <form onSubmit={handleSignUpWithEmail} className="space-y-4">
+            ...
+          </form>
+          )} */}
+          {/* ... other commented out sections ... */}
 
         </Card>
       </div>
