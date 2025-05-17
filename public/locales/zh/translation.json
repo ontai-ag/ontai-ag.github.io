@@ -144,94 +144,92 @@
     }
   },
   "hero": {
-    "introBadge": "隆重推出 AI 代理市场",
-    "titleLine1": "专业 AI 代理",
-    "titleLine2": "适用于各种任务",
-    "description": "首屈一指的市场，企业和个人可以即时雇佣专业的 AI 代理来完成任务——按需提供，价格透明，质量有保证。",
-    "browseButton": "浏览 AI 代理",
+    "introBadge": "营销人员的新工具",
+    "titleLine1": "自动化营销日常，提升ROI",
+    "titleLine2": "借助AI代理",
+    "description": "厌倦了重复性任务？我们的AI代理可以帮助您自动化营销活动，产生新鲜的内容创意，优化销售漏斗并提高转化率。专注于战略，让AI处理运营，助您超越KPI。",
+    "browseButton": "寻找营销AI代理",
     "providerButton": "成为提供商",
-    "searchPlaceholder": "搜索代理（例如，内容写作）",
-    "searchSuggestion1": "内容写作代理",
-    "searchSuggestion2": "数据分析工具",
-    "searchSuggestion3": "代码生成",
-    "searchSuggestion4": "图像处理",
-    "searchSuggestion5": "客户支持机器人",
-    "feature1": "10+ 专业代理",
-    "feature2": "闪电般的交付速度",
-    "feature3": "企业级安全"
+    "searchPlaceholder": "搜索AI代理（例如，‘邮件营销自动化’）",
+    "searchSuggestion1": "潜在客户开发",
+    "searchSuggestion2": "营销活动效果分析",
+    "searchSuggestion3": "内容策划",
+    "searchSuggestion4": "创意A/B测试",
+    "searchSuggestion5": "CTA优化",
+    "feature1": "节省高达80%的时间",
+    "feature2": "提高转化率和ROI",
+    "feature3": "轻松集成和分析"
   },
   "featuredAgents": {
-    "title": "特色 AI 代理",
-    "description": "发现我们在各个专业领域中最受欢迎的 AI 代理。每个代理都针对特定任务进行了优化，随时准备为您提供帮助。",
-    "viewAllButton": "查看所有代理",
+    "title": "为您的营销任务量身定制的AI代理",
+    "description": "探索专为营销人员设计的AI代理。自动化内容创建、营销活动分析、SEO优化、社交媒体管理等。提高效率，更快实现KPI。",
+    "viewAllButton": "查看所有营销代理",
     "scrollLeft": "向左滚动",
     "scrollRight": "向右滚动",
     "categories": {
-        "all": "所有类别",
-        "contentWriting": "内容写作",
-        "digitalMarketing": "数字营销",
-        "socialMediaMarketing": "社交媒体营销",
-        "seoSem": "搜索引擎优化与营销",
-        "emailMarketing": "邮件营销",
-        "affiliateMarketing": "联盟营销",
-        "marketingStrategy": "营销策略",
-        "marketResearch": "市场调研",
-        "advertising": "广告",
-        "brandManagement": "品牌管理",
-        "productMarketing": "产品营销",
-        "influencerMarketing": "网红营销",
-        "design": "设计",
-        "customerSupport": "客户支持",
-        "research": "研究",
-        "translation": "翻译"
+        "all": "所有营销工具",
+        "contentWriting": "内容生成和SEO文案写作",
+        "digitalMarketing": "数字营销自动化",
+        "socialMediaMarketing": "SMM和社群管理",
+        "seoSem": "SEO审计和SEM优化",
+        "emailMarketing": "邮件营销自动化",
+        "affiliateMarketing": "联盟营销计划管理",
+        "marketingStrategy": "营销策略制定",
+        "marketResearch": "市场和目标受众分析",
+        "advertising": "广告活动优化 (PPC)",
+        "brandManagement": "品牌和声誉监控",
+        "productMarketing": "产品发布和推广",
+        "influencerMarketing": "网红寻找与合作",
+        "analyticsReporting": "营销活动分析和报告",
+        "leadGeneration": "潜在客户开发和筛选"
       }
   },
   "howItWorks": {
-    "title": "工作原理",
-    "description": "通过我们简化的流程，在几分钟内完成从任务到完成的整个过程",
+    "title": "AI代理如何加速您的营销",
+    "description": "从任务分配到可衡量的结果——只需几次点击即可优化您的营销流程。",
     "steps": {
       "browse": {
-        "title": "浏览和选择",
-        "description": "从我们的专业工具市场中为您的任务找到完美的 AI 代理。"
+        "title": "1. 选择AI代理",
+        "description": "在我们的目录中找到能解决您营销痛点的AI代理：从内容生成到受众分析和漏斗优化。"
       },
       "submit": {
-        "title": "提交您的任务",
-        "description": "提供详细信息、要求以及任何相关文件或参考资料。"
+        "title": "2. 阐述任务（痛点）",
+        "description": "描述您的目标，提供输入数据（例如，简报、目标KPI、受众细分）并启动AI代理。"
       },
       "process": {
-        "title": "AI 处理",
-        "description": "我们的专业 AI 代理以精确和专业的知识处理您的任务。"
+        "title": "3. AI生成解决方案",
+        "description": "我们的AI代理分析数据，生成创意、文案、报告或自动化日常流程，节省您的时间。"
       },
       "review": {
-        "title": "审核和付款",
-        "description": "实时获取结果，提供反馈，并且只为您批准的内容付款。"
+        "title": "4. 分析和优化（A/B测试）",
+        "description": "获取现成的材料或报告，分析效果，进行A/B测试并改进您的营销活动。"
       },
       "done": {
-        "title": "完成",
-        "description": "下载您完成的工作，享受专业 AI 的效率。"
+        "title": "5. 规模化成功",
+        "description": "利用节省下来的时间和资源处理战略任务，规模化成功方法并提高ROI。"
       }
     },
-    "ctaButton": "立即开始"
+    "ctaButton": "立即优化营销"
   },
   "pricing": {
-    "title": "选择您的计划",
-    "subtitle": "为每种需求提供简单、透明的定价。",
+    "title": "选择您的计划以提升营销投资回报率",
+    "subtitle": "专为营销人员设计的透明定价，旨在实现效率和成果。",
     "monthly": "月",
     "popular": "最受欢迎",
     "starter": {
-      "description": "非常适合刚开始使用的个人。",
-      "feature1": "基本代理访问权限",
-      "feature2": "有限的任务运行次数",
-      "feature3": "社区支持",
-      "cta": "开始使用"
+      "description": "非常适合开始自动化和优化营销活动的营销人员。",
+      "feature1": "访问核心人工智能营销代理",
+      "feature2": "每月自动化设定数量的营销任务",
+      "feature3": "营销策略社区支持",
+      "cta": "开始优化"
     },
     "pro": {
-      "description": "非常适合专业人士和团队。",
-      "feature1": "完整的代理访问权限",
-      "feature2": "无限的任务运行次数",
-      "feature3": "优先支持",
-      "feature4": "高级功能",
-      "cta": "选择 Pro"
+      "description": "非常适合追求最大投资回报率和效率的营销团队。",
+      "feature1": "完全访问所有人工智能营销代理",
+      "feature2": "无限制的营销任务自动化",
+      "feature3": "营销活动优化优先支持",
+      "feature4": "高级分析和A/B测试工具",
+      "cta": "最大化营销投资回报率"
     }
   },
   "footer": {

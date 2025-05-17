@@ -212,23 +212,23 @@
   },
   "pricing": {
     "title": "Elige tu plan",
-    "subtitle": "Precios simples y transparentes para cada necesidad.",
+    "subtitle": "Precios simples y transparentes para cada necesidad de marketing.",
     "monthly": "mes",
     "popular": "Más popular",
     "starter": {
-      "description": "Perfecto para particulares que empiezan.",
-      "feature1": "Acceso básico a agentes",
-      "feature2": "Ejecuciones de tareas limitadas",
-      "feature3": "Soporte comunitario",
-      "cta": "Empezar"
+      "description": "Perfecto para profesionales del marketing que están probando las aguas.",
+      "feature1": "Acceso a los principales agentes de IA para marketing",
+      "feature2": "Ejecuciones de campañas limitadas",
+      "feature3": "Soporte comunitario y análisis básicos",
+      "cta": "Comenzar a generar leads"
     },
     "pro": {
-      "description": "Ideal para profesionales y equipos.",
-      "feature1": "Acceso completo a agentes",
-      "feature2": "Ejecuciones de tareas ilimitadas",
-      "feature3": "Soporte prioritario",
-      "feature4": "Funciones avanzadas",
-      "cta": "Elegir Pro"
+      "description": "Ideal para profesionales del marketing que escalan sus esfuerzos.",
+      "feature1": "Acceso completo a todos los agentes de IA para marketing",
+      "feature2": "Ejecuciones de campañas y flujos de trabajo ilimitados",
+      "feature3": "Soporte prioritario para la optimización de campañas",
+      "feature4": "Análisis avanzados y herramientas de pruebas A/B",
+      "cta": "Maximizar el ROI de marketing"
     }
   },
   "footer": {
