@@ -40,7 +40,7 @@ const Hero = () => {
           </div>
           
           <h1 
-            className={`mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            className={`mb-6 text-2xl font-bold tracking-tight text-foreground md:text-3xl lg:text-4xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             <span className="block">{t('hero.titleLine1')}</span>
             <span className="block text-primary">{t('hero.titleLine2')}</span>
