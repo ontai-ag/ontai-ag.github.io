@@ -107,7 +107,7 @@ function App() {
                   />
                   <Route 
                     path="/task-submission" 
-                    element={<ProtectedRoute allowedRoles={['user']}><TaskSubmission /></ProtectedRoute>} 
+                    element={<TaskSubmission />} //<ProtectedRoute allowedRoles={['user']}>
                   />
                   <Route 
                     path="/task/:taskId" 

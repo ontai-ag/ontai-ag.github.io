@@ -33,7 +33,6 @@ const SignIn = () => {
       const redirectPath = getDashboardPath();
       console.log('User authenticated, redirecting to:', redirectPath);
       
-      // Small delay to allow state to stabilize
       const redirectTimer = setTimeout(() => {
         navigate(redirectPath, { replace: true });
       }, 100);
@@ -55,7 +54,6 @@ const SignIn = () => {
         description: t('auth.signIn.successDescription'),
       });
       
-      // Немедленный редирект после успешной авторизации
       const redirectPath = getDashboardPath();
       navigate(redirectPath, { replace: true });
     } catch (error: any) {

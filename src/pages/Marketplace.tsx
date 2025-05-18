@@ -15,18 +15,18 @@ import { Filter, SlidersHorizontal, Star, ChevronDown, XCircle } from 'lucide-re
 
 // Mock data for marketplace agents (using the same structure as featured agents)
 const allAgents = [
-  {
-    id: '1',
-    name: 'Ai Pradavan',
-    description: 'Цифровой менеджер по продажам',
-    category: 'Customer Support',
-    rating: 4,
-    reviews: 11,
-    price: 0.12,
-    priceModel: 'Per request',
-    image: '/2aiprod.png',
-    provider: 'AiPradavan'
-  },
+  // {
+  //   id: '1',
+  //   name: 'Ai Pradavan',
+  //   description: 'Цифровой менеджер по продажам',
+  //   category: 'Customer Support',
+  //   rating: 4,
+  //   reviews: 11,
+  //   price: 0.12,
+  //   priceModel: 'Per request',
+  //   image: '/2aiprod.png',
+  //   provider: 'AiPradavan'
+  // },
   // {
   //   id: '2',
   //   name: 'CodeGenius',
