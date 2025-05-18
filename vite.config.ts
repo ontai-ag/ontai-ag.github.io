@@ -10,9 +10,9 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://api.ontai.kz/v1/',
+        target: 'https://api.ontai.kz/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/v1'),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
