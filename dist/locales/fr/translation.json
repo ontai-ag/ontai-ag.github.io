@@ -168,8 +168,17 @@
     "categories": {
       "all": "Toutes les catégories",
       "contentWriting": "Rédaction de contenu",
-      "development": "Développement",
-      "dataAnalysis": "Analyse de données",
+      "digitalMarketing": "Marketing numérique",
+      "socialMediaMarketing": "Marketing des médias sociaux",
+      "seoSem": "SEO/SEM",
+      "emailMarketing": "Marketing par e-mail",
+      "affiliateMarketing": "Marketing d'affiliation",
+      "marketingStrategy": "Stratégie marketing",
+      "marketResearch": "Étude de marché",
+      "advertising": "Publicité",
+      "brandManagement": "Gestion de la marque",
+      "productMarketing": "Marketing de produit",
+      "influencerMarketing": "Marketing d'influence",
       "design": "Conception",
       "customerSupport": "Support client",
       "research": "Recherche",
@@ -204,24 +213,24 @@
     "ctaButton": "Commencer maintenant"
   },
   "pricing": {
-    "title": "Choisissez votre plan",
-    "subtitle": "Une tarification simple et transparente pour tous les besoins.",
+    "title": "Choisissez Votre Plan pour Booster le ROI Marketing",
+    "subtitle": "Une tarification transparente conçue pour les spécialistes du marketing afin d'atteindre efficacité et résultats.",
     "monthly": "mois",
     "popular": "Le plus populaire",
     "starter": {
-      "description": "Parfait pour les particuliers qui débutent.",
-      "feature1": "Accès aux agents de base",
-      "feature2": "Exécutions de tâches limitées",
-      "feature3": "Support communautaire",
-      "cta": "Commencer"
+      "description": "Parfait pour les spécialistes du marketing qui commencent à automatiser et optimiser leurs campagnes.",
+      "feature1": "Accès aux agents IA marketing essentiels",
+      "feature2": "Automatisez un nombre défini de tâches marketing par mois",
+      "feature3": "Support communautaire pour les stratégies marketing",
+      "cta": "Commencer l'Optimisation"
     },
     "pro": {
-      "description": "Idéal pour les professionnels et les équipes.",
-      "feature1": "Accès complet aux agents",
-      "feature2": "Exécutions de tâches illimitées",
-      "feature3": "Support prioritaire",
-      "feature4": "Fonctionnalités avancées",
-      "cta": "Choisir Pro"
+      "description": "Idéal pour les équipes marketing visant un ROI et une efficacité maximum.",
+      "feature1": "Accès complet à tous les agents IA marketing",
+      "feature2": "Automatisation illimitée des tâches marketing",
+      "feature3": "Support prioritaire pour l'optimisation des campagnes",
+      "feature4": "Analyses avancées et outils de test A/B",
+      "cta": "Maximiser le ROI Marketing"
     }
   },
   "footer": {

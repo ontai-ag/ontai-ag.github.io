@@ -115,85 +115,92 @@
     }
   },
   "hero": {
-    "introBadge": "Introducing the AI Agents Marketplace",
-    "titleLine1": "Specialized AI Agents",
-    "titleLine2": "For Every Task",
-    "description": "The premier marketplace where businesses and individuals can instantly hire specialized AI agents for tasks—on-demand, with transparent pricing and guaranteed quality.",
-    "browseButton": "Browse AI Agents",
+    "introBadge": "New Tool for Marketers",
+    "titleLine1": "Automate Routine, Boost ROI",
+    "titleLine2": "with AI Agents",
+    "description": "Tired of routine tasks? Our AI agents help automate campaigns, generate fresh content ideas, optimize sales funnels, and increase conversions. Focus on strategy while AI handles operations and helps you exceed KPIs.",
+    "browseButton": "Find an AI Agent for Marketing",
     "providerButton": "Become a Provider",
-    "searchPlaceholder": "Search for agents (e.g., content writing)",
-    "searchSuggestion1": "Content writing agents",
-    "searchSuggestion2": "Data analysis tools",
-    "searchSuggestion3": "Code generation",
-    "searchSuggestion4": "Image processing",
-    "searchSuggestion5": "Customer support bots",
-    "feature1": "10+ Specialized Agents",
-    "feature2": "Lightning-Fast Delivery",
-    "feature3": "Enterprise-Grade Security"
+    "searchPlaceholder": "Search for AI agents (e.g., 'email marketing automation')",
+    "searchSuggestion1": "Lead generation",
+    "searchSuggestion2": "Campaign performance analysis",
+    "searchSuggestion3": "Content plan creation",
+    "searchSuggestion4": "A/B testing for creatives",
+    "searchSuggestion5": "CTA optimization",
+    "feature1": "Save up to 80% of your time",
+    "feature2": "Increase conversion and ROI",
+    "feature3": "Easy integration and analytics"
   },
   "featuredAgents": {
-    "title": "Featured AI Agents",
-    "description": "Discover our most popular AI agents across various specialties. Each one is optimized for specific tasks and ready to assist you.",
-    "viewAllButton": "View All Agents",
+    "title": "AI Agents for Your Marketing Tasks",
+    "description": "Discover AI agents designed specifically for marketers. Automate content creation, campaign analysis, SEO optimization, social media management, and more. Boost efficiency and achieve KPIs faster.",
+    "viewAllButton": "View All Marketing Agents",
     "scrollLeft": "Scroll left",
     "scrollRight": "Scroll right",
     "categories": {
-      "all": "All Categories",
-      "contentWriting": "Content Writing",
-      "development": "Development",
-      "dataAnalysis": "Data Analysis",
-      "design": "Design",
-      "customerSupport": "Customer Support",
-      "research": "Research",
-      "translation": "Translation"
+      "all": "All for Marketing",
+      "contentWriting": "Content Generation & SEO Copywriting",
+      "digitalMarketing": "Digital Marketing Automation",
+      "socialMediaMarketing": "SMM & Community Management",
+      "seoSem": "SEO Audit & SEM Optimization",
+      "emailMarketing": "Email Marketing Automation",
+      "affiliateMarketing": "Affiliate Program Management",
+      "marketingStrategy": "Marketing Strategy Development",
+      "marketResearch": "Market & Audience Analysis",
+      "advertising": "Ad Campaign Optimization (PPC)",
+      "brandManagement": "Brand & Reputation Monitoring",
+      "productMarketing": "Product Launch & Promotion",
+      "influencerMarketing": "Influencer Discovery & Outreach",
+      "analyticsReporting": "Campaign Analytics & Reporting",
+      "leadGeneration": "Lead Generation & Qualification"
     }
   },
   "howItWorks": {
-    "title": "How It Works",
-    "description": "Get from task to completion in minutes with our streamlined process",
+    "title": "How AI Agents Accelerate Your Marketing",
+    "description": "From task assignment to measurable results—optimize your marketing processes in just a few clicks.",
     "steps": {
       "browse": {
-        "title": "Browse & Select",
-        "description": "Find the perfect AI agent for your task from our marketplace of specialized tools."
+        "title": "1. Select an AI Agent",
+        "description": "Find an AI agent in our catalog that solves your marketing pain point: from content generation to audience analysis and funnel optimization."
       },
       "submit": {
-        "title": "Submit Your Task",
-        "description": "Provide details, requirements, and any relevant files or references."
+        "title": "2. Define the Task (Pain Point)",
+        "description": "Describe your goal, provide input data (e.g., brief, target KPIs, audience segments), and launch the AI agent."
       },
       "process": {
-        "title": "AI Processing",
-        "description": "Our specialized AI agent works on your task with precision and expertise."
+        "title": "3. AI Generates Solutions",
+        "description": "Our AI agent analyzes data, generates creatives, copy, reports, or automates routine processes, saving you time."
       },
       "review": {
-        "title": "Review & Pay",
-        "description": "Get results in real-time, provide feedback, and only pay for what you approve."
+        "title": "4. Analyze and Optimize (A/B Tests)",
+        "description": "Receive ready-made materials or reports, analyze performance, conduct A/B tests, and improve your marketing campaigns."
       },
       "done": {
-        "title": "Done",
-        "description": "Download your completed work and enjoy the efficiency of specialized AI."
+        "title": "5. Scale Success",
+        "description": "Use the freed-up time and resources for strategic tasks, scale successful approaches, and increase ROI."
       }
     },
-    "ctaButton": "Get Started Now"
+    "ctaButton": "Optimize Marketing Now"
   },
   "pricing": {
-    "title": "Choose Your Plan",
-    "subtitle": "Simple, transparent pricing for every need.",
+    "title": "Choose Your Plan to Boost Marketing ROI",
+    "subtitle": "Transparent pricing designed for marketers to achieve efficiency and results.",
     "monthly": "month",
     "popular": "Most Popular",
     "starter": {
-      "description": "Perfect for individuals getting started.",
-      "feature1": "Basic agent access",
-      "feature2": "Limited task runs",
-      "feature3": "Community support",
-      "cta": "Get Started"
+      "description": "Perfect for marketers starting to automate and optimize campaigns.",
+      "feature1": "Access to essential AI marketing agents",
+      "feature2": "Automate a set number of marketing tasks monthly",
+      "feature3": "Community support for marketing strategies",
+      "cta": "Start Optimizing"
     },
     "pro": {
-      "description": "Ideal for professionals and teams.",
-      "feature1": "Full agent access",
-      "feature2": "Unlimited task runs",
-      "feature3": "Priority support",
-      "feature4": "Advanced features",
-      "cta": "Choose Pro"
+      "description": "Ideal for marketing teams aiming for maximum ROI and efficiency.",
+      "feature1": "Full access to all AI marketing agents",
+      "feature2": "Unlimited marketing task automation",
+      "feature3": "Priority support for campaign optimization",
+      "feature4": "Advanced analytics and A/B testing tools",
+      "cta": "Maximize Marketing ROI"
     }
   },
   "footer": {
