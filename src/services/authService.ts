@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 // Настройка глобальных параметров axios
-axios.defaults.headers.common['referrer-policy'] = 'strict-origin-when-cross-origin';
 axios.defaults.withCredentials = true; // Включаем передачу куки для кросс-доменных запросов
 
 interface AuthResponse {
